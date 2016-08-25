@@ -1,0 +1,22 @@
+.pos-f-t
+  #navbar-header.collapse
+    .container.bg-inverse.p-a-1
+      %h3 Collapsed content
+      %p Toggleable via the navbar brand.
+  %nav.navbar.navbar-light.navbar-static-top.bg-faded
+    .container
+      %button.navbar-toggler.hidden-sm-up{data: {target: '#exCollapsingNavbar2', toggle:'collapse'}, type: "button"}
+        \☰
+      #exCollapsingNavbar2.collapse.navbar-toggleable-xs
+        %a.navbar-brand{:href => "#"} Sticky footer
+        %ul.nav.navbar-nav
+          %li.nav-item.active
+            %a.nav-link{:href => "#"}
+              Nav item
+              %span.sr-only (current)
+          %li.nav-item
+            %a.nav-link{:href => "#"} Another nav item
+          %li.nav-item
+            %a.nav-link{:href => "#"} More nav
+          %li.nav-item
+            %a.nav-link{:href => "#"} Last link
