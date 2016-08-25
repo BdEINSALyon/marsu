@@ -10,4 +10,6 @@
     = render_with_haml 'layouts/headers'
   %body
     = render_with_haml 'layouts/navbar'
-    #main.container= yield
+    #main.container
+      = flash_messages
+      = yield
