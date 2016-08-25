@@ -41,6 +41,7 @@ gem 'font-awesome-rails'
 gem 'select2-rails'
 
 gem 'devise'
+gem 'omniauth-azure-oauth2', github: 'nickcampbell18/omniauth-azure-oauth2'
 gem 'cancancan'
 gem 'rolify'
 

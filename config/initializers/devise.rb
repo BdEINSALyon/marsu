@@ -271,4 +271,7 @@ Devise.setup do |config|
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+
+  config.omniauth :azure_oauth2, client_id: ENV['AZURE_CLIENT_ID'], resource: 'https://graph.microsoft.com',
+                  client_secret: ENV['AZURE_CLIENT_SECRET'], tenant_id: ENV['AZURE_TENANT_ID']
 end
