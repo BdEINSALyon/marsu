@@ -37,6 +37,27 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
 
+gem 'font-awesome-rails'
+gem 'select2-rails'
+
+gem 'devise'
+gem 'cancancan'
+gem 'rolify'
+
+gem 'http_accept_language'
+
+gem 'factory_girl_rails', '~> 4.0'
+gem 'faker'
+
+gem 'open_uri_redirections'
+
+gem 'liquid'
+gem 'premailer-rails'
+gem 'nokogiri'
+
+gem "ckeditor"
+gem "paperclip"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
