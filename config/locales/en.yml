@@ -21,3 +21,8 @@
 
 en:
   hello: "Hello world"
+  layouts:
+    navbar:
+      home: "Home"
+      logout: "Logout"
+      login: "Login"

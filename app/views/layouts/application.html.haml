@@ -7,9 +7,9 @@
         =' - MARSU'
     - else
       %title MARSU
-    = render_with_haml 'layouts/headers'
+    = render 'layouts/headers'
   %body
-    = render_with_haml 'layouts/navbar'
+    = render 'layouts/navbar'
     #main.container
       = flash_messages
       = yield
