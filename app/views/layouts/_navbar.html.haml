@@ -14,8 +14,7 @@
           #user.dropdown.pull-xs-right
             .btn.btn-outline-primary.dropdown-toggle{data: {toggle:'dropdown'}}
               .fa.fa-user
-              = current_user.email
-            .dropdown-menu
+            .dropdown-menu.dropdown-menu-right
               = link_to destroy_user_session_path, method: :delete, class:'dropdown-item text-danger' do
                 .fa.fa-sign-out
                 = t('.logout')
