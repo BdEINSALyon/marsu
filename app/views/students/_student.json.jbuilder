@@ -1,0 +1,2 @@
+json.extract! student, :id, :gender, :first_name, :last_name, :email, :student_id, :department_id, :study_year_id, :phone, :birthday, :details, :created_at, :updated_at
+json.url student_url(student, format: :json)
