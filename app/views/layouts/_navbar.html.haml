@@ -8,6 +8,8 @@
         %ul.nav.navbar-nav
           %li.nav-item.active
             = link_to t('.home'), root_path, class: 'nav-link'
+          %li.nav-item
+            = link_to t('students.index.students'), students_path, class: 'nav-link'
         - if current_user
           #user.dropdown.pull-xs-right
             .btn.btn-outline-primary.dropdown-toggle{data: {toggle:'dropdown'}}

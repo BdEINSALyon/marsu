@@ -19,8 +19,30 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "Hello world"
+fr:
+  activerecord:
+    models:
+      student: Etudiant
+      department: Département d'étude
+      study_year: Année d'étude
+    attributes:
+      department:
+        name: Nom
+        code: Acronyme
+      study_year:
+        name: Nom
+        year: Année
+      student:
+        gender: Genre
+        first_name: Prénom
+        last_name: Nom
+        email: Email
+        student_id: N° Etudiant
+        phone: Téléphone (mobile)
+        department_id: Département d'étude
+        study_year_id: Année d'étude
+        birthday: Date de naissance
+        details: Note à propos de cet étudiant
   layouts:
     navbar:
       home: "Home"
@@ -28,4 +50,4 @@ en:
       login: "Login"
   students:
     index:
-      students: "Students"
+      students: "Etudiants"
