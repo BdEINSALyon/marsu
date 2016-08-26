@@ -7,7 +7,7 @@ module ApplicationHelper
   def flash_messages(opts = {})
     messages = ''
     flash.each do |msg_type, message|
-      messages += content_tag(:div, message, class: "alert #{bootstrap_class_for(msg_type)} fade in")
+      messages += content_tag(:div, message, class: "alert #{bootstrap_class_for(msg_type)} fade in", role: 'alert')
     end
     messages.html_safe
   end
