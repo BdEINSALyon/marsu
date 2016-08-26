@@ -1,0 +1,42 @@
+.card
+  .card-block
+    %h4.card-title
+      %span.ajax.first_name.text-capitalize= student.first_name
+      %span.ajax.last_name.text-uppercase= student.last_name
+    - if student.department || student.study_year
+      %div
+        - if student.department
+          %span= student.department.name
+        - if student.department && student.study_year
+          %span -
+        - if student.study_year
+          %span= student.study_year.name
+  .list-group.list-group-flush
+    - if student.member?
+      .list-group-item.list-group-item-success
+        .fa.fa-check
+        = t('students.show.is_member')
+    - else
+      .list-group-item.list-group-item-danger
+        .fa.fa-exclamation-triangle
+        = t('students.show.is_not_member')
+    - unless student.student_id.empty?
+      .list-group-item
+        .fa.fa-user
+        = student.student_id
+    - unless student.email.empty?
+      .list-group-item
+        .fa.fa-envelope
+        = student.email
+    .list-group-item{class: ('list-group-item-danger' if student.minor?)}
+      .fa.fa-calendar
+      = student.birthday
+    - unless student.phone.empty?
+      .list-group-item
+        .fa.fa-phone
+        = student.phone
+    - unless student.details.empty?
+      .list-group-item
+        = student.details
+  .card-block
+    = link_to t('students.show.edit'), edit_student_path(student), class: %w(btn btn-primary pull-xs-right)

@@ -51,3 +51,11 @@ fr:
   students:
     index:
       students: "Etudiants"
+    show:
+      is_member: "Est membre"
+      is_not_member: "N'est pas membre"
+      edit: "Modifier"
+    memberships: "Adhesions"
+    has_no_memberships: "N'as aucune adhésion"
+  membership:
+    refund: "Rembourser"

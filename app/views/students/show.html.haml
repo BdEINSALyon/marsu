@@ -1,0 +1,22 @@
+
+.row
+  .col-md-8
+    = render 'student_card', student: @student
+  .col-md-4
+    .card
+      .card-block
+        %h4.card-title= t('students.memberships')
+      .list-group.list-group-flush
+        - @student.payments.order(:created_at).where(payable_type: 'Membership').each do |payment|
+          .list-group-item
+            .list-group-item-text= payment.payable.name
+            %p
+              %span= payment.payable.start_date
+              %span -
+              %span= payment.payable.end_date
+            .btn.btn-outline-danger.btn-block= t('membership.refund')
+        - if @student.memberships.count <= 0
+          .list-group-item
+            = t('students.has_no_memberships')
+      .card-block
+        = form_for @student.memberships.build do |f|
