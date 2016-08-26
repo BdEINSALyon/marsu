@@ -12,4 +12,18 @@ module ApplicationHelper
     messages.html_safe
   end
 
+  def bs_form_error_cl(form, field)
+    if form.object.errors[field].any?
+      'has-danger'
+    end
+  end
+
+  def bs_form_errors(form, field)
+    form.object.errors[field].map do |error|
+      content_tag(:div, class: 'form-control-feedback text-danger') do
+        error.capitalize
+      end
+    end .join.html_safe
+  end
+
 end

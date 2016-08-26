@@ -38,6 +38,8 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
 
+gem 'rails-i18n'
+
 gem 'font-awesome-rails'
 gem 'select2-rails'
 
