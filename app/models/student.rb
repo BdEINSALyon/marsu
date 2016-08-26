@@ -2,6 +2,8 @@ class Student < ApplicationRecord
 
   belongs_to :study_year
   belongs_to :department
+  has_many :payments, refunded: false
+  has_many :memberships, through: :payments, source: :payable, source_type: 'Membership'
 
   validates_presence_of :first_name, :last_name, :gender, :email, :birthday
   validates_uniqueness_of :email
