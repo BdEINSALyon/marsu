@@ -7,6 +7,8 @@
         %span.m-l-1.tag.tag-default.tag-pill.pull-xs-right= student.study_year.name
       - if student.department
         %span.m-l-1.tag.tag-default.tag-pill.pull-xs-right= student.department.code
+  %span#fetching.list-group-item
+    = t('students.fetching')
   = link_to new_student_url, class: 'list-group-item list-group-item-action list-group-item-success' do
     .fa.fa-plus
     = t('students.new_student')

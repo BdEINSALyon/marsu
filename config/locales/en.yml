@@ -37,6 +37,7 @@ en:
     memberships: "Memberships"
     has_no_memberships: "Has no memberships"
     new_student: "Register student"
+    fetching: "Fetching data..."
   membership:
     refund: "Refund"
     membership: "Membership Category"

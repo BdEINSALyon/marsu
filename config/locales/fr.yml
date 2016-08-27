@@ -59,6 +59,7 @@ fr:
     memberships: "Adhesions"
     has_no_memberships: "N'as aucune adhésion"
     new_student: "Nouvel étudiant"
+    fetching: "Récupération des données..."
   membership:
     refund: "Rembourser"
     membership: "Type d'Adhesion"

@@ -12,4 +12,5 @@ $ ()->
     t = setTimeout(()->
       if(value.length>2)
         $('#students_search_form').submit()
+        $('#fetching').css('display', 'block')
     , 300)
