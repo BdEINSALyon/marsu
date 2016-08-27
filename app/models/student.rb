@@ -34,7 +34,7 @@ class Student < ApplicationRecord
       q = "%#{q}%"
       request = request.where(
           'first_name LIKE ? OR last_name LIKE ? OR student_id LIKE ?',
-          q, q, q, q
+          q, q, q
       )
     end
     request

@@ -4,4 +4,6 @@ class Membership < ApplicationRecord
 
   has_many :payments, as: :payable
 
+  scope :active, -> {all}
+
 end

@@ -77,3 +77,16 @@ end
         active: false
     },
 ].each {|d|Department.find_or_create_by d}
+
+
+PaymentMethod.all.update_all active: false
+[
+    'Carte Bancaire',
+    'Espèces',
+    'Chèque'
+].each do |p|
+  p = PaymentMethod.find_or_create_by name: p do |m|
+    m.active = true
+  end
+  p.update active: true
+end

@@ -41,6 +41,7 @@ source 'https://rails-assets.org' do
 end
 
 gem 'rails-i18n'
+gem 'devise-i18n'
 
 gem 'font-awesome-rails'
 gem 'select2-rails'
