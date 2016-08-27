@@ -5,10 +5,6 @@ class Ability
 
     user ||= User.new
 
-    if user.email == 'philippe.vienne@bde-insa-lyon.fr'
-      can :manage, :all
-    end
-
     if user.has_role? :admin
       can :manage, :all
     end

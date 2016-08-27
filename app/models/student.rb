@@ -28,7 +28,7 @@ class Student < ApplicationRecord
     Membership.where.not(id: memberships)
   end
 
-  scope :search, -> (query) do
+  scope :search_with, -> (query) do
     request = all
     query.to_s.split(' ').each do |q|
       q = "%#{q}%"
@@ -38,6 +38,10 @@ class Student < ApplicationRecord
       )
     end
     request
+  end
+
+  def name
+    "#{first_name.capitalize} #{last_name.upcase}"
   end
 
 end

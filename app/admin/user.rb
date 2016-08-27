@@ -30,16 +30,26 @@ ActiveAdmin.register User do
   end
 
   controller do
+    def create
+      @user = User.new(permitted_params[:user])
+      add_roles(@user)
+      create!
+    end
 
     def update
       if params[:user][:password].blank?
         params[:user].delete("password")
         params[:user].delete("password_confirmation")
       end
-      # noinspection RubySuperCallWithoutSuperclassInspection
-      super
+      add_roles(resource)
+      update!
     end
 
+    private
+    def add_roles(resource)
+      resource.roles = []
+      params[:user][:role_ids].each { |r| resource.roles.push(Role.find(r)) unless r.blank? }
+    end
   end
 
 end

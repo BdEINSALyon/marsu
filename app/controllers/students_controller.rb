@@ -7,7 +7,7 @@ class StudentsController < ApplicationController
   # GET /students.json
   def index
     if params[:search].present?
-      @students = Student.search(params[:search])
+      @students = Student.search_with(params[:search])
     else
       @students = []
     end
