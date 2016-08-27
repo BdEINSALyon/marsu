@@ -6,7 +6,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       user.password_confirmation = pass
     end
 
-    ## Add logic for right access
+    @user.update azure_token: request.env["omniauth.auth"].credentials.token
+
+
 
     if @user.persisted?
       sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
