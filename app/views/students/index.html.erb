@@ -1,6 +1,4 @@
 
-<h1><%= t('.students') %></h1>
-
 <%= form_tag students_url, method: :get, remote: true, id: 'students_search_form' do %>
     <%= text_field_tag :search, params[:search], placeholder: t('.search'), class: 'form-control', id: 'students_search' %>
 <% end %>
