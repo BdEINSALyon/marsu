@@ -25,9 +25,9 @@
     }
   },
   "scripts": {
-    "postdeploy": "bundle exec rake db:migrate && bundle exec rake db:seed",
+    "postdeploy": "bundle exec rails db:migrate && bundle exec rails db:seed",
     "dokku":{
-      "predeploy": "bundle exec rake db:migrate && bundle exec rake db:seed"
+      "predeploy": "bundle exec rails db:migrate && bundle exec rails db:seed"
     }
   },
   "addons": [
