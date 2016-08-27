@@ -86,7 +86,7 @@ PaymentMethod.all.update_all active: false
     'Chèque'
 ].each do |p|
   p = PaymentMethod.find_or_create_by name: p do |m|
-    m.active = true
+    m.enabled = true
   end
   p.update active: true
 end

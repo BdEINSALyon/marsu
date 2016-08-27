@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  devise_for :users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   resources :students do
     resources :memberships, only: [:index]
     resources :payments, only: [:create, :update, :index]
