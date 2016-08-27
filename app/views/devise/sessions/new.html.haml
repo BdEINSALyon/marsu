@@ -1,0 +1,27 @@
+.row
+  .col-md-6.offset-md-3
+    = link_to t('.login_with_office_365'), omniauth_authorize_path(resource_name, :azure_oauth2), class: 'btn btn-lg btn-block btn-primary'
+.row.m-y-2
+  %h3.text-center
+    %span -
+    %span.text-uppercase=t('or')
+    %span -
+.row
+  .col-md-6.offset-md-3
+    .card
+      .card-block
+        %h4.card-title=t('layouts.navbar.login')
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .form-group
+            %label=t('.email')
+            = f.email_field :email, autofocus: true, class: 'form-control'
+          .form-group
+            %label=t('.password')
+            = f.password_field :password, autocomplete: "off", class: 'form-control'
+          - if devise_mapping.rememberable?
+            .form-check.form-group
+              %label.form-check-label
+                = f.check_box :remember_me, class: 'form-check-input'
+                = t('.remember_me')
+          = f.submit t('layouts.navbar.login'), class: 'btn btn-block btn-outline-primary'
+        = render "devise/shared/links"

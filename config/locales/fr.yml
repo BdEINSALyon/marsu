@@ -65,3 +65,13 @@ fr:
     payment_method: "Methode de paiement"
     register: "Valider l'adhésion"
   are_you_sure: "Êtes-vous sûr ?"
+  devise:
+    sessions:
+      new:
+        log_me_with_external_account: "Me connecter à MARSU avec un compte externe :"
+        sign_in_with: "Me connecter avec"
+        email: "Email"
+        password: "Mot de passe"
+        remember_me: "Se souvenir de moi"
+        login_with_office_365: "Me connecter avec Office 365"
+  or: "ou"
