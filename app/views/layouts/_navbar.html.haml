@@ -6,8 +6,6 @@
       #exCollapsingNavbar2.collapse.navbar-toggleable-xs
         %a.navbar-brand{:href => "#"} MARSU
         %ul.nav.navbar-nav
-          %li.nav-item.active
-            = link_to t('.home'), root_path, class: 'nav-link'
           %li.nav-item
             = link_to t('students.index.students'), students_path, class: 'nav-link'
         - if current_user

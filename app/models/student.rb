@@ -33,7 +33,7 @@ class Student < ApplicationRecord
     query.to_s.split(' ').each do |q|
       q = "%#{q}%"
       request = request.where(
-          'first_name LIKE ? OR last_name LIKE ? OR email LIKE ? OR student_id LIKE ?',
+          'first_name LIKE ? OR last_name LIKE ? OR student_id LIKE ?',
           q, q, q, q
       )
     end

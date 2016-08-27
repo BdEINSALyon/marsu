@@ -1,4 +1,7 @@
 class PaymentsController < ApplicationController
+
+  before_action :authenticate_user!
+
   def create
     @payment = Payment.new params.require(:payment).permit(:student_id, :payment_method_id)
 
