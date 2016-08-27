@@ -59,3 +59,7 @@ fr:
     has_no_memberships: "N'as aucune adhésion"
   membership:
     refund: "Rembourser"
+    membership: "Type d'Adhesion"
+    payment_method: "Methode de paiement"
+    register: "Valider l'adhésion"
+  are_you_sure: "Êtes-vous sûr ?"

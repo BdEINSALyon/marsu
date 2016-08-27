@@ -3,7 +3,8 @@ class Student < ApplicationRecord
   belongs_to :study_year
   belongs_to :department
   has_many :payments
-  has_many :memberships, through: :payments, source: :payable, source_type: 'Membership'
+  has_many :paid_payments, -> {not_refunded}, class_name: 'Payment'
+  has_many :memberships, through: :paid_payments, source: :payable, source_type: 'Membership'
 
   scope :members, -> {joins(:memberships).where('memberships.start_date <= ? AND memberships.end_date >= ?', Date.today, Date.today)}
   scope :non_members, -> {where.not(id: members)}
@@ -21,6 +22,10 @@ class Student < ApplicationRecord
 
   def member?
     Student.members.include? self
+  end
+
+  def available_memberships
+    Membership.where.not(id: memberships)
   end
 
 end

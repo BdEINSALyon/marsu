@@ -1,0 +1,28 @@
+.card
+  .card-block
+    %h4.card-title= t('students.memberships')
+  .list-group.list-group-flush
+    - student.paid_payments.order(:created_at).where(payable_type: 'Membership').each do |payment|
+      .list-group-item.payment{data: {id: payment.id}}
+        .list-group-item-text= payment.payable.name
+        %p
+          %span= payment.payable.start_date
+          %span -
+          %span= payment.payable.end_date
+        = form_for [payment.student, payment], remote: true do |f|
+          = f.hidden_field :refunded, value: true
+          = f.submit t('membership.refund'), class: 'btn btn-outline-danger btn-block', data: {confirm: t('are_you_sure')}
+    - if student.memberships.count <= 0
+      .list-group-item
+        = t('students.has_no_memberships')
+  - if student.available_memberships.length > 0
+    .card-block
+      = form_for [student, student.payments.build], remote:true do |f|
+        .form-group
+          %label=t('membership.membership')
+          = f.collection_select :payable_id, student.available_memberships, :to_sgid, :name, {}, class: 'form-control'
+        .form-group
+          %label=t('membership.payment_method')
+          = f.collection_select :payment_method_id, PaymentMethod.all, :id, :name, {}, class: 'form-control'
+        = f.hidden_field :student_id, value: student.id
+        = f.submit t('membership.register'), class: 'btn btn-primary btn-block'

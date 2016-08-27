@@ -37,3 +37,7 @@ en:
     has_no_memberships: "Has no memberships"
   membership:
     refund: "Refund"
+    membership: "Membership Category"
+    payment_method: "Payment Method"
+    register: "Valid membership"
+  are_you_sure: "Are you sure ?"

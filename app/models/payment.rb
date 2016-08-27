@@ -6,7 +6,7 @@ class Payment < ApplicationRecord
 
   scope :for_memberships, -> {where(payable_type: 'Membership')}
   scope :refunded, -> {where(refunded: true)}
-  scope :not_refunded, -> {where(refunded: false)}
+  scope :not_refunded, -> {where.not(id: refunded)}
 
   validates_presence_of :student, :payment_method, :payable
 
