@@ -79,7 +79,7 @@ end
 ].each {|d|Department.find_or_create_by d}
 
 
-PaymentMethod.all.update_all active: false
+PaymentMethod.all.update_all enabled: false
 [
     'Carte Bancaire',
     'Espèces',
@@ -88,5 +88,5 @@ PaymentMethod.all.update_all active: false
   p = PaymentMethod.find_or_create_by name: p do |m|
     m.enabled = true
   end
-  p.update active: true
+  p.update enabled: true
 end
