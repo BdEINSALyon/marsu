@@ -1,0 +1,41 @@
+{
+  "name": "marsu",
+  "description": "Membership Application for Registration to Student Unions",
+  "keywords": [
+    "marsu",
+    "membership",
+    "registration",
+    "student",
+    "unions",
+    "rails"
+  ],
+  "repository": "https://github.com/PhilippeGeek/marsu",
+  "env": {
+    "AZURE_CLIENT_ID": {
+      "description":"Azure client ID for login",
+      "required":"true"
+    },
+    "AZURE_CLIENT_SECRET": {
+      "description":"Azure Client secret for login",
+      "required":"true"
+    },
+    "AZURE_TENANT_ID": {
+      "description":"Domain used for Azure login",
+      "required":"true"
+    }
+  },
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate && bundle exec rake db:seed",
+    "dokku":{
+      "predeploy": "bundle exec rake db:migrate && bundle exec rake db:seed"
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql",
+      "options": {
+        "version": "9.5"
+      }
+    }
+  ]
+}

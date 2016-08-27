@@ -1,10 +1,12 @@
-# Marsu
-MARSU - Membership Application and Registration for Students Unions
+# MARSU
+MARSU - Membership Application for Registration to Student Unions
 
 Marsu is a web application that help student organizations to keep records of all their 
 members.
 
 ## Deployment
+
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
 This app is built to be deployed on Heroku or on an Heroku-like (e.g. [Dokku](https://github.com/dokku/dokku))
 Simply configure Environement variables and push !
@@ -29,7 +31,7 @@ experience for all users.
 [![GNU GPL v3.0](http://www.gnu.org/graphics/gplv3-127x51.png)](http://www.gnu.org/licenses/gpl.html)
 
 ```
-Taquilla - Ticket Office Web App
+MARSU - Membership Application for Registration to Student Unions
 Copyright (C) 2016 Philippe VIENNE
 
 This program is free software: you can redistribute it and/or modify
