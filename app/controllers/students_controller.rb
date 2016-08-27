@@ -7,7 +7,7 @@ class StudentsController < ApplicationController
   # GET /students.json
   def index
     if params[:search].present?
-      @students = Student.search_with(params[:search])
+      @students = Student.search_with(params[:search]).includes(:department, :study_year, :active_memberships)
     else
       @students = []
     end

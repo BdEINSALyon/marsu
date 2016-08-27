@@ -4,7 +4,12 @@
 
 $ ()->
   $('.has-danger input').addClass('form-control-danger')
+  t = null
   $('#students_search').keyup ()->
     value = $('#students_search').val();
-    if(value.length>2)
-      $('#students_search_form').submit();
+    if(t!=null)
+      clearTimeout t
+    t = setTimeout(()->
+      if(value.length>2)
+        $('#students_search_form').submit()
+    , 300)

@@ -5,6 +5,7 @@ class Student < ApplicationRecord
   has_many :payments
   has_many :paid_payments, -> {not_refunded}, class_name: 'Payment'
   has_many :memberships, through: :paid_payments, source: :payable, source_type: 'Membership'
+  has_many :active_memberships, -> {active}, through: :paid_payments, source: :payable, source_type: 'Membership', class_name: 'Membership'
 
   scope :members, -> {joins(:memberships).where('memberships.start_date <= ? AND memberships.end_date >= ?', Date.today, Date.today)}
   scope :non_members, -> {where.not(id: members)}
@@ -21,7 +22,7 @@ class Student < ApplicationRecord
   end
 
   def member?
-    Student.members.include? self
+    active_memberships.length > 0
   end
 
   def available_memberships
@@ -30,10 +31,10 @@ class Student < ApplicationRecord
 
   scope :search_with, -> (query) do
     request = all
-    query.to_s.split(' ').each do |q|
+    query.to_s.downcase.split(' ').each do |q|
       q = "%#{q}%"
       request = request.where(
-          'first_name LIKE ? OR last_name LIKE ? OR student_id LIKE ?',
+          'LOWER(students.first_name) LIKE ? OR LOWER(students.last_name) LIKE ? OR students.student_id LIKE ?',
           q, q, q
       )
     end
