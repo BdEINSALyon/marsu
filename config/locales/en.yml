@@ -29,12 +29,14 @@ en:
   students:
     index:
       students: "Students"
+      search: "Search a student ..."
     show:
       is_member: "Is member"
       is_not_member: "Is not member"
       edit: "Edit"
     memberships: "Memberships"
     has_no_memberships: "Has no memberships"
+    new_student: "Register student"
   membership:
     refund: "Refund"
     membership: "Membership Category"

@@ -1,0 +1,12 @@
+.list-group
+  - students.each do |student|
+    = link_to student_url(student), class: ['list-group-item', ('list-group-item-danger' unless student.member?)] do
+      %span.first_name.text-capitalize= student.first_name
+      %span.last_name.text-uppercase= student.last_name
+      - if student.study_year
+        %span.m-l-1.tag.tag-default.tag-pill.pull-xs-right= student.study_year.name
+      - if student.department
+        %span.m-l-1.tag.tag-default.tag-pill.pull-xs-right= student.department.code
+  = link_to new_student_url, class: 'list-group-item list-group-item-action list-group-item-success' do
+    .fa.fa-plus
+    = t('students.new_student')

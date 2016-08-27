@@ -28,4 +28,16 @@ class Student < ApplicationRecord
     Membership.where.not(id: memberships)
   end
 
+  scope :search, -> (query) do
+    request = all
+    query.to_s.split(' ').each do |q|
+      q = "%#{q}%"
+      request = request.where(
+          'first_name LIKE ? OR last_name LIKE ? OR email LIKE ? OR student_id LIKE ?',
+          q, q, q, q
+      )
+    end
+    request
+  end
+
 end

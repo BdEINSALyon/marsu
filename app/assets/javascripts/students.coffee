@@ -4,3 +4,7 @@
 
 $ ()->
   $('.has-danger input').addClass('form-control-danger')
+  $('#students_search').keyup ()->
+    value = $('#students_search').val();
+    if(value.length>2)
+      $('#students_search_form').submit();
