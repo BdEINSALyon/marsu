@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: marsu_production
-  username: marsu
-  password: <%= ENV['MARSU_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
