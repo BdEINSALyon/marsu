@@ -25,7 +25,7 @@
         .fa.fa-user
         = student.student_id
     - unless student.email.empty?
-      .list-group-item
+      = mail_to student.email, class: 'list-group-item list-group-item-action' do
         .fa.fa-envelope
         = student.email
     .list-group-item{class: ('list-group-item-danger' if student.minor?)}

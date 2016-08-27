@@ -20,7 +20,7 @@ class StudentsController < ApplicationController
 
   # GET /students/new
   def new
-    @student = Student.new
+    @student = Student.new birthday: 18.years.ago
   end
 
   # GET /students/1/edit
