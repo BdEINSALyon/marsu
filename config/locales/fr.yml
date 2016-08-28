@@ -80,3 +80,5 @@ fr:
     azure_role:
       could_not_fetch_enter_gid: "Impossible de récupérer les groupes depuis Azure, entrez un GroupID Azure ..."
       menu: "Permissions Azure"
+  oauth:
+    no_permissions: "Vous n'avez pas de permission dans cette application"

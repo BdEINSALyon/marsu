@@ -58,3 +58,5 @@ en:
     azure_role:
       could_not_fetch_enter_gid: "Unable to fetch groups from Azure, please logout and login again ..."
       menu: "Azure Permissions"
+  oauth:
+    no_permissions: "You have no power here!"

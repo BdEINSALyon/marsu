@@ -17,7 +17,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     # Check if user is tenant admin
     begin
-      r = RestClient.get("https://graph.microsoft.com/v1.0/me/memberOf", :Authorization => "Bearer #{current_user.azure_token}")
+      r = RestClient.get("https://graph.microsoft.com/v1.0/me/memberOf", :Authorization => "Bearer #{@user.azure_token}")
       admin_groups = JSON.parse(r.body)['value'].select {|g| g['@odata.type']== '#microsoft.graph.directoryRole'}
       if admin_groups.length > 0 and admin_groups[0]['displayName'] == 'Company Administrator'
         @user.add_role 'admin'
@@ -45,9 +45,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       azure_role.roles.each {|role| @user.add_role role unless role.empty?}
     end
 
-    if @user.persisted?
+    if @user.persisted? and @user.roles.count > 0
       sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
       set_flash_message(:notice, :success, :kind => "Microsoft") if is_navigational_format?
+    else
+      flash[:error] = t('oauth.no_permissions')
+      redirect_to :new_user_session
     end
   end
 
