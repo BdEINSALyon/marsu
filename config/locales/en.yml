@@ -55,4 +55,6 @@ en:
         login_with_office_365: "Login with Office 365"
   or: "or"
   admin:
-    azure_role: "Azure Permissions"
+    azure_role:
+      could_not_fetch_enter_gid: "Unable to fetch groups from Azure, please logout and login again ..."
+      menu: "Azure Permissions"

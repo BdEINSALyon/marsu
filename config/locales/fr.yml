@@ -77,4 +77,6 @@ fr:
         login_with_office_365: "Me connecter avec Office 365"
   or: "ou"
   admin:
-    azure_role: "Permissions Azure"
+    azure_role:
+      could_not_fetch_enter_gid: "Impossible de récupérer les groupes depuis Azure, entrez un GroupID Azure ..."
+      menu: "Permissions Azure"
