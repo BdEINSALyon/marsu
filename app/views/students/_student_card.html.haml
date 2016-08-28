@@ -32,7 +32,7 @@
       .fa.fa-calendar
       = l student.birthday, format: :long
     - unless student.phone.empty?
-      .list-group-item
+      = link_to "tel:#{student.phone}", class: 'list-group-item list-group-item-action' do
         .fa.fa-phone
         = student.phone.phony_formatted(format: :international, space: '-')
     - unless student.details.empty?
