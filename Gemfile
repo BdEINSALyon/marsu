@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'haml'
 
 gem 'globalid'
+gem 'rest-client'
 
 gem 'bootstrap', '~> 4.0.0.alpha3.1'
 source 'https://rails-assets.org' do

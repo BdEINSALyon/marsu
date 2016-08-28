@@ -76,3 +76,5 @@ fr:
         remember_me: "Se souvenir de moi"
         login_with_office_365: "Me connecter avec Office 365"
   or: "ou"
+  admin:
+    azure_role: "Permissions Azure"

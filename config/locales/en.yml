@@ -54,3 +54,5 @@ en:
         remember_me: "Remember Me"
         login_with_office_365: "Login with Office 365"
   or: "or"
+  admin:
+    azure_role: "Azure Permissions"
