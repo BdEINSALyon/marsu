@@ -35,4 +35,5 @@ $ ()->
     $form = $(this).closest('form');
     first_name = accentsTidy $form.find('input[name="student[first_name]"]').val()
     last_name = accentsTidy $form.find('input[name="student[last_name]"]').val()
-    $form.find('input[name="student[email]"]').val("#{first_name}.#{last_name}@insa-lyon.fr")
+    email = "#{first_name}.#{last_name}@insa-lyon.fr"
+    $form.find('input[name="student[email]"]').val(email)
