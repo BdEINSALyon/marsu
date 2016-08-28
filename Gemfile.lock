@@ -207,6 +207,10 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
     pg (0.18.4)
+    phony (2.15.28)
+    phony_rails (0.14.2)
+      activesupport (>= 3.0)
+      phony (~> 2.12)
     pkg-config (1.1.7)
     polyamorous (1.3.1)
       activerecord (>= 3.0)
@@ -336,6 +340,7 @@ DEPENDENCIES
   open_uri_redirections
   paperclip
   pg (~> 0.18)
+  phony_rails
   premailer-rails
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)

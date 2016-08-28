@@ -15,6 +15,9 @@ class Student < ApplicationRecord
   validates_uniqueness_of :student_id
   validates_inclusion_of :gender, in: %w(M W)
 
+  phony_normalize :phone, default_country_code: 'FR'
+  validates_plausible_phone :phone, default_country_code: 'FR'
+
   scope :minors, -> {where('birthday > ?', 18.years.ago)}
 
   def minor?

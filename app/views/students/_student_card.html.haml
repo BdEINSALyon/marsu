@@ -34,7 +34,7 @@
     - unless student.phone.empty?
       .list-group-item
         .fa.fa-phone
-        = student.phone
+        = student.phone.phony_formatted(format: :international, space: '-')
     - unless student.details.empty?
       .list-group-item
         = student.details
