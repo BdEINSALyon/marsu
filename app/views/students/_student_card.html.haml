@@ -30,7 +30,7 @@
         = student.email
     .list-group-item{class: ('list-group-item-danger' if student.minor?)}
       .fa.fa-calendar
-      = student.birthday
+      = l student.birthday, format: :long
     - unless student.phone.empty?
       .list-group-item
         .fa.fa-phone
