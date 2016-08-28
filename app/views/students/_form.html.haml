@@ -18,7 +18,12 @@
     .col-lg-6
       .form-group{class: [bs_form_error_cl(f,:email)]}
         = f.label :email
-        = f.email_field :email, class: 'form-control'
+        .input-group
+          = f.email_field :email, class: 'form-control'
+          .input-group-btn
+            %button#mail-insa.btn.btn-danger{type: :button, style: 'width:100px'}
+              %span.d-inline.fa.fa-envelope
+              %span.d-inline INSA
         = bs_form_errors(f, :email)
       .form-group{class: [bs_form_error_cl(f,:phone)]}
         = f.label :phone
