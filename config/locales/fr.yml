@@ -82,3 +82,4 @@ fr:
       menu: "Permissions Azure"
   oauth:
     no_permissions: "Vous n'avez pas de permission dans cette application"
+    failure: "Impossible de vous identifier. Si ce n'est pas de votre faute, contactez l'administrateur système."

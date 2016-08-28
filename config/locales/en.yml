@@ -60,3 +60,4 @@ en:
       menu: "Azure Permissions"
   oauth:
     no_permissions: "You have no power here!"
+    failure: "Failed to identify you, if it's not your fault, contact System Admin."

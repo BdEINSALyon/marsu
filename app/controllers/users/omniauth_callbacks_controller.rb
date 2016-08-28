@@ -1,6 +1,6 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def azure_oauth2
-    # You need to implement the method below in your model (e.g. app/models/user.rb)
+
     @user = User.find_or_create_by email: request.env["omniauth.auth"].info.email do |user|
       pass = user.password = Devise.friendly_token
       user.password_confirmation = pass
@@ -55,6 +55,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def failure
-    redirect_to root_path
+    flash[:error] = t('oauth.failure')
+    redirect_to :new_user_session
   end
 end
