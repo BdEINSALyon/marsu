@@ -22,7 +22,7 @@
 fr:
   activerecord:
     models:
-      student: Etudiant
+      student: Étudiant
       department: Département d'étude
       study_year: Année d'étude
     attributes:
@@ -37,7 +37,7 @@ fr:
         first_name: Prénom
         last_name: Nom
         email: Email
-        student_id: N° Etudiant
+        student_id: N° Étudiant
         phone: Téléphone (mobile)
         department_id: Département d'étude
         study_year_id: Année d'étude
@@ -46,24 +46,24 @@ fr:
   layouts:
     navbar:
       home: "Home"
-      logout: "Logout"
-      login: "Login"
+      logout: "Déconnexion"
+      login: "Connexion"
   students:
     index:
-      students: "Etudiants"
-      search: "Rechercher un étudiant ..."
+      students: "Étudiants"
+      search: "Rechercher un étudiant..."
     show:
       is_member: "Est membre"
       is_not_member: "N'est pas membre"
       edit: "Modifier"
-    memberships: "Adhesions"
-    has_no_memberships: "N'as aucune adhésion"
+    memberships: "Adhésions"
+    has_no_memberships: "N'a aucune adhésion"
     new_student: "Nouvel étudiant"
     fetching: "Récupération des données..."
   membership:
     refund: "Rembourser"
-    membership: "Type d'Adhesion"
-    payment_method: "Methode de paiement"
+    membership: "Type d'adhésion"
+    payment_method: "Méthode de paiement"
     register: "Valider l'adhésion"
   are_you_sure: "Êtes-vous sûr ?"
   devise:
@@ -78,7 +78,7 @@ fr:
   or: "ou"
   admin:
     azure_role:
-      could_not_fetch_enter_gid: "Impossible de récupérer les groupes depuis Azure, entrez un GroupID Azure ..."
+      could_not_fetch_enter_gid: "Impossible de récupérer les groupes depuis Azure, entrez un GroupID Azure..."
       menu: "Permissions Azure"
   oauth:
     no_permissions: "Vous n'avez pas de permission dans cette application"
