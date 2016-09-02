@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :payments, only: [:create, :update, :index]
   end
 
+  resources :wei_bungalows
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   root 'students#index'
 

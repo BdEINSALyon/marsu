@@ -1,0 +1,1 @@
+json.array! @wei_bungalows, partial: 'wei_bungalows/wei_bungalow', as: :wei_bungalow

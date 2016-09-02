@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Wei Bungalows</h1>
+
+<table class="table table-bordered table-hover table-striped">
+  <thead>
+    <tr>
+      <th><%= t('activerecord.attributes.wei_bungalow.gender') %></th>
+      <th><%= t('activerecord.attributes.wei_bungalow.name') %></th>
+      <th><%= t('activerecord.attributes.wei_bungalow.seats') %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wei_bungalows.each do |wei_bungalow| %>
+
+      <tr>
+        <td><%= wei_bungalow.gender %></td>
+        <td><%= wei_bungalow.name %></td>
+        <td><%= wei_bungalow.seats %></td>
+        <td><%= link_to 'Show', wei_bungalow %></td>
+        <td><%= link_to 'Edit', edit_wei_bungalow_path(wei_bungalow) %></td>
+        <td><%= link_to 'Destroy', wei_bungalow, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to t('wei_bungalows.new.new'), new_wei_bungalow_path, class: %w(btn btn-success m-t-1 btn-block) %>

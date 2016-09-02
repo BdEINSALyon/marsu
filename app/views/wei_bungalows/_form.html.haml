@@ -1,0 +1,25 @@
+= form_for(wei_bungalow) do |f|
+
+  .row
+    .col-md-4{class: [bs_form_error_cl(f,:gender)]}
+      .form-group
+        = f.label :gender
+        = f.select :gender, [%w(Homme M), %w(Femme W), %w(Mixte A)], {}, {class: 'form-control'}
+    .col-md-8{class: [bs_form_error_cl(f,:name)]}
+      .form-group
+        = f.label :name
+        = f.text_field :name, class: 'form-control'
+        = bs_form_errors(f, :name)
+  .row
+    .col-md-6{class: [bs_form_error_cl(f,:seats)]}
+      .form-group
+        = f.label :seats
+        = f.select :seats, %w(4 6), {}, {class: 'form-control'}
+        = bs_form_errors(f, :seats)
+    .col-md-6{class: [bs_form_error_cl(f,:wei_bus)]}
+      .form-group
+        = f.label :wei_bus_id
+        = f.select :wei_bus_id, WeiBus.all.map {|b|[b.name, b.id]} , {}, {class: 'form-control'}
+        = bs_form_errors(f, :wei_bus)
+  .actions
+    = f.submit class:'btn btn-block btn-primary'

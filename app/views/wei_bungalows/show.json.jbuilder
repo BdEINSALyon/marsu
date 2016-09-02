@@ -1,0 +1,1 @@
+json.partial! "wei_bungalows/wei_bungalow", wei_bungalow: @wei_bungalow

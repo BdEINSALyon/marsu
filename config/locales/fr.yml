@@ -25,7 +25,14 @@ fr:
       student: Étudiant
       department: Département d'étude
       study_year: Année d'étude
+      wei_bungalow: Bungalow
     attributes:
+      wei_bungalow:
+        name: Nom
+        gender: Genre
+        seats: Places
+        wei_bus: Bus
+        wei_bus_id: Bus
       department:
         name: Nom
         code: Acronyme
@@ -83,3 +90,9 @@ fr:
   oauth:
     no_permissions: "Vous n'avez pas de permission dans cette application"
     failure: "Impossible de vous identifier. Si ce n'est pas de votre faute, contactez l'administrateur système."
+  wei_bungalows:
+    new:
+      new: "Créer un bungalow"
+    edit:
+      edit: "Editer le Bungalow"
+  cancel: "Annuler"
