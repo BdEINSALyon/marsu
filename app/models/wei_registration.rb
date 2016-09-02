@@ -5,7 +5,7 @@ class WeiRegistration < ApplicationRecord
   belongs_to :wei_bus
 
   scope :registered, -> {where(status: 'registered')}
-  scope :waiting, -> {where(status: 'waiting').order(:create_by)}
+  scope :waiting, -> {where(status: 'waiting').order(:registration)}
 
   validates_inclusion_of :status, in: %w(registered waiting)
   validates_inclusion_of :paid, in: [true, false]

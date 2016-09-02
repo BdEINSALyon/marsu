@@ -9,10 +9,17 @@ class Ability
       can :manage, :all
     end
 
+    if user.has_role? :cowei
+      can :manage, WeiRegistration
+      can :manage, WeiBungalow
+      can :manage, WeiBus
+    end
+
     if user.has_role? :permanencier
       can [:create, :update, :read], Student
       can [:create, :read], Payment
       can [:read], Membership
+      can [:create, :update, :read], WeiRegistration
     end
 
     if user.has_role? :trezo
