@@ -1,0 +1,2 @@
+class Wei < ApplicationRecord
+end

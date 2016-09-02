@@ -1,0 +1,2 @@
+class WeiBungalow < ApplicationRecord
+end
