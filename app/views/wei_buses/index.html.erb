@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Wei Buses</h1>
+
+<table class="table table-bordered table-hover table-striped">
+  <thead>
+    <tr>
+      <th><%= t('activerecord.attributes.wei_bus.name') %></th>
+      <th><%= t('activerecord.attributes.wei_bus.seats') %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wei_buses.each do |wei_bus| %>
+
+      <tr>
+        <td><%= wei_bus.name %></td>
+        <td><%= wei_bus.seats %></td>
+        <td><%= link_to 'Show', wei_bus %></td>
+        <td><%= link_to 'Edit', edit_wei_bus_path(wei_bus) %></td>
+        <td><%= link_to 'Destroy', wei_bus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to t('wei_buses.new.new'), new_wei_bus_path, class: %w(btn btn-success m-t-1 btn-block) %>

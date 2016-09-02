@@ -9,7 +9,7 @@ class Wei < ApplicationRecord
 
   has_many :students, through: :wei_registrations
 
-  validates_presence_of :enabled, :price, :seats, :date, :name
+  validates_presence_of :price, :seats, :date, :name
 
   def self.current
     where(enabled: true).last

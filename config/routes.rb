@@ -7,7 +7,10 @@ Rails.application.routes.draw do
     resources :payments, only: [:create, :update, :index]
   end
 
-  resources :wei_bungalows
+  scope 'wei' do
+    resources :wei_bungalows
+    resources :wei_buses
+  end
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   root 'students#index'

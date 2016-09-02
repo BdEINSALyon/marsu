@@ -26,6 +26,9 @@ en:
       home: "Home"
       logout: "Logout"
       login: "Login"
+      wei: "WEI"
+      bungalows: "Bungalows"
+      buses: "Buses"
   students:
     index:
       students: "Students"
@@ -67,3 +70,6 @@ en:
     edit:
       edit: "Editer le bungalow"
   cancel: "Cancel"
+  wei_buses:
+    new:
+      new: "Create a bus"

@@ -55,6 +55,9 @@ fr:
       home: "Home"
       logout: "Déconnexion"
       login: "Connexion"
+      wei: "WEI"
+      bungalows: "Bungalows"
+      buses: "Bus"
   students:
     index:
       students: "Étudiants"
@@ -96,3 +99,6 @@ fr:
     edit:
       edit: "Editer le Bungalow"
   cancel: "Annuler"
+  wei_buses:
+    new:
+      new: "Créer un bus"

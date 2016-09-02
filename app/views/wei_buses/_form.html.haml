@@ -1,0 +1,15 @@
+= form_for(wei_bus) do |f|
+
+  .row
+    .col-md-7{class: [bs_form_error_cl(f,:name)]}
+      .form-group
+        = f.label :name
+        = f.text_field :name, class: 'form-control'
+        = bs_form_errors(f, :name)
+    .col-md-5{class: [bs_form_error_cl(f,:seats)]}
+      .form-group
+        = f.label :seats
+        = f.number_field :seats, class: 'form-control'
+        = bs_form_errors(f, :seats)
+  .actions
+    = f.submit class:'btn btn-block btn-primary'

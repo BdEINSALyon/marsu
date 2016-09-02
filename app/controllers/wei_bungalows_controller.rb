@@ -69,6 +69,6 @@ class WeiBungalowsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wei_bungalow_params
-      params.fetch(:wei_bungalow, {})
+      params.require(:wei_bungalow).permit(:name, :seats, :gender, :wei_bus_id)
     end
 end
