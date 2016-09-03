@@ -6,6 +6,8 @@ class Student < ApplicationRecord
   has_many :paid_payments, -> {not_refunded}, class_name: 'Payment'
   has_many :memberships, through: :paid_payments, source: :payable, source_type: 'Membership'
   has_many :active_memberships, -> {active}, through: :paid_payments, source: :payable, source_type: 'Membership', class_name: 'Membership'
+  has_many :weis, through: :paid_payments, source: :payable, source_type: 'Wei'
+  has_many :wei_registrations
 
   scope :members, -> {joins(:memberships).where('memberships.start_date <= ? AND memberships.end_date >= ?', Date.today, Date.today)}
   scope :non_members, -> {where.not(id: members)}

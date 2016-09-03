@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160902054928) do
+ActiveRecord::Schema.define(version: 20160903091839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -136,16 +136,18 @@ ActiveRecord::Schema.define(version: 20160902054928) do
     t.integer  "seats"
     t.integer  "wei_bus_id"
     t.string   "gender"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "wei_registrations_count", default: 0
   end
 
   create_table "wei_buses", force: :cascade do |t|
     t.integer  "wei_id"
     t.string   "name"
     t.integer  "seats"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "wei_registrations_count", default: 0
   end
 
   create_table "wei_registrations", force: :cascade do |t|
@@ -157,6 +159,7 @@ ActiveRecord::Schema.define(version: 20160902054928) do
     t.boolean  "paid"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.datetime "registration_by"
   end
 
   create_table "weis", force: :cascade do |t|

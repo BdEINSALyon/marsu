@@ -5,17 +5,10 @@ class WeiBus < ApplicationRecord
   belongs_to :wei
 
   scope :for_current_wei, -> {where(wei: Wei.current)}
+  scope :not_full, -> {where('wei_registrations_count < seats')}
+
   default_scope { for_current_wei }
 
-  validate :not_full
-
-  # Check ratio between m and w students
-
-  private
-  def not_full
-    if students.length > seats
-      errors.add(:students, 'sont trops nombreux dans ce bus, on ne peux pas le tolérer!')
-    end
-  end
+  validates :wei_registrations_count, inclusion: { in: -> (bungalow) {(0..(bungalow.seats))}}
 
 end
