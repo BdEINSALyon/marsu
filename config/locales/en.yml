@@ -73,3 +73,6 @@ en:
   wei_buses:
     new:
       new: "Create a bus"
+  wei_registrations:
+    index:
+      act_search: "Search"

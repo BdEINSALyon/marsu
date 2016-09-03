@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   scope 'wei' do
+    resources :wei_registrations
     resources :wei_bungalows
     resources :wei_buses
   end

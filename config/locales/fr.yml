@@ -102,3 +102,7 @@ fr:
   wei_buses:
     new:
       new: "Créer un bus"
+  wei_registrations:
+    index:
+      search: "Chercher un étudiant"
+      act_search: "Chercher"
