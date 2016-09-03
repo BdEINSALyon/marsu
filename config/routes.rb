@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   end
 
   scope 'wei' do
-    resources :wei_registrations
+    resources :wei_registrations do
+      member do
+        post 'pay', as: :pay
+      end
+    end
     resources :wei_bungalows
     resources :wei_buses
   end

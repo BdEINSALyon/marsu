@@ -1,0 +1,1 @@
+json.array! @wei_registrations, partial: 'wei_registrations/wei_registration', as: :wei_registration

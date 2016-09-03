@@ -1,0 +1,1 @@
+json.partial! "wei_registrations/wei_registration", wei_registration: @wei_registration

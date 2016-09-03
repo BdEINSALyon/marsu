@@ -20,4 +20,7 @@ class Wei < ApplicationRecord
     validated_registrations.count >= seats
   end
 
+  def seats_left
+    seats - validated_registrations.count
+  end
 end

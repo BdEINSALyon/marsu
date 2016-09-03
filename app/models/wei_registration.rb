@@ -5,15 +5,26 @@ class WeiRegistration < ApplicationRecord
   belongs_to :wei_bus, counter_cache: true
 
   scope :registered, -> {where(status: 'registered')}
-  scope :waiting, -> {where(status: 'waiting').order(:registration)}
+  scope :waiting, -> {where(status: 'waiting').order(:registration_by)}
 
   scope :for_current_wei, -> {where(wei: Wei.current)}
   default_scope { for_current_wei }
 
-  validates_inclusion_of :status, in: %w(registered waiting canceled)
+  validates_inclusion_of :status, in: %w(registered waiting canceled to_refund)
   validates_inclusion_of :paid, in: [true, false]
   validates_presence_of :status, :student, :wei
   validate :check_wei_is_not_full, :check_paid_status_when_changed, :valid_bug_bungalow
+
+  def self.ranks
+    i=0
+    r={}
+    WeiRegistration.waiting.pluck('id').each do |e|
+      i=i+1
+      r[e]=i
+    end
+    r
+  end
+
   private
   def valid_bug_bungalow
     if wei_bungalow_id_changed? or wei_bus_id_changed?

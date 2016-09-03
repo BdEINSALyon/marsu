@@ -1,0 +1,40 @@
+.card.wei_registration
+  .card-block
+    %h4.card-title= wei_registration.student.name
+  .list-group.list-group-flush
+    - if wei_registration.status == 'registered'
+      .list-group-item.bg-success
+        = t('.registered')
+      - if wei_registration.student.minor?
+        .list-group-item.bg-danger
+          %span.fa.fa-warning
+          %span= t('.minor')
+      - if wei_registration.wei_bus.present?
+        .list-group-item.text-capitalize
+          = wei_registration.wei_bus.name
+      - if wei_registration.wei_bungalow.present?
+        .list-group-item.text-capitalize
+          = wei_registration.wei_bungalow.name
+    - elsif wei_registration.status == 'waiting'
+      .list-group-item.bg-warning
+        = t('.waiting')
+      .list-group-item
+        = t('.rank')
+        = WeiRegistration.ranks[wei_registration.id]
+      - if wei_registration.paid
+        .list-group-item.bg-success
+          = t('.paid')
+      - else
+        .list-group-item.bg-danger
+          = t('.unpaid')
+    - elsif wei_registration.status == 'to_refund'
+      .list-group-item.bg-danger
+        = t('.to_refund')
+    - else
+      .list-group-item.bg-danger
+        = t('.canceled')
+  - if wei_registration.status == 'waiting' and WeiRegistration.ranks[wei_registration.id] <= wei_registration.wei.seats_left and wei_registration.paid
+    .card-block
+      = form_for wei_registration, remote: true do |f|
+        = f.hidden_field :status, value: 'registered'
+        = f.submit t('.go_registered'), class: %w(btn btn-warning btn-block)

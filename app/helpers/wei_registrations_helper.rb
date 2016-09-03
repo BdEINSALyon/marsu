@@ -1,0 +1,2 @@
+module WeiRegistrationsHelper
+end

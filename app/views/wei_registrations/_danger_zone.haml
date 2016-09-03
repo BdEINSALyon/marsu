@@ -1,0 +1,11 @@
+.card-block
+  - if %w(registered waiting).include? wei_registration.status
+    .m-b-1
+      = form_for wei_registration, remote: true do |f|
+        = f.hidden_field :status, value: wei_registration.paid ? 'to_refund' : 'canceled'
+        = f.submit t('.unregister'), data: {confirm: 'Sure?'}, class: %w(btn btn-danger btn-block)
+  - if wei_registration.status == 'to_refund'
+    .m-b-1
+      = form_for wei_registration, remote: true  do |f|
+        = f.hidden_field :status, value: 'canceled'
+        = f.submit t('.mark_as_refunded'), data: {confirm: 'Sure?'}, class: %w(btn btn-danger btn-block)

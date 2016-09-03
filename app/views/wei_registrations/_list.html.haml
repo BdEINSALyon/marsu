@@ -1,12 +1,3 @@
-%table.table.table-bordered#wei_registrations
-  %thead
-    %tr
-      %th= t('activerecord.attributes.student.first_name')
-      %th{:colspan => "3"}
-  %tbody
-    - wei_registrations.each do |wei_registration|
-      %tr{:class => [('bg-success' if wei_registration.paid and wei_registration.status == 'registered'), ('bg-warning' if wei_registration.status == 'waiting' and wei_registration.paid), ('btn-outline-danger' unless wei_registration.paid)]}
-        %td= wei_registration.student.name
-        %td= link_to 'Show', wei_registration
-        %td= link_to 'Edit', edit_wei_registration_path(wei_registration)
-        %td= link_to 'Destroy', wei_registration, method: :delete, data: { confirm: 'Are you sure?' }
+.list-group
+  - wei_registrations.each do |wei_registration|
+    = link_to wei_registration.student.name, wei_registration, :class => ['list-group-item',('bg-success' if wei_registration.paid and wei_registration.status == 'registered'), ('bg-warning' if wei_registration.status == 'waiting' and wei_registration.paid), ('btn-outline-danger' unless wei_registration.paid)]

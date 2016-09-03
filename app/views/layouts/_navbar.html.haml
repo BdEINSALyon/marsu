@@ -14,6 +14,9 @@
               %li.nav-item.dropdown
                 %a.nav-link.dropdown-toggle{data: {toggle:'dropdown'}, role: 'button'}=t('.wei')
                 .dropdown-menu
+                  - if can? :read, WeiRegistration
+                    = link_to t('.registrations'), wei_registrations_path, class: 'dropdown-item'
+                  .dropdown-divider
                   - if can? :read, WeiBungalow
                     = link_to t('.bungalows'), wei_bungalows_path, class: 'dropdown-item'
                   - if can? :read, WeiBus

@@ -58,6 +58,7 @@ fr:
       wei: "WEI"
       bungalows: "Bungalows"
       buses: "Bus"
+      registrations: "Inscriptions"
   students:
     index:
       students: "Étudiants"
@@ -106,3 +107,24 @@ fr:
     index:
       search: "Chercher un étudiant"
       act_search: "Chercher"
+    card:
+      registered: "Inscrit au WEI"
+      minor: "Mineur"
+      waiting: "En liste d'attente"
+      paid: "Payé"
+      unpaid: "Non payé"
+      canceled: "A annulé son inscription"
+      rank: "Rang :"
+      go_registered: "Valider Inscription"
+      to_refund: "A annulé mais doit être remboursé"
+    show:
+      pay: "Payer"
+      update: "Mettre à jour"
+      unregister: "Désinscrire"
+      mark_as_refunded: "Valider remboursement"
+      back_to_list: "Retour à la liste"
+    danger_zone:
+      unregister: "Désinscrire"
+      mark_as_refunded: "Valider Remboursé"
+    new:
+      register: "Inscrire au Wei"

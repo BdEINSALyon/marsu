@@ -1,0 +1,5 @@
+$('#ajax-refresh-card').html("<%= escape_javascript(render 'card', wei_registration: @wei_registration) %>");
+$('#danger-zone').html("<%= escape_javascript(render 'danger_zone', wei_registration: @wei_registration) %>");
+<% if @wei_registration.paid %>
+  $('#pay-form').remove();
+<% end %>

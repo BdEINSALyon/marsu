@@ -29,6 +29,7 @@ en:
       wei: "WEI"
       bungalows: "Bungalows"
       buses: "Buses"
+      registrations: "Registrations"
   students:
     index:
       students: "Students"
@@ -76,3 +77,22 @@ en:
   wei_registrations:
     index:
       act_search: "Search"
+    card:
+      registered: "Registered"
+      minor: "Minor"
+      waiting: "Waiting"
+      paid: "Paid"
+      unpaid: "Unpaid"
+      canceled: "Canceled registration"
+      rank: "Rank:"
+      go_registered: "Go Registration"
+      to_refund: "Canceled but must be refunded"
+    show:
+      pay: "Pay"
+      update: "Update"
+      unregister: "Unregister"
+    danger_zone:
+      unregister: "Unregister"
+      mark_as_refunded: "Mark as refunded"
+    new:
+      register: "Register to Wei"

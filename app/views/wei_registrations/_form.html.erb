@@ -1,0 +1,17 @@
+<%= form_for(wei_registration) do |f| %>
+  <% if wei_registration.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(wei_registration.errors.count, "error") %> prohibited this wei_registration from being saved:</h2>
+
+      <ul>
+      <% wei_registration.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
