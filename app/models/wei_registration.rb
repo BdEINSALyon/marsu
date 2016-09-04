@@ -16,7 +16,7 @@ class WeiRegistration < ApplicationRecord
   validate :check_wei_is_not_full, :check_paid_status_when_changed, :valid_bug_bungalow
 
   def self.ranks
-    i=0
+    i= (Wei.current.validated_registrations.count - Wei.current.seats)
     r={}
     WeiRegistration.waiting.pluck('id').each do |e|
       i=i+1

@@ -12,6 +12,16 @@
           = form_for Payment.new(student: @wei_registration.student, payable: @wei_registration.wei), url: {action: :pay}, remote: true do |f|
             .form-group= f.select :payment_method_id, PaymentMethod.enabled.map {|p| [p.name, p.id]}, {}, {class: 'form-control'}
             = f.submit t('.pay'), class: 'btn btn-block btn-primary'
+    - if @wei_registration.status == 'waiting'
+      #register-form.card
+        .card-header
+          = t('.edit_registration')
+        .card-block
+          .explains
+            %span.text-muted=t('.why_edit_time')
+          = form_for @wei_registration, remote: true do |f|
+            .form-group= f.datetime_select :registration_by, {}
+            = f.submit t('.update'), class: 'btn btn-block btn-primary'
     - if @wei_registration.status == 'registered'
       #bungalow-edit.card
         .card-header
@@ -20,10 +30,10 @@
           = form_for @wei_registration, remote: true do |f|
             .form-group
               = f.label :bus
-              = f.collection_select :wei_bus_id, WeiBus.not_full + [@wei_registration.wei_bus], :id, :name, {}, class: %w(form-control s2)
+              = f.collection_select :wei_bus_id, @wei_registration.wei_bus.nil? ? WeiBus.not_full : WeiBus.not_full + [@wei_registration.wei_bus], :id, :name, {}, class: %w(form-control s2)
             .form-group
               = f.label :bungalow
-              = f.collection_select :wei_bungalow_id, WeiBungalow.not_full + [@wei_registration.wei_bungalow], :id, :name, {}, class: %w(form-control s2)
+              = f.collection_select :wei_bungalow_id, @wei_registration.wei_bungalow.nil? ? (@wei_registration.wei_bus.nil? ? WeiBungalow.not_full : WeiBungalow.not_full.for_bus(@wei_registration.wei_bus)) : (@wei_registration.wei_bus.nil? ? WeiBungalow.not_full : WeiBungalow.not_full.for_bus(@wei_registration.wei_bus)) + [@wei_registration.wei_bungalow], :id, :name, {prompt: true}, class: %w(form-control s2)
             = f.submit t('.update'), class: 'btn btn-block btn-primary'
   .col-md-4.col-sm-6.col-xs-4
     #about.card
@@ -37,14 +47,5 @@
           .form-group
             = f.label :medical_details
             = f.text_area :medical_details, class: %w(form-control send-on-type)
-    - if @wei_registration.status == 'waiting'
-      #register-form.card
-        .card-block
-          %h3= t('.edit_registration')
-          .explains
-            %span.text-muted=t('.why_edit_time')
-          = form_for @wei_registration, remote: true do |f|
-            .form-group= f.datetime_select :registration_by, {}
-            = f.submit t('.update'), class: 'btn btn-block btn-primary'
     #danger-zone.card.card-outline-danger.card-inverse
       = render 'danger_zone', wei_registration: @wei_registration

@@ -1,7 +1,13 @@
 $ ->
+  waiters = {}
   $('.send-on-type').keyup( ->
-    $(this).closest('form').submit();
-    $("#fetching").show();
+    $this = $(this)
+    if(waiters[this]!=null)
+      clearTimeout waiters[this]
+    waiters[this] = setTimeout(()->
+      $this.closest('form').submit();
+      $("#fetching").show();
+    , 250)
   )
 
   $( "select.s2" ).select2({
