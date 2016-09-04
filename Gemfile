@@ -51,6 +51,7 @@ gem 'devise-i18n'
 
 gem 'font-awesome-rails'
 gem 'select2-rails'
+gem 'jquery-turbolinks'
 
 gem 'devise'
 gem 'omniauth-azure-oauth2', github: 'nickcampbell18/omniauth-azure-oauth2'
