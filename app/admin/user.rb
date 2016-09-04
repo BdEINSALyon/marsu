@@ -24,7 +24,7 @@ ActiveAdmin.register User do
       f.input :password_confirmation
     end
     f.inputs 'Roles' do
-      f.input :roles, as: :check_boxes
+      f.input :roles, collection: Ability.roles, as: :check_boxes, multiple: true
     end
     f.actions
   end

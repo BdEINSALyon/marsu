@@ -1,6 +1,10 @@
 class Ability
   include CanCan::Ability
 
+  def self.roles
+    %w(admin cowei permanencier tresorier)
+  end
+
   def initialize(user)
 
     user ||= User.new
