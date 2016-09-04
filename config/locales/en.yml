@@ -30,6 +30,7 @@ en:
       bungalows: "Bungalows"
       buses: "Buses"
       registrations: "Registrations"
+      admin: "Admin"
   students:
     index:
       students: "Students"
@@ -63,6 +64,9 @@ en:
     azure_role:
       could_not_fetch_enter_gid: "Unable to fetch groups from Azure, please enter an Azure GroupID..."
       menu: "Azure Permissions"
+    dashboard:
+      current_situation: "Current Situation"
+      we_have_x_members: "We have %{n} members"
   oauth:
     no_permissions: "You have no permission in this app."
     failure: "Failed to identify you. If it's not your fault, contact System Admin."

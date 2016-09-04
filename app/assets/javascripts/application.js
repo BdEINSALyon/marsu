@@ -15,4 +15,6 @@
 //= require tether
 //= require bootstrap
 //= require select2-full
+//= require Chart.bundle
+//= require chartkick
 //= require_tree .

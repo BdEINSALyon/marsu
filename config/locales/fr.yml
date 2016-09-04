@@ -59,6 +59,7 @@ fr:
       bungalows: "Bungalows"
       buses: "Bus"
       registrations: "Inscriptions"
+      admin: "Administration"
   students:
     index:
       students: "Étudiants"
@@ -92,6 +93,13 @@ fr:
     azure_role:
       could_not_fetch_enter_gid: "Impossible de récupérer les groupes depuis Azure, entrez un GroupID Azure..."
       menu: "Permissions Azure"
+    dashboard:
+      current_situation: "Situation actuelle"
+      we_have_x_members: "Nous avons %{n} membres"
+      wei:
+        registered_students: "Il y a %{n} étudiants qui sont inscrits au WEI"
+        waiting_students: "Il y a %{n} étudiants en liste d'attente"
+        to_refund: "Il y a #{n} étudiants à rembourser"
   oauth:
     no_permissions: "Vous n'avez pas de permission dans cette application"
     failure: "Impossible de vous identifier. Si ce n'est pas de votre faute, contactez l'administrateur système."
