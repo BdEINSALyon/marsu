@@ -6,7 +6,7 @@ ActiveAdmin.register AzureRole do
   form do |f|
     f.inputs 'MARSU Permissions' do
       f.input :name
-      f.input :roles, collection: ['admin', 'permanencier', 'tresorier'], as: :check_boxes, multiple: true
+      f.input :roles, collection: %w(admin cowei permanencier tresorier), as: :check_boxes, multiple: true
     end
     def fetch_azure_groups
       r = RestClient.get("https://graph.microsoft.com/v1.0/groups", :Authorization => "Bearer #{current_user.azure_token}")
