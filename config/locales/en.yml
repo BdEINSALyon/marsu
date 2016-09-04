@@ -29,6 +29,7 @@ en:
       wei:
         waiting: "Waiting List"
         wei: "WEI"
+        deposit: "Deposits"
       bungalows: "Bungalows"
       buses: "Buses"
       registrations: "Registrations"

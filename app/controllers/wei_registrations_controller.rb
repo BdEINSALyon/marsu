@@ -23,7 +23,7 @@ class WeiRegistrationsController < ApplicationController
   end
 
   def deposit
-    @wei_registrations = WeiRegistration.where(caution: false).includes('student')
+    @wei_registrations = WeiRegistration.where(status: %w(waiting registered)).order(:status).order(:registration_by).where(caution: [false, nil]).includes('student')
   end
 
   def to_refund

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       end
       collection do
         get 'waiting'
+        get 'deposit'
       end
     end
     resources :wei_bungalows

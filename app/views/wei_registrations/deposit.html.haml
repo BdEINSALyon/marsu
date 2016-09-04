@@ -1,0 +1,15 @@
+%h3.display-4.text-center.m-b-1=t('layouts.navbar.wei.deposit')
+%table.table
+  - @wei_registrations.each do |wei_registration|
+    %tr{ data: {link: wei_registration_url(wei_registration)}, class: [('bg-success' if wei_registration.status == 'registered'), ('bg-warning'  if wei_registration.status == 'waiting')]}
+      %td= wei_registration.id
+      %td= WeiRegistration.ranks[wei_registration.id]
+      %td= link_to wei_registration.student.name, wei_registration, class: 'bg-invert'
+      %td.text-center
+        = link_to "tel:#{wei_registration.student.phone}", class: 'tag tag-primary tag-pill' do
+          .fa.fa-phone
+          = wei_registration.student.phone.phony_formatted(format: :international, space: '-')
+      %td.text-center
+        = form_for wei_registration do |f|
+          = f.hidden_field :caution, value: true
+          = f.submit t('wei_registrations.danger_zone.valid_caution'), class: %w(btn btn-sm btn-primary), data: {confirm: 'On a bien la caution ?'}
