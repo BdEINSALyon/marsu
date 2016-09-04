@@ -62,7 +62,8 @@ fr:
   students:
     index:
       students: "Étudiants"
-      search: "Rechercher un étudiant..."
+      search: "Entrez le nom d'un étudiant..."
+      memberslist: "Liste des membres"
     show:
       is_member: "Est membre"
       is_not_member: "N'est pas membre"
@@ -107,6 +108,7 @@ fr:
     index:
       search: "Chercher un étudiant"
       act_search: "Chercher"
+      wei_participants: "Participants du WEI"
     card:
       registered: "Inscrit au WEI"
       minor: "Mineur"
@@ -128,3 +130,5 @@ fr:
       mark_as_refunded: "Valider Remboursé"
     new:
       register: "Inscrire au Wei"
+    list:
+      register_to_wei: "Inscrire au WEI"

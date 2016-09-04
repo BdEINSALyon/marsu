@@ -6,7 +6,7 @@ class WeiRegistrationsController < ApplicationController
   # noinspection RailsChecklist01
   def index
     if params[:search].nil? or params[:search].empty?
-      @wei_registrations = WeiRegistration.includes('student').all
+      @wei_registrations = []
     else
       # noinspection RailsChecklist01
       @wei_registrations = WeiRegistration.includes('student').where(student: Student.search_with(params[:search]))

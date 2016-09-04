@@ -1,3 +1,9 @@
 .list-group
   - wei_registrations.each do |wei_registration|
     = link_to wei_registration.student.name, wei_registration, :class => ['list-group-item',('bg-success' if wei_registration.paid and wei_registration.status == 'registered'), ('bg-warning' if wei_registration.status == 'waiting' and wei_registration.paid), ('btn-outline-danger' unless wei_registration.paid)]
+.list-group.m-y-2
+  #fetching.list-group-item
+    = t('students.fetching')
+  = link_to new_wei_registration_url, class: 'list-group-item list-group-item-action list-group-item-success' do
+    .fa.fa-plus
+    = t('.register_to_wei')

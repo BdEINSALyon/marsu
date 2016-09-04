@@ -1,10 +1,9 @@
+%h1.display-4.text-center.m-b-2= t('.wei_participants')
 = form_tag wei_registrations_path, method: :get, remote: true do
   .form-group
     .input-group
-      = text_field_tag :search, params[:search], placeholder: t('.search'), class: 'form-control send-on-type'
+      = text_field_tag :search, params[:search], placeholder: t('students.index.search'), class: 'form-control send-on-type'
       .input-group-btn
         = submit_tag t('.act_search'), class: %w(btn btn-secondary)
-        = link_to new_wei_registration_path, class: %w(btn btn-success) do
-          %span.fa.fa-plus
 #ajax-remote-element
   = render 'list', wei_registrations: @wei_registrations

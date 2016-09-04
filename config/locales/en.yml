@@ -34,6 +34,7 @@ en:
     index:
       students: "Students"
       search: "Search a student..."
+      memberslist: "Member's list"
     show:
       is_member: "Is member"
       is_not_member: "Is not member"
@@ -77,6 +78,7 @@ en:
   wei_registrations:
     index:
       act_search: "Search"
+      wei_participants: "Wei's participants"
     card:
       registered: "Registered"
       minor: "Minor"
@@ -96,3 +98,5 @@ en:
       mark_as_refunded: "Mark as refunded"
     new:
       register: "Register to Wei"
+    list:
+      register_to_wei: "Register to Wei"
