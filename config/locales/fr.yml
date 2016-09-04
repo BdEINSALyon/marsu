@@ -55,7 +55,9 @@ fr:
       home: "Home"
       logout: "Déconnexion"
       login: "Connexion"
-      wei: "WEI"
+      wei:
+        waiting: "Liste d'attente"
+        wei: "WEI"
       bungalows: "Bungalows"
       buses: "Bus"
       registrations: "Inscriptions"

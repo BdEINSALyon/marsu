@@ -13,6 +13,27 @@ class WeiRegistrationsController < ApplicationController
     end
   end
 
+  def registered
+    @wei_registrations = WeiRegistration.registered.includes('student')
+    render action: :index
+  end
+
+  def waiting
+    @wei_registrations = WeiRegistration.waiting.includes('student')
+  end
+
+  def deposit
+    @wei_registrations = WeiRegistration.where(caution: false).includes('student')
+  end
+
+  def to_refund
+    @wei_registrations = WeiRegistration.where(status: 'to_refund').includes('student')
+  end
+
+  def canceled
+    @wei_registrations = WeiRegistration.where(status: 'canceled').includes('student')
+  end
+
   # GET /wei_registrations/1
   # GET /wei_registrations/1.json
   def show
@@ -35,7 +56,7 @@ class WeiRegistrationsController < ApplicationController
 
     respond_to do |format|
       if @wei_registration.save
-        format.html { redirect_to @wei_registration, notice: 'Wei registration was successfully created.' }
+        format.html { redirect_to @wei_registration }
         format.json { render :show, status: :created, location: @wei_registration }
       else
         format.html { render :new }
@@ -49,23 +70,13 @@ class WeiRegistrationsController < ApplicationController
   def update
     respond_to do |format|
       if @wei_registration.update(wei_registration_params)
-        format.html { redirect_to @wei_registration, notice: 'Wei registration was successfully updated.' }
+        format.html { redirect_to :back }
         format.json { render :show, status: :ok, location: @wei_registration }
         format.js
       else
         format.html { render :edit }
         format.json { render json: @wei_registration.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /wei_registrations/1
-  # DELETE /wei_registrations/1.json
-  def destroy
-    @wei_registration.destroy
-    respond_to do |format|
-      format.html { redirect_to wei_registrations_url, notice: 'Wei registration was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

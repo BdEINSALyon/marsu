@@ -12,6 +12,9 @@ Rails.application.routes.draw do
       member do
         post 'pay', as: :pay
       end
+      collection do
+        get 'waiting'
+      end
     end
     resources :wei_bungalows
     resources :wei_buses
