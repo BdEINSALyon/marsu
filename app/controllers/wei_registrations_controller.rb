@@ -3,12 +3,13 @@ class WeiRegistrationsController < ApplicationController
 
   # GET /wei_registrations
   # GET /wei_registrations.json
+  # noinspection RailsChecklist01
   def index
     if params[:search].nil? or params[:search].empty?
-      @wei_registrations = WeiRegistration.all
+      @wei_registrations = WeiRegistration.includes('student').all
     else
       # noinspection RailsChecklist01
-      @wei_registrations = WeiRegistration.where(student: Student.search_with(params[:search]))
+      @wei_registrations = WeiRegistration.includes('student').where(student: Student.search_with(params[:search]))
     end
   end
 
@@ -18,18 +19,19 @@ class WeiRegistrationsController < ApplicationController
   end
 
   # GET /wei_registrations/new
+  # noinspection RailsChecklist01
   def new
     @wei_registration = WeiRegistration.new
-  end
-
-  # GET /wei_registrations/1/edit
-  def edit
+    @students = Student.includes('study_year').where(study_year: StudyYear.where(year: 1)).where.not(id: @wei_registration.wei.students)
   end
 
   # POST /wei_registrations
   # POST /wei_registrations.json
   def create
     @wei_registration = WeiRegistration.new(wei_registration_params)
+    @wei_registration.registration_by = Time.now
+    @wei_registration.status = 'waiting'
+    @wei_registration.paid = false
 
     respond_to do |format|
       if @wei_registration.save
@@ -86,6 +88,6 @@ class WeiRegistrationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wei_registration_params
-      params.require(:wei_registration).permit(:registration_by, :status, :wei_bungalow_id, :wei_bus_id)
+      params.require(:wei_registration).permit(:registration_by, :status, :wei_bungalow_id, :wei_bus_id, :student_id)
     end
 end
