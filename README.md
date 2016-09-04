@@ -23,7 +23,7 @@ And a lots of other *awesome* gems you can found in Gemfile
 
 After checking [Github Issues](https://github.com/PhilippeGeek/marsu), feel free to fork and create a Pull Request.
 
-While we may not merge your PR as is, they serve to start conversations and improve the general Taquilla 
+While we may not merge your PR as is, they serve to start conversations and improve the general Marsu 
 experience for all users.
 
 ## Licence
