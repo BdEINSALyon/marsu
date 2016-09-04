@@ -1,4 +1,4 @@
-class CreateWeis < ActiveRecord::Migration[5.0]
+class CreateWeis < ActiveRecord::Migration
   def change
     create_table :weis do |t|
       t.string :name

@@ -1,4 +1,4 @@
-class AddAzureTokenToUsers < ActiveRecord::Migration[5.0]
+class AddAzureTokenToUsers < ActiveRecord::Migration
   def change
     add_column :users, :azure_token, :string
   end

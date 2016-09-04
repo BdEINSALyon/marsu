@@ -1,4 +1,4 @@
-class CreateWeiBuses < ActiveRecord::Migration[5.0]
+class CreateWeiBuses < ActiveRecord::Migration
   def change
     create_table :wei_buses do |t|
       t.integer :wei_id

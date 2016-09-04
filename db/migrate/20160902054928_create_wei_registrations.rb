@@ -1,4 +1,4 @@
-class CreateWeiRegistrations < ActiveRecord::Migration[5.0]
+class CreateWeiRegistrations < ActiveRecord::Migration
   def change
     create_table :wei_registrations do |t|
       t.integer :student_id

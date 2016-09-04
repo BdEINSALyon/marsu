@@ -1,4 +1,4 @@
-class AddRegistrationByToWeiRegistrations < ActiveRecord::Migration[5.0]
+class AddRegistrationByToWeiRegistrations < ActiveRecord::Migration
   def change
     add_column :wei_registrations, :registration_by, :datetime
   end
