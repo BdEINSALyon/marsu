@@ -1,11 +1,16 @@
+.card-header.bg-danger
+  = t('.danger_zone')
 .card-block
+  = form_for wei_registration, remote: true do |f|
+    = f.hidden_field :caution, value: !wei_registration.caution
+    = f.submit (wei_registration.caution ? t('.return_caution') : t('.valid_caution')), data: {confirm: 'Sure?'}, class: %w(btn btn-danger btn-block)
   - if %w(registered waiting).include? wei_registration.status
-    .m-b-1
+    .m-y-1
       = form_for wei_registration, remote: true do |f|
         = f.hidden_field :status, value: wei_registration.paid ? 'to_refund' : 'canceled'
         = f.submit t('.unregister'), data: {confirm: 'Sure?'}, class: %w(btn btn-danger btn-block)
   - if wei_registration.status == 'to_refund'
-    .m-b-1
+    .m-y-1
       = form_for wei_registration, remote: true  do |f|
         = f.hidden_field :status, value: 'canceled'
         = f.submit t('.mark_as_refunded'), data: {confirm: 'Sure?'}, class: %w(btn btn-danger btn-block)

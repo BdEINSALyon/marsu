@@ -2,6 +2,13 @@
   .card-block
     %h4.card-title= wei_registration.student.name
   .list-group.list-group-flush
+    - unless wei_registration.student.phone.empty?
+      = link_to "tel:#{wei_registration.student.phone}", class: 'list-group-item list-group-item-action' do
+        .fa.fa-phone
+        = wei_registration.student.phone.phony_formatted(format: :international, space: '-')
+    - unless wei_registration.caution
+      .list-group-item.bg-danger
+        = t('.no_caution')
     - if wei_registration.status == 'registered'
       .list-group-item.bg-success
         = t('.registered')
@@ -13,8 +20,13 @@
         .list-group-item.text-capitalize
           = wei_registration.wei_bus.name
       - if wei_registration.wei_bungalow.present?
-        .list-group-item.text-capitalize
+        .list-group-item.text-capitalize{class: [('bg-warning' if wei_registration.wei_bungalow.wei_bus != wei_registration.wei_bus)]}
           = wei_registration.wei_bungalow.name
+          - if wei_registration.wei_bungalow.wei_bus != wei_registration.wei_bus
+            .pull-right
+              = form_for wei_registration, remote: true do |f|
+                = f.hidden_field :wei_bus_id, value: wei_registration.wei_bungalow.wei_bus.id
+                = f.submit t('.correct_bus'), class: 'btn btn-sm btn-outline-danger'
     - elsif wei_registration.status == 'waiting'
       .list-group-item.bg-warning
         = t('.waiting')
@@ -35,6 +47,6 @@
         = t('.canceled')
   - if wei_registration.status == 'waiting' and WeiRegistration.ranks[wei_registration.id] <= wei_registration.wei.seats_left and wei_registration.paid
     .card-block
-      = form_for wei_registration, remote: true do |f|
+      = form_for wei_registration do |f|
         = f.hidden_field :status, value: 'registered'
         = f.submit t('.go_registered'), class: %w(btn btn-warning btn-block)

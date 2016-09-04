@@ -127,16 +127,27 @@ fr:
       rank: "Rang :"
       go_registered: "Valider Inscription"
       to_refund: "A annulé mais doit être remboursé"
+      no_caution: "Pas de caution enregistrée !"
+      correct_bus: "Corriger Bus"
     show:
       pay: "Payer"
       update: "Mettre à jour"
       unregister: "Désinscrire"
       mark_as_refunded: "Valider remboursement"
       back_to_list: "Retour à la liste"
+      edit_registration: "Editer l'heure d'inscription"
+      why_edit_time: "En changeant le moment d'inscription, vous modifiez le rang dans la liste d'attente"
+      about: "A propos de cette inscription"
+      bus_and_bungalow: "Bus et Bungalow"
     danger_zone:
       unregister: "Désinscrire"
       mark_as_refunded: "Valider Remboursé"
+      danger_zone: "Zone dangereuse"
+      return_caution: "Rendre la caution"
+      valid_caution: "Enregistrer la caution"
     new:
       register: "Inscrire au Wei"
     list:
       register_to_wei: "Inscrire au WEI"
+      missing_money: "Manque Caution"
+  correct_it: "Corriger"

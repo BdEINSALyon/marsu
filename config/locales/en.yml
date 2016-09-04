@@ -93,14 +93,25 @@ en:
       rank: "Rank:"
       go_registered: "Go Registration"
       to_refund: "Canceled but must be refunded"
+      no_caution: "No caution"
+      correct_bus: "Correct Bus"
     show:
       pay: "Pay"
       update: "Update"
       unregister: "Unregister"
+      edit_registration: "Edit registration time"
+      why_edit_time: "By editing time, you will change rank of this student in the waiting list"
+      about: "About this registration"
+      bus_and_bungalow: "Bus and Bungalow"
     danger_zone:
       unregister: "Unregister"
       mark_as_refunded: "Mark as refunded"
+      danger_zone: "Danger Zone"
+      return_caution: "Return Caution"
+      valid_caution: "Register Caution"
     new:
       register: "Register to Wei"
     list:
       register_to_wei: "Register to Wei"
+      missing_money: "Missing"
+  correct_it: "Correct"

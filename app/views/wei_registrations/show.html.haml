@@ -1,6 +1,8 @@
 .row
-  .col-xs-12
-    = link_to t('.back_to_list'),'#', onclick: 'window.history.back();', class: 'btn btn-secondary btn-block m-b-2'
+  .col-xs-12.col-md-6.offset-md-3
+    = link_to wei_registrations_path, class: 'btn btn-secondary btn-block m-b-2' do
+      %span.fa.fa-chevron-left
+      %span=t('.back_to_list')
   #ajax-refresh-card.col-md-4.col-xs-12
     = render 'card', wei_registration: @wei_registration
   .col-md-4.col-sm-6.col-xs-12
@@ -10,11 +12,39 @@
           = form_for Payment.new(student: @wei_registration.student, payable: @wei_registration.wei), url: {action: :pay}, remote: true do |f|
             .form-group= f.select :payment_method_id, PaymentMethod.enabled.map {|p| [p.name, p.id]}, {}, {class: 'form-control'}
             = f.submit t('.pay'), class: 'btn btn-block btn-primary'
-    #register-form.card
+    - if @wei_registration.status == 'registered'
+      #bungalow-edit.card
+        .card-header
+          =t('.bus_and_bungalow')
+        .card-block
+          = form_for @wei_registration, remote: true do |f|
+            .form-group
+              = f.label :bus
+              = f.collection_select :wei_bus_id, WeiBus.not_full + [@wei_registration.wei_bus], :id, :name, {}, class: %w(form-control s2)
+            .form-group
+              = f.label :bungalow
+              = f.collection_select :wei_bungalow_id, WeiBungalow.not_full + [@wei_registration.wei_bungalow], :id, :name, {}, class: %w(form-control s2)
+            = f.submit t('.update'), class: 'btn btn-block btn-primary'
+  .col-md-4.col-sm-6.col-xs-4
+    #about.card
+      .card-header
+        =t('.about')
       .card-block
         = form_for @wei_registration, remote: true do |f|
-          .form-group= f.datetime_select :registration_by, {}
-          = f.submit t('.update'), class: 'btn btn-block btn-primary'
-  .col-md-4.col-sm-6.col-xs-4
+          .form-group
+            = f.label :details
+            = f.text_area :details, class: %w(form-control send-on-type)
+          .form-group
+            = f.label :medical_details
+            = f.text_area :medical_details, class: %w(form-control send-on-type)
+    - if @wei_registration.status == 'waiting'
+      #register-form.card
+        .card-block
+          %h3= t('.edit_registration')
+          .explains
+            %span.text-muted=t('.why_edit_time')
+          = form_for @wei_registration, remote: true do |f|
+            .form-group= f.datetime_select :registration_by, {}
+            = f.submit t('.update'), class: 'btn btn-block btn-primary'
     #danger-zone.card.card-outline-danger.card-inverse
       = render 'danger_zone', wei_registration: @wei_registration
