@@ -15,9 +15,8 @@ Simply configure Environement variables and push !
 
 - [Ruby on Rails](https://github.com/rails/rails) &mdash; Our back end API is a Rails app. It responds to requests RESTfully in JSON.
 - [PostgreSQL](http://www.postgresql.org/) &mdash; Our main data store is in Postgres.
-- [Redis](http://redis.io/) &mdash; We use Redis as a cache and for transient data.
 
-And a lots of other *awesome* gems you can found in Gemfile
+And a lot of other *awesome* gems you can find in Gemfile
 
 ## Contributions
 
