@@ -26,7 +26,10 @@ en:
       home: "Home"
       logout: "Logout"
       login: "Login"
-      wei: "WEI"
+      wei:
+        waiting: "Waiting List"
+        wei: "WEI"
+        deposit: "Deposits"
       bungalows: "Bungalows"
       buses: "Buses"
       registrations: "Registrations"

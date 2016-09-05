@@ -1,0 +1,19 @@
+%h3.display-4.text-center.m-b-1=t('layouts.navbar.wei.waiting')
+%table.table
+  - @wei_registrations.each do |wei_registration|
+    %tr{ data: {link: wei_registration_url(wei_registration)}, class: [('bg-success' if wei_registration.paid), ('bg-warning' unless wei_registration.paid)]}
+      %td= WeiRegistration.ranks[wei_registration.id]
+      %td= link_to wei_registration.student.name, wei_registration, class: 'bg-invert'
+      %td.text-center
+        = link_to "tel:#{wei_registration.student.phone}", class: 'tag tag-success tag-pill' do
+          .fa.fa-phone
+          = wei_registration.student.phone.phony_formatted(format: :international, space: '-')
+      %td.text-center
+        - unless wei_registration.caution
+          %span.m-l-1.tag.tag-danger.tag-pill= t('wei_registrations.list.missing_money')
+      %td.text-center
+        - if WeiRegistration.ranks[wei_registration.id] <= 0
+          - if wei_registration.paid
+            = form_for wei_registration do |f|
+              = f.hidden_field :status, value: 'registered'
+              = f.submit t('wei_registrations.card.go_registered'), class: %w(btn btn-sm btn-primary)
