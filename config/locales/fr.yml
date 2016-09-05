@@ -159,3 +159,8 @@ fr:
       register_to_wei: "Inscrire au WEI"
       missing_money: "Manque Caution"
   correct_it: "Corriger"
+  registration:
+    start:
+      search: "Entrez le nom de l'étudiant ..."
+    students:
+      not_found: "L'étudiant n'est pas dans la liste et je veux l'enregistrer"

@@ -1,0 +1,13 @@
+.list-group
+  - (students||[]).each do |student|
+    = form_tag registration_start_path, method: :put do
+      = hidden_field :student_id, value: student.id
+      .list-group
+        %button.list-group-item{type: :submit}
+          %span.first_name.text-capitalize= student.first_name
+          %span.last_name.text-uppercase= student.last_name
+  %span#fetching.list-group-item
+    = t('students.fetching')
+  = link_to registration_register_url, class: 'list-group-item list-group-item-action list-group-item-success' do
+    .fa.fa-plus
+    = t('.not_found')

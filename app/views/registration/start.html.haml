@@ -1,0 +1,5 @@
+
+= form_tag registration_start_url, method: :post, remote: true, id: 'students_search_form' do
+  = text_field_tag :search, params[:search], placeholder: t('.search'), class: 'form-control send-on-type', id: 'students_search'
+#students.m-t-2
+  = render 'students', students: @students
