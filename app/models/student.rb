@@ -61,7 +61,11 @@ class Student < ApplicationRecord
           q, q, q
       )
     end
-    request
+    if request.length > 0
+      request
+    else
+      Student.includes('cards').where(cards:{code:query})
+    end
   end
 
   def name
