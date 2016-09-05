@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+  match 'registration/start', via: [:get, :post, :put]
+  match 'registration/register', via: [:get, :post]
+  get 'registration/questions'
+  post 'registration/pay'
+  get 'registration/card'
+  get 'registration/details'
+
   ActiveAdmin.routes(self)
 
   resources :students do

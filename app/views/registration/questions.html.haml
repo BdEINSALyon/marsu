@@ -1,0 +1,63 @@
+%h1.text-center.display-1 Stand VA
+
+#questions
+  - if @student&.study_year&.year == 1
+    #he-want.row
+      %h1.m-y-2.col-md-12.text-center.display-4 Que souhaite-t-il ?
+      .col-md-6
+        #he-want-VA.btn.btn-lg.btn-primary.btn-block VA
+      .col-md-6
+        #he-want-VA-WEI.btn.btn-lg.btn-primary.btn-block VA et WEI
+    #cheque.row.invisible
+      %h1.m-y-2.col-md-12.text-center.display-4
+        As-t-on déjà son chèque de
+        %span.price 130
+        € ?
+      .col-md-6
+        = form_tag registration_pay_path, method: :post do
+          = hidden_field :method, value: 'Chèque'
+          = hidden_field :products, value: 'VA-WEI'
+          %button#yes-cheque.btn.btn-lg.btn-primary.btn-block{type: :submit} OUI
+      .col-md-6
+        #no-cheque.btn.btn-lg.btn-primary.btn-block NON
+    #payment.row.invisible
+      %h1.m-y-2.col-md-12.text-center.display-4
+        Comment paye-t-il
+        %span.price 130
+        € ?
+      .col-md-4
+        = form_tag registration_pay_path, method: :post do
+          = hidden_field :method, value: 'Carte Bancaire'
+          = hidden_field :products, value: 'VA-WEI'
+          %button.btn.btn-lg.btn-primary.btn-block{type: :submit} Carte Bancaire
+      .col-md-4
+        = form_tag registration_pay_path, method: :post do
+          = hidden_field :method, value: 'Espèces'
+          = hidden_field :products, value: 'VA-WEI'
+          %button.btn.btn-lg.btn-primary.btn-block{type: :submit} Espèces
+      .col-md-4
+        = form_tag registration_pay_path, method: :post do
+          = hidden_field :method, value: 'Chèque'
+          = hidden_field :products, value: 'VA-WEI'
+          %button.btn.btn-lg.btn-primary.btn-block{type: :submit} Chèque
+  - else
+    #payment_3A.row
+      %h1.m-y-2.col-md-12.text-center.display-4
+        Comment paye-t-il
+        %span.price 20
+        € ?
+      .col-md-4
+        = form_tag registration_pay_path, method: :post do
+          = hidden_field :method, value: 'Carte Bancaire'
+          = hidden_field :products, value: 'VA'
+          %button.btn.btn-lg.btn-primary.btn-block{type: :submit} Carte Bancaire
+      .col-md-4
+        = form_tag registration_pay_path, method: :post do
+          = hidden_field :method, value: 'Espèces'
+          = hidden_field :products, value: 'VA'
+          %button.btn.btn-lg.btn-primary.btn-block{type: :submit} Espèces
+      .col-md-4
+        = form_tag registration_pay_path, method: :post do
+          = hidden_field :method, value: 'Chèque'
+          = hidden_field :products, value: 'VA'
+          %button.btn.btn-lg.btn-primary.btn-block{type: :submit} Chèque
