@@ -8,19 +8,37 @@ class Student < ApplicationRecord
   has_many :active_memberships, -> {active}, through: :paid_payments, source: :payable, source_type: 'Membership', class_name: 'Membership'
   has_many :weis, through: :paid_payments, source: :payable, source_type: 'Wei'
   has_many :wei_registrations
+  has_many :cards
 
   scope :members, -> {joins(:memberships).where('memberships.start_date <= ? AND memberships.end_date >= ?', Date.today, Date.today)}
   scope :non_members, -> {where.not(id: members)}
 
   validates_presence_of :first_name, :last_name, :gender, :email, :birthday
   validates_uniqueness_of :email
-  validates_uniqueness_of :student_id
+  validates_uniqueness_of :student_id, if: -> (student) {not student.student_id.empty?}
   validates_inclusion_of :gender, in: %w(M W)
 
   phony_normalize :phone, default_country_code: 'FR'
   validates_plausible_phone :phone, default_country_code: 'FR'
 
   scope :minors, -> {where('birthday > ?', 18.years.ago)}
+
+  def card
+    card = cards.order(:created_at).last
+    if card.nil?
+      ''
+    else
+      card.code
+    end
+  end
+
+  def card=(card)
+    if card.class == Card
+      cards << card unless cards.include? card
+    else
+      cards.create! code: card
+    end
+  end
 
   def minor?
     birthday > 18.years.ago

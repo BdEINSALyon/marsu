@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_action :set_student, only: [:show, :edit, :update, :destroy, :card]
 
   # GET /students
   # GET /students.json
@@ -67,6 +67,18 @@ class StudentsController < ApplicationController
     end
   end
 
+  def card
+    begin
+      @student.update(params.require(:student).permit(:card))
+      @success = true
+    rescue => _
+      @success = false
+    end
+    respond_to do |format|
+      format.js {}
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_student
@@ -75,6 +87,6 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:gender, :first_name, :last_name, :email, :student_id, :department_id, :study_year_id, :phone, :birthday, :details)
+      params.require(:student).permit(:gender, :first_name, :last_name, :email, :card, :student_id, :department_id, :study_year_id, :phone, :birthday, :details)
     end
 end

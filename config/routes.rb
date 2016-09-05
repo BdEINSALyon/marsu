@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   resources :students do
+    member do
+      patch :card
+    end
     resources :memberships, only: [:index]
     resources :payments, only: [:create, :update, :index]
   end

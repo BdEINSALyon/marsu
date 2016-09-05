@@ -73,6 +73,11 @@ fr:
     has_no_memberships: "N'a aucune adhésion"
     new_student: "Nouvel étudiant"
     fetching: "Récupération des données..."
+    student_va_card:
+      va_card: "Carte VA"
+      edit_card: "Enregistrer Carte"
+    memberships_card:
+      add_membership: "Ajouter une adhésion"
   membership:
     refund: "Rembourser"
     membership: "Type d'adhésion"

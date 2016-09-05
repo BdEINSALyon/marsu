@@ -44,6 +44,11 @@ en:
     has_no_memberships: "Doesn't have any membership"
     new_student: "Register student"
     fetching: "Fetching data..."
+    student_va_card:
+      va_card: "VA Card"
+      edit_card: "Register Card"
+    memberships_card:
+      add_membership: "Add membership"
   membership:
     refund: "Refund"
     membership: "Membership category"

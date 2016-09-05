@@ -1,2 +1,1 @@
-$('#memberships_card').html("<%= escape_javascript(render('students/memberships_card', student: @payment.student)) %>");
-$('#student_card').html("<%= escape_javascript(render('students/student_card', student: @payment.student)) %>");
+<%= render 'students/refresh_student', student: @payment.student %>

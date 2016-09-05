@@ -1,0 +1,6 @@
+<% if @success %>
+  <%= render 'refresh_student', student: @student  %>
+  alert("Carte VA enregistrée !");
+<% else %>
+  alert("Impossible d'enregistrer cette carte VA, elle est déjà utilisée !");
+<% end %>

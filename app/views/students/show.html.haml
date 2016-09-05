@@ -2,5 +2,6 @@
 .row
   #student_card.col-md-8
     = render 'student_card', student: @student
-  #memberships_card.col-md-4
-    = render 'memberships_card', student: @student
+  .col-md-4
+    #memberships_card= render 'memberships_card', student: @student
+    #student_va_card.m-t-1= render 'student_va_card', student: @student
