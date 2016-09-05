@@ -6,9 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-(1...5).each do |year|
+(1..5).each do |year|
   StudyYear.find_or_create_by(year: year, name: "#{year}A")
 end
+StudyYear.find_or_create_by(year: 8, name: "Doctorant INSA")
+StudyYear.find_or_create_by(year: 15, name: "Doctorant non-INSA")
+StudyYear.find_or_create_by(year: 16, name: "Personnel INSA")
+StudyYear.find_or_create_by(year: 13, name: "Etudiant IUT")
+StudyYear.find_or_create_by(year: 14, name: "Etudiant CPE")
+StudyYear.find_or_create_by(year: 17, name: "Autre")
 
 [
     {
@@ -76,6 +82,11 @@ end
         code: 'GMPP',
         active: false
     },
+    {
+        name: 'Autre',
+        code: 'OTHER',
+        active: true
+    }
 ].each {|d|Department.find_or_create_by d}
 
 

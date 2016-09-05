@@ -19,6 +19,10 @@
 @import "navbar";
 @import "students";
 
+.hidden {
+  display: none;
+}
+
 .form-group > .date {
   display: flex;
   & > * {

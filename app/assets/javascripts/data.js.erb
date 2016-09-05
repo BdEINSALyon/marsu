@@ -1,0 +1,31 @@
+//= require underscore
+
+var MARSU = {
+  departments: [
+      <% Department.active.each do |dep| %>
+    {
+      id: '<%= dep.id %>',
+      name: '<%= dep.name %>',
+      code: '<%= dep.code %>'
+    },
+      <% end %>
+  ],
+  study_years: [
+      <% StudyYear.all.each do |dep| %>
+    {
+      id: '<%= (dep.id) %>',
+      name: '<%= (dep.name) %>',
+      year: '<%= dep.year %>'
+    },
+      <% end %>
+  ],
+  memberships: [
+      <% Membership.active.each do |dep| %>
+    {
+      id: '<%= (dep.id) %>',
+      name: '<%= (dep.name) %>',
+      price: '<%= dep.price || '0' %>'
+    },
+      <% end %>
+  ]
+};

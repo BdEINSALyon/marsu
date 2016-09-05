@@ -36,7 +36,12 @@ class Student < ApplicationRecord
     if card.class == Card
       cards << card unless cards.include? card
     else
-      cards.create! code: card
+      c = cards.find_by_code card
+      if c and c.student.id == id
+        c.update! created_at: Time.now
+      else
+        cards.create! code: card
+      end
     end
   end
 
