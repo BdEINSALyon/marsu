@@ -5,9 +5,9 @@
     #he-want.row
       %h1.m-y-2.col-md-12.text-center.display-4 Que souhaite-t-il ?
       .col-md-6
-        #he-want-VA.btn.btn-lg.btn-primary.btn-block VA
+        #he-want-VA.btn.btn-lg.btn-primary.btn-block{class: [('btn-danger' if @student.wei_registrations.any?)]} VA
       .col-md-6
-        #he-want-VA-WEI.btn.btn-lg.btn-primary.btn-block VA et WEI
+        #he-want-VA-WEI.btn.btn-lg.btn-primary.btn-block{class: (@student.wei_registrations.any? ? 'btn-success' : 'btn-warning')} VA et WEI
     #cheque.row.invisible
       %h1.m-y-2.col-md-12.text-center.display-4
         As-t-on déjà son chèque de

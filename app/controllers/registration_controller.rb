@@ -7,10 +7,10 @@ class RegistrationController < ApplicationController
     if request.method_symbol == :get
       return
     end
-    if request.method_symbol  == :post
-      @students = Student.includes('study_year').where(study_years: {year: [1,2,3,4]}).search_with params[:q]
+    if params.has_key? :search
+      @students = Student.includes('study_year').where(study_years: {year: [1,2,3]}).search_with params[:search]
     end
-    if request.method_symbol  == :put
+    if params.has_key? :student_id
       session[:student_id] = params[:student_id]
       redirect_to action: :questions
     end
@@ -48,8 +48,6 @@ class RegistrationController < ApplicationController
             wei.update status: 'registered'
           end
         end
-      when 3
-        membership = Membership.find_by(price: 20.0)
       else
         membership = Membership.find_by(price: 20.0)
     end

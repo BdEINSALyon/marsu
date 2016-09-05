@@ -7,7 +7,7 @@ $ ->
     waiters[this] = setTimeout(()->
       $this.closest('form').submit();
       $("#fetching").show();
-    , 250)
+    , 500)
   )
 
   $( "select.s2" ).select2({
