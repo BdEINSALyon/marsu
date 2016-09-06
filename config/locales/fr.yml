@@ -164,3 +164,4 @@ fr:
       search: "Entrez le nom de l'étudiant ..."
     students:
       not_found: "L'étudiant n'est pas dans la liste et je veux l'enregistrer"
+    registration: "Chaine d'Inscription"

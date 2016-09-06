@@ -123,3 +123,5 @@ en:
       register_to_wei: "Register to Wei"
       missing_money: "Missing"
   correct_it: "Correct"
+  registration:
+    registration: "(Only French)"

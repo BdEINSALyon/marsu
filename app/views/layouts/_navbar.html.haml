@@ -9,6 +9,8 @@
           %ul.nav.navbar-nav
             - if can? :read, Student
               %li.nav-item
+                = link_to t('registration.registration'), registration_start_url, class: 'nav-link'
+              %li.nav-item
                 = link_to t('students.index.students'), students_path, class: 'nav-link'
             - if can? :read, WeiRegistration
               %li.nav-item.dropdown
