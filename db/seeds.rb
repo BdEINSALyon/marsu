@@ -5,7 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+(2013..2016).each do |year|
+  %w(A B K).each do |code|
+    Membership.find_or_create_by! start_date: Date.new(year,9,1),
+                                  end_date: Date.new(year+1,8,31),
+                                  name: "VA#{year}#{code}",
+                                  price: code == 'B' ? 95 : (code == 'A' ? 20 : 17)
+  end
+end
 (1..5).each do |year|
   StudyYear.find_or_create_by(year: year, name: "#{year}A")
 end

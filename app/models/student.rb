@@ -14,8 +14,7 @@ class Student < ApplicationRecord
   scope :non_members, -> { where.not(id: members) }
 
   validates_presence_of :first_name, :last_name, :gender, :email, :birthday
-  validates_uniqueness_of :email
-  validates_uniqueness_of :student_id, if: -> (student) { not student.student_id.empty? }
+  validates_uniqueness_of :student_id, if: -> (student) { not student.student_id.nil? and not student.student_id.empty? }
   validates_inclusion_of :gender, in: %w(M W)
 
   phony_normalize :phone, default_country_code: 'FR'
