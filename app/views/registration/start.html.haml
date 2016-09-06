@@ -1,5 +1,5 @@
 %h1.text-center.display-1 Stand VA
-= form_tag registration_start_url, method: :post, remote: true, id: 'students_search_form' do
-  = text_field_tag :search, params[:search], placeholder: t('.search'), class: 'form-control send-on-type', id: 'students_search'
+= form_tag registration_start_url, method: :post, remote: true, html: { autocomplete: "off" }, id: 'students_search_form' do
+  = text_field_tag :search, params[:search],:autocomplete => "off",  placeholder: t('.search'), class: 'form-control send-on-type', id: 'students_search'
 #students.m-t-2
   = render 'students', students: @students
