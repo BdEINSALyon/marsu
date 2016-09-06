@@ -52,6 +52,8 @@ en:
       edit_card: "Register Card"
     memberships_card:
       add_membership: "Add membership"
+    new:
+      add_student: "Add student"
   membership:
     refund: "Refund"
     membership: "Membership category"
@@ -134,3 +136,6 @@ en:
     credit_card: "Credit Card"
     cash: "Cash"
     check: "Check"
+    register:
+      valid_data: "Valid data"
+      register_student: "Register Student"

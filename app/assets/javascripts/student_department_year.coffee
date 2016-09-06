@@ -4,16 +4,16 @@ $ ->
   PC = _.where(MARSU.departments, {code:'PC'})[0]
   TC = _.where(MARSU.departments, {code:'TC'})[0]
   check = () ->
-    dep = _.where(MARSU.departments, {id:$('#student_department_id').val()})[0]
-    year = _.where(MARSU.study_years, {id:$('#student_study_year_id').val()})[0]
-    if parseInt(year.year) > 12
+    dep = _.where(MARSU.departments, {id:parseInt $('#student_department_id').val()})[0]
+    year = _.where(MARSU.study_years, {id:parseInt($('#student_study_year_id').val())})[0]
+    if year.year > 12
       $("#student_department_id option[value=#{OTHERS.id}]").prop('disabled', false)
       _.each(MARSU.departments, (dep) ->
         $("#student_department_id option[value=#{dep.id}]").prop('disabled', true) unless dep.code == 'OTHER'
       )
       $('#student_department_id').val(OTHERS.id)
       return
-    if year.year in ['0','1','2']
+    if year.year in [0,1,2]
       $("#student_department_id option[value=#{PC.id}]").prop('disabled', false)
       _.each(MARSU.departments, (dep) ->
         $("#student_department_id option[value=#{dep.id}]").prop('disabled', true) unless dep.code == 'PC'

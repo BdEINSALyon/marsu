@@ -5,6 +5,7 @@ class RegistrationController < ApplicationController
 
   def start
     if request.method_symbol == :get
+      session[:student_id] = nil
       return
     end
     if params.has_key? :search

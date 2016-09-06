@@ -13,3 +13,9 @@
     #main.container
       = flash_messages
       = yield
+    :javascript
+      var MARSU = {
+        departments: #{Department.all.to_json},
+        study_years: #{StudyYear.all.to_json},
+        memberships: #{Membership.all.to_json}
+      };

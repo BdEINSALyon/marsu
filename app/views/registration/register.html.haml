@@ -56,4 +56,4 @@
     = f.label :details
     = f.text_area :details, class: 'form-control'
   .actions
-    = f.submit class:'btn btn-block btn-primary'
+    = f.submit (@student.persisted? ? t('.valid_data'):t('.register_student')), class:'btn btn-block btn-primary'
