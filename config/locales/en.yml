@@ -127,3 +127,6 @@ en:
   correct_it: "Correct"
   registration:
     registration: "(Only French)"
+    register:
+      valid_data: "Valid data"
+      register_student: "Register Student"

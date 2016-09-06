@@ -167,3 +167,6 @@ fr:
     students:
       not_found: "L'étudiant n'est pas dans la liste et je veux l'enregistrer"
     registration: "Chaine d'Inscription"
+    register:
+      valid_data: "Valider les données"
+      register_student: "Enregistrer l'étudiant"
