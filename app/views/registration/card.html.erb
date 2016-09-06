@@ -1,2 +1,42 @@
-<h1>Registration#card</h1>
-<p>Find me in app/views/registration/card.html.erb</p>
+<h1 class="text-center display-1">Stand VA</h1>
+<style type="text/css">
+  @import 'https://fonts.googleapis.com/css?family=Gloria+Hallelujah';
+</style>
+<svg class="col-md-6" viewBox="0 0 555 350">
+  <image height="350" xlink:href="<%= image_url 'carte_va.png' %>" width="555"></image>
+  <defs>
+    <!--suppress CssUnknownTarget -->
+
+  </defs>
+  <text x="250" y="105" style="font-family: 'Gloria Hallelujah'; font-weight:bolder; font-style: normal; font-size: 25px">
+    <%= @student.first_name %>
+  </text>
+  <text  x="280" y="180" style="font-family: 'Gloria Hallelujah'; font-weight:bolder; font-style: normal; font-size: 25px">
+    <%= @student.last_name %>
+  </text>
+  <text x="320" y="260" style="font-family: 'Gloria Hallelujah'; font-weight:bolder; font-style: normal; font-size: 30px">
+    <%= @student.student_id %>
+  </text>
+  <% if @student.minor? %>
+  <path id="lineAB" d="M 505 0 l 50 0 l 0 50" stroke="red"
+        stroke-width="3" fill="red" />
+  <% end %>
+</svg>
+<div class="col-md-6">
+  <div class="card">
+    <div class="card-header">
+      <h3>La Carte VA</h3>
+    </div>
+    <div class="card-block">
+      <p>Prépare à l'étudiant sa carte VA à partir des informations à gauche.<br>
+        Si le coin en haut à droite est rouge, coupe le coin en haut à gauche de la carte.</p>
+      <p>Ensuite, scanne le code bare de la carte dans le champ ci-dessous :</p>
+      <%= form_for @student, url: {controller: :registration, action: :card}, method: :post do |f| %>
+        <div class="form-group">
+          <%= f.text_field :card, class: 'form-control' %>
+        </div>
+        <%= f.submit 'Enregistrer' , class: 'btn btn-block btn-danger' %>
+      <% end %>
+    </div>
+  </div>
+</div>

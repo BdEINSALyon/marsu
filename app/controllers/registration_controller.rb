@@ -87,16 +87,18 @@ class RegistrationController < ApplicationController
     end
     if request.method_symbol == :post
       @student.card= params[:student][:card]
-      @success = @student.save
+      if @student.save
+        redirect_to action: :details
+      else
+        flash[:error] = "Impossible d'enregistrer cette carte !"
+      end
+
     end
   end
 
   def details
     @student = Student.find(session[:student_id])
-    if request.method_symbol == :post
-      session[:student_id] = nil
-      redirect_to action: :start
-    end
+    session[:student_id] = nil
   end
 
   private

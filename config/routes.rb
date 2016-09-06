@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   match 'registration/register', via: [:get, :post]
   get 'registration/questions'
   post 'registration/pay'
-  get 'registration/card'
+  match 'registration/card', via: [:get, :post]
   get 'registration/details'
 
   ActiveAdmin.routes(self)
