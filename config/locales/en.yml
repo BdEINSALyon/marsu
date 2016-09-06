@@ -127,6 +127,15 @@ en:
   correct_it: "Correct"
   registration:
     registration: "(Only French)"
+    caution: "Do we have a deposit check for this student?"
+    parental_authorization: "Do we have a parental permission for this student?"
+    non_medical: "Non-medical information"
+    medical: "Medical information (allergies, medication, etc.)"
+    caution_value: "Do we have his check: "
+    payment_method: "How does he pay"
+    credit_card: "Credit Card"
+    cash: "Cash"
+    check: "Check"
     register:
       valid_data: "Valid data"
       register_student: "Register Student"

@@ -3,15 +3,15 @@
 = form_for @student.wei_registrations.last, url: {controller: :registration, action: :wei_register}, method: :post do |f|
   .form-group
     = f.check_box :caution
-    %label As-t-on une caution pour cet étudiant ?
+    %label= t('registration.caution')
   - if @student.minor?
     .form-group
       = f.check_box :parental
-      %label As-t-on une autorisation parentale pour cet étudiant ?
+      %label= t('registration.parental_authorization')
   .form-group
-    %label Informations Non-Médical
+    %label= t('registration.non_medical')
     = f.text_area :details, class: 'form-control'
   .form-group
-    %label Informations Médical (Alergies, Traitement, Truc Privés et soumis au secret médical ...)
+    %label= t('registration.medical')
     = f.text_area :medical_details, class: 'form-control'
   = f.submit 'Valider les informations pour le WEI', class: 'btn btn-success btn-block'

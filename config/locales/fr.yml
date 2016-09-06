@@ -167,6 +167,15 @@ fr:
     students:
       not_found: "L'étudiant n'est pas dans la liste et je veux l'enregistrer"
     registration: "Chaine d'Inscription"
+    caution: "A-t-on une caution pour cet étudiant ?"
+    parental_authorization: "A-t-on une autorisation parentale pour cet étudiant ?"
+    non_medical: "Informations non-médicales"
+    medical: "Informations médicales (allergies, traitements, etc.)"
+    caution_value: "A-t-on déjà son chèque de"
+    payment_method: "Comment paye-t-il"
+    credit_card: "Carte Bancaire"
+    cash: "Espèces"
+    check: "Chèque"
     register:
       valid_data: "Valider les données"
       register_student: "Enregistrer l'étudiant"
