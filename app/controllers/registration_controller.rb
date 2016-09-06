@@ -9,7 +9,7 @@ class RegistrationController < ApplicationController
       return
     end
     if params.has_key? :search
-      @students = Student.non_members.includes('study_year').where(study_years: {year: [1]}).search_with params[:search]
+      @students = Student.includes('study_year').where(study_years: {year: [1,2,3,4]}).search_with params[:search]
     end
     if params.has_key? :student_id
       session[:student_id] = params[:student_id]
