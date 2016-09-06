@@ -62,10 +62,8 @@ class RegistrationController < ApplicationController
           wei = @student.wei_registrations.last || @student.wei_registrations.create
           Payment.new(payment_method: PaymentMethod.find_by_name(p[:method]), payable: wei.wei, student: @student).save!
           wei.update paid: true, status: 'waiting'
-          if WeiRegistration.ranks[wei[:id]] <= 0
-            wei.update status: 'registered'
-          else
-            wei.update status: 'waiting'
+          unless wei.registration_by
+            wei.update registration_by: Time.now
           end
         else
           wei = @student.wei_registrations.last
@@ -77,7 +75,30 @@ class RegistrationController < ApplicationController
         membership = Membership.find_by(price: 20.0)
     end
     Payment.new(payment_method: PaymentMethod.find_by_name(p[:method]), payable: membership, student: @student).save!
-    redirect_to action: :card
+    if @student.wei_registrations.last&.status == 'waiting'
+      redirect_to action: :wei_register
+    else
+      redirect_to action: :card
+    end
+  end
+
+  # noinspection RailsChecklist01
+  def wei_register
+    @student = Student.find(session[:student_id])
+    wei = @student.wei_registrations.last
+    if wei.nil? || %(canceled to_refund registered).include?(wei.status)
+      redirect_to action: :card
+      return
+    end
+    if request.method_symbol == :post
+      wei.update! params.require(:wei_registration).permit(:caution, :parental, :details, :medical_details)
+      if WeiRegistration.ranks[wei[:id]] <= 0
+        wei.update! status: 'registered'
+      else
+        wei.update! status: 'waiting'
+      end
+      redirect_to action: :card
+    end
   end
 
   def card

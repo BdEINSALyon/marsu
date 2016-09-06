@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-6 <%= 'offset-md-3' unless @student.wei_registrations.any? %>">
-    <%= render 'students/student_card', student: @student %>
+    <%= render 'students/student_card', student: @student, blank_wated_for_edit: true %>
   </div>
   <% if @student.wei_registrations.any? %>
     <div class="col-md-6">

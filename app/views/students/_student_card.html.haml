@@ -39,4 +39,4 @@
       .list-group-item
         = student.details
   .card-block
-    = link_to t('students.show.edit'), edit_student_path(student), class: %w(btn btn-primary pull-xs-right)
+    = link_to t('students.show.edit'), edit_student_path(student), class: %w(btn btn-primary pull-xs-right), target: ('_blank' if defined?(blank_wated_for_edit) and blank_wated_for_edit)

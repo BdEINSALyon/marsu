@@ -4,7 +4,7 @@
 $ ->
 
   fromWantToCheque = (product)->
-    $('input[name=product]').val(product)
+    $('input[name=products]').val(product)
     $('#he-want').addClass('hidden')
     if product == 'VA'
       $('.price').html('95')
@@ -15,7 +15,7 @@ $ ->
   $('#he-want-VA').click ()->
     fromWantToCheque 'VA'
   $('#he-want-VA-WEI').click ()->
-    fromWantToCheque 'VA+WEI'
+    fromWantToCheque 'VA-WEI'
 
   $('#no-cheque').click ()->
     $('#cheque').addClass('hidden')

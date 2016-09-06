@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   match 'registration/start', via: [:get, :post, :put]
   match 'registration/register', via: [:get, :post]
+  match 'registration/wei_register', via: [:get, :post]
   get 'registration/questions'
   post 'registration/pay'
   match 'registration/card', via: [:get, :post]
