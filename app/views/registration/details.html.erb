@@ -1,2 +1,13 @@
-<h1>Registration#details</h1>
-<p>Find me in app/views/registration/details.html.erb</p>
+<div class="row">
+  <div class="col-md-6 <%= 'offset-md-3' unless @student.wei_registrations.any? %>">
+    <%= render 'students/student_card', student: @student %>
+  </div>
+  <% if @student.wei_registrations.any? %>
+    <div class="col-md-6">
+      <%= render 'wei_registrations/card', wei_registration: @student.wei_registrations.last %>
+    </div>
+  <% end %>
+</div>
+<div class="col-md-12">
+  <%= link_to "Tout est OK, on peut s'occuper de quelqu'un d'autre.", registration_start_url, class: 'btn btn-warning btn-block' %>
+</div>

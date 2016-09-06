@@ -99,6 +99,8 @@ class RegistrationController < ApplicationController
   def details
     @student = Student.find(session[:student_id])
     session[:student_id] = nil
+  rescue ActiveRecord::RecordNotFound => _
+    redirect_to action: :start
   end
 
   private

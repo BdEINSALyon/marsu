@@ -45,7 +45,7 @@
     - else
       .list-group-item.bg-danger
         = t('.canceled')
-  - if wei_registration.status == 'waiting' and WeiRegistration.ranks[wei_registration.id] <= wei_registration.wei.seats_left and wei_registration.paid
+  - if wei_registration.status == 'waiting' and WeiRegistration.ranks[wei_registration.id] <= 0 and wei_registration.paid and wei_registration.caution
     .card-block
       = form_for wei_registration do |f|
         = f.hidden_field :status, value: 'registered'
