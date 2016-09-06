@@ -10,7 +10,7 @@
         #he-want-VA-WEI.btn.btn-lg.btn-primary.btn-block{class: (@student.wei_registrations.any? ? 'btn-success' : (@student.minor? ? 'btn-warning' : 'btn-success'))} VA et WEI
     #cheque.row.hidden
       %h1.m-y-2.col-md-12.text-center.display-4
-        As-t-on déjà son chèque de
+        = t('registration.caution_value')
         %span.price 130
         € ?
       .col-md-6
@@ -22,42 +22,42 @@
         #no-cheque.btn.btn-lg.btn-primary.btn-block NON
     #payment.row.hidden
       %h1.m-y-2.col-md-12.text-center.display-4
-        Comment paye-t-il
+        = t('registration.payment_method')
         %span.price 130
         € ?
       .col-md-4
         = form_tag registration_pay_path, method: :post do
           = hidden_field_tag :method, 'Carte Bancaire'
           = hidden_field_tag :products, 'VA-WEI'
-          %button.btn.btn-lg.btn-primary.btn-block{type: :submit} Carte Bancaire
+          %button.btn.btn-lg.btn-primary.btn-block{type: :submit}= t('registration.credit_card')
       .col-md-4
         = form_tag registration_pay_path, method: :post do
           = hidden_field_tag :method, 'Espèces'
           = hidden_field_tag :products, 'VA-WEI'
-          %button.btn.btn-lg.btn-primary.btn-block{type: :submit} Espèces
+          %button.btn.btn-lg.btn-primary.btn-block{type: :submit}= t('registration.cash')
       .col-md-4
         = form_tag registration_pay_path, method: :post do
           = hidden_field_tag :method, 'Chèque'
           = hidden_field_tag :products, 'VA-WEI'
-          %button.btn.btn-lg.btn-primary.btn-block{type: :submit} Chèque
+          %button.btn.btn-lg.btn-primary.btn-block{type: :submit}= t('registration.check')
   - else
     #payment_3A.row
       %h1.m-y-2.col-md-12.text-center.display-4
-        Comment paye-t-il
+        = t('registration.payment_method')
         %span.price 20
         € ?
       .col-md-4
         = form_tag registration_pay_path, method: :post do
           = hidden_field_tag :method, 'Carte Bancaire'
           = hidden_field_tag :products, 'VA'
-          %button.btn.btn-lg.btn-primary.btn-block{type: :submit} Carte Bancaire
+          %button.btn.btn-lg.btn-primary.btn-block{type: :submit}= t('registration.credit_card')
       .col-md-4
         = form_tag registration_pay_path, method: :post do
           = hidden_field_tag :method, 'Espèces'
           = hidden_field_tag :products, 'VA'
-          %button.btn.btn-lg.btn-primary.btn-block{type: :submit} Espèces
+          %button.btn.btn-lg.btn-primary.btn-block{type: :submit}= t('registration.cash')
       .col-md-4
         = form_tag registration_pay_path, method: :post do
           = hidden_field_tag :method, 'Chèque'
           = hidden_field_tag :products, 'VA'
-          %button.btn.btn-lg.btn-primary.btn-block{type: :submit} Chèque
+          %button.btn.btn-lg.btn-primary.btn-block{type: :submit}= t('registration.check')
