@@ -9,7 +9,7 @@ $ ->
     if product == 'VA'
       $('.price').html('95')
     else
-      $('.price').html('140')
+      $('.price').html('130')
     $('#cheque').removeClass('hidden')
 
   $('#he-want-VA').click ()->
