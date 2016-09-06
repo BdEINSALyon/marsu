@@ -81,6 +81,8 @@ fr:
       edit_card: "Enregistrer Carte"
     memberships_card:
       add_membership: "Ajouter une adhésion"
+    new:
+      add_student: "Ajouter un étudiant"
   membership:
     refund: "Rembourser"
     membership: "Type d'adhésion"

@@ -52,6 +52,8 @@ en:
       edit_card: "Register Card"
     memberships_card:
       add_membership: "Add membership"
+    new:
+      add_student: "Add student"
   membership:
     refund: "Refund"
     membership: "Membership category"
