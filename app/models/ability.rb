@@ -2,7 +2,7 @@ class Ability
   include CanCan::Ability
 
   def self.roles
-    %w(admin cowei permanencier tresorier)
+    %w(admin cowei permanencier cdp tresorier)
   end
 
   def initialize(user)
@@ -17,17 +17,22 @@ class Ability
       can :manage, WeiRegistration
       can :manage, WeiBungalow
       can :manage, WeiBus
+      can :manage, Student
+      can :manage, Payment
+      can :manage, Membership
+      can :manage, WeiRegistration
     end
 
     if user.has_role? :permanencier
-      can [:create, :update, :read], Student
-      can [:create, :read], Payment
-      can [:read], Membership
-      can [:create, :update, :read], WeiRegistration
+      can :manage, Student
+      can :manage, Payment
+      can :manage, Membership
+      can :manage, WeiRegistration
     end
 
     if user.has_role? :trezo
-      can [:update], Payment
+      can :manage, Student
+      can :manage, Payment
     end
 
     # Define abilities for the passed in user here. For example:
