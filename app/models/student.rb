@@ -53,7 +53,7 @@ class Student < ApplicationRecord
   end
 
   def available_memberships
-    if member?
+    unless member?
       Membership.where('end_date > ?', Date.today).where.not(id: memberships)
     else
       []
