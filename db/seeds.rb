@@ -90,6 +90,11 @@ StudyYear.find_or_create_by(year: 17, name: "Autre")
         active: false
     },
     {
+        name: 'Science et Génie des Matériaux',
+        code: 'SGM',
+        active: true
+    },
+    {
         name: 'Autre',
         code: 'OTHER',
         active: true
