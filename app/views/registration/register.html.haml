@@ -48,7 +48,7 @@
         = bs_form_errors(f, :study_year_id)
       .form-group{class: [bs_form_error_cl(f,:department_id)]}
         = f.label :department_id
-        = f.select :department_id, Department.active.map {|d|[d.name, d.id]}, {}, {class: 'form-control'}
+        = f.select :department_id, Department.active.map {|d|["#{d.code} - #{d.name}", d.id]}, {}, {class: 'form-control'}
         = bs_form_errors(f, :department_id)
 
 
