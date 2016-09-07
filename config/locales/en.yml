@@ -43,6 +43,7 @@ en:
       is_member: "Is member"
       is_not_member: "Is not member"
       edit: "Edit"
+      no_card: "No VA Card"
     memberships: "Memberships"
     has_no_memberships: "Doesn't have any membership"
     new_student: "Register student"

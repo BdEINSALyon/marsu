@@ -20,6 +20,14 @@
       .list-group-item.list-group-item-danger
         .fa.fa-exclamation-triangle
         = t('students.show.is_not_member')
+    - if student.card.empty?
+      .list-group-item.list-group-item-warning
+        .fa.fa-exclamation-triangle
+        = t('students.show.no_card')
+    - else
+      .list-group-item
+        .fa.fa-credit-card
+        = student.card
     - unless student.student_id.empty?
       .list-group-item
         .fa.fa-user

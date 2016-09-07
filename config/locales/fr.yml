@@ -72,6 +72,7 @@ fr:
       is_member: "Est membre"
       is_not_member: "N'est pas membre"
       edit: "Modifier"
+      no_card: "N'a pas sa carte"
     memberships: "Adhésions"
     has_no_memberships: "N'a aucune adhésion"
     new_student: "Nouvel étudiant"
