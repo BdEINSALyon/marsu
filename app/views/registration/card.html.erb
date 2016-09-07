@@ -33,7 +33,7 @@
       <p>Ensuite, scanne le code bare de la carte dans le champ ci-dessous :</p>
       <%= form_for @student, url: {controller: :registration, action: :card}, method: :post do |f| %>
         <div class="form-group">
-          <%= f.text_field :card, class: 'form-control' %>
+          <%= f.text_field :card, class: 'form-control', :autofocus=>true %>
         </div>
         <%= f.submit 'Enregistrer' , class: 'btn btn-block btn-danger' %>
       <% end %>
