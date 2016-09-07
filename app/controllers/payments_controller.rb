@@ -31,6 +31,13 @@ class PaymentsController < ApplicationController
   end
 
   def index
-    @payments = Payment.where(student_id:params[:student_id])
+    if params[:student_id]
+      @payments = Payment.where(student_id:params[:student_id])
+    else
+      authorize! :export, Payment
+      respond_to do |format|
+        format.csv { send_data Payment.to_csv }
+      end
+    end
   end
 end

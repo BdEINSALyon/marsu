@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     resources :payments, only: [:create, :update, :index]
   end
 
+  resources :payments, only: [:index]
+
   scope 'wei' do
     resources :wei_registrations do
       member do
