@@ -9,9 +9,10 @@
           %span= payment.payable.start_date
           %span -
           %span= payment.payable.end_date
-        = form_for [payment.student, payment], remote: true do |f|
-          = f.hidden_field :refunded, value: true
-          = f.submit t('membership.refund'), class: 'btn btn-outline-danger btn-block', data: {confirm: t('are_you_sure')}
+        - if (current_user.has_role? 'admin' and payment.payable.end_date > Date.today) or payment.created_at > 12.hours.ago
+          = form_for [payment.student, payment], remote: true do |f|
+            = f.hidden_field :refunded, value: true
+            = f.submit t('membership.refund'), class: 'btn btn-outline-danger btn-block', data: {confirm: t('are_you_sure')}
     - if student.memberships.count <= 0
       .list-group-item
         = t('students.has_no_memberships')
