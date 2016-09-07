@@ -58,7 +58,7 @@ class RegistrationController < ApplicationController
     p = params.permit(:method, :products)
     case @student.study_year.year
       when 1
-        membership = Membership.find_by(price: 95.0)
+        membership = @student.available_memberships.find_by(price: 95.0)
         if p[:products] == 'VA-WEI'
           wei = @student.wei_registrations.last || @student.wei_registrations.create
           Payment.new(payment_method: PaymentMethod.find_by_name(p[:method]), payable: wei.wei, student: @student).save!
@@ -73,7 +73,7 @@ class RegistrationController < ApplicationController
           end
         end
       else
-        membership = Membership.find_by(price: 20.0)
+        membership = @student.available_memberships.find_by(price: 20.0)
     end
     Payment.new(payment_method: PaymentMethod.find_by_name(p[:method]), payable: membership, student: @student).save!
     if @student.wei_registrations.last&.status == 'waiting'
