@@ -4,7 +4,8 @@
       %button.navbar-toggler.hidden-sm-up{data: {target: '#exCollapsingNavbar2', toggle:'collapse'}, type: "button"}
         \☰
       #exCollapsingNavbar2.collapse.navbar-toggleable-xs
-        %a.navbar-brand{:href => "#"} MARSU
+        %a.navbar-brand{:href => "#"}
+          = image_tag 'logo-bde.png', class: 'img-fluid', style: 'max-height:33px'
         - if current_user
           %ul.nav.navbar-nav
             - if can? :read, Student
