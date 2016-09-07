@@ -53,7 +53,11 @@ class Student < ApplicationRecord
   end
 
   def available_memberships
-    Membership.where('end_date > ?', Date.today).where.not(id: memberships)
+    if member?
+      Membership.where('end_date > ?', Date.today).where.not(id: memberships)
+    else
+      []
+    end
   end
 
   scope :search_with, -> (query) do
