@@ -16,9 +16,9 @@ class Payment < ApplicationRecord
 
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
-      csv << column_names
-      all.each do |product|
-        csv << product.attributes.values_at(*column_names)
+      csv << ['id', 'student_email', 'student_name', 'student_id', 'payment_method', 'price', 'refunded']
+      all.includes('payment_method').includes('student').includes('payable').each do |p|
+        csv << [p.id, p.student.email, p.student.name, p.student.id, p.payment_method.name, p.payable.price, p.refunded]
       end
     end
   end
