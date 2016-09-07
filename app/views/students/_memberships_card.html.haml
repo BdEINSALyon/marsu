@@ -9,7 +9,7 @@
           %span= payment.payable.start_date
           %span -
           %span= payment.payable.end_date
-        - if (current_user.has_role? 'admin' and payment.payable.end_date > Date.today) or payment.created_at > 12.hours.ago
+        - if (current_user.has_role? 'admin' and payment.payable.end_date > Date.today) or (payment.created_at > 12.hours.ago and not current_user.has_role? 'cdp')
           = form_for [payment.student, payment], remote: true do |f|
             = f.hidden_field :refunded, value: true
             = f.submit t('membership.refund'), class: 'btn btn-outline-danger btn-block', data: {confirm: t('are_you_sure')}
