@@ -25,6 +25,10 @@ class WeiRegistration < ApplicationRecord
     r
   end
 
+  def minor?
+    (wei.date - student.birthday) <= ((18.years+1.day)/(3600*24))
+  end
+
   private
   def valid_bug_bungalow
     if wei_bungalow_id_changed? or wei_bus_id_changed?

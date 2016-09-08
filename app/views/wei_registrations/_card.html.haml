@@ -12,7 +12,7 @@
     - if wei_registration.status == 'registered'
       .list-group-item.bg-success
         = t('.registered')
-      - if wei_registration.student.minor?
+      - if wei_registration.minor?
         .list-group-item.bg-danger
           %span.fa.fa-warning
           %span= t('.minor')

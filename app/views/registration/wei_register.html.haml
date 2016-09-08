@@ -4,7 +4,7 @@
   .form-group
     = f.check_box :caution
     %label= t('registration.caution')
-  - if @student.minor?
+  - if @student.wei_registrations.last.minor?
     .form-group
       = f.check_box :parental
       %label= t('registration.parental_authorization')
