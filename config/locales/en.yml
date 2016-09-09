@@ -60,6 +60,7 @@ en:
     membership: "Membership category"
     payment_method: "Payment method"
     register: "Valid membership"
+    refunded: "Refunded"
   are_you_sure: "Are you sure?"
   devise:
     sessions:
@@ -78,6 +79,8 @@ en:
     dashboard:
       current_situation: "Current Situation"
       we_have_x_members: "We have %{n} members"
+    student:
+      payments: "Payments"
   oauth:
     no_permissions: "You have no permission in this app."
     failure: "Failed to identify you. If it's not your fault, contact System Admin."

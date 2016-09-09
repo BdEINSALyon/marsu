@@ -89,6 +89,7 @@ fr:
     membership: "Type d'adhésion"
     payment_method: "Méthode de paiement"
     register: "Valider l'adhésion"
+    refunded: "Remboursé"
   are_you_sure: "Êtes-vous sûr ?"
   devise:
     sessions:
@@ -111,6 +112,8 @@ fr:
         registered_students: "Il y a %{n} étudiants qui sont inscrits au WEI"
         waiting_students: "Il y a %{n} étudiants en liste d'attente"
         to_refund: "Il y a #{n} étudiants à rembourser"
+    student:
+      payments: "Paiements"
   oauth:
     no_permissions: "Vous n'avez pas de permission dans cette application"
     failure: "Impossible de vous identifier. Si ce n'est pas de votre faute, contactez l'administrateur système."
