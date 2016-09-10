@@ -3,3 +3,6 @@ $('#danger-zone').html("<%= escape_javascript(render 'danger_zone', wei_registra
 <% if @wei_registration.paid %>
   $('#pay-form').remove();
 <% end %>
+if($('#wei_bus').length > 0){
+  location.reload();
+}

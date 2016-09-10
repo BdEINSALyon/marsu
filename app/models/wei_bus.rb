@@ -1,6 +1,6 @@
 class WeiBus < ApplicationRecord
 
-  has_many :students
+  has_many :students, through: :wei_registrations
   has_many :wei_registrations, -> {registered}
   belongs_to :wei
 

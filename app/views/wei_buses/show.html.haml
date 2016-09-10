@@ -1,0 +1,19 @@
+%h1= @wei_bus.name
+
+%table#wei_bus.table.table-bordered
+  - @wei_bus.students.each do |student|
+    %tr.text-center
+      %td= link_to student.name, student.wei_registrations.last
+      %td
+        = link_to "tel:#{student.phone}", class: 'tag tag-primary tag-pill' do
+          .fa.fa-phone
+          = student.phone.phony_formatted(format: :international, space: '-')
+        %br
+        = link_to "mailto:#{student.email}", class: 'tag tag-primary tag-pill' do
+          .fa.fa-envelop
+          = student.email
+
+      %td
+        = form_for student.wei_registrations.last, remote: true do |f|
+          = f.hidden_field :wei_bus_id, value: nil
+          = f.submit t('wei_registrations.show.unregister'), class: %w(btn btn-danger), data: {confirm: 'Le virer du bus ?'}

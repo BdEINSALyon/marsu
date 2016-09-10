@@ -16,7 +16,7 @@
 
       <tr>
         <td><%= wei_bus.name %></td>
-        <td><%= wei_bus.seats %></td>
+        <td><%= wei_bus.students.count %>/<%= wei_bus.seats %></td>
         <td><%= link_to 'Show', wei_bus %></td>
         <td><%= link_to 'Edit', edit_wei_bus_path(wei_bus) %></td>
         <td><%= link_to 'Destroy', wei_bus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
