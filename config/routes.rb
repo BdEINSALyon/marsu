@@ -28,6 +28,10 @@ Rails.application.routes.draw do
       collection do
         get 'waiting'
         get 'deposit'
+        get 'registered'
+        get 'unregistered'
+        get 'to_refund'
+        get 'parental'
       end
     end
     resources :wei_bungalows
