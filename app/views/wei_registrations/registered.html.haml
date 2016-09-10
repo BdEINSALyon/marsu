@@ -1,0 +1,51 @@
+%h3.display-4.text-center.m-b-1=t('layouts.navbar.wei.registered')
+.card
+  .card-block
+    %div
+      Il y a
+      = @wei_registrations.to_a.select {|s|s.minor?} .length
+      mineur(s) au wei
+    %div
+      Il manque
+      = @wei_registrations.to_a.select {|s|s.minor? and not s.parental == true} .length
+      autorisation(s) parentale(s)
+    %div
+      Il manque
+      = @wei_registrations.to_a.select {|s| not s.caution == true} .length
+      cautions
+#wei_registrations_table
+  %input.search.form-control{placeholder: 'Chercher ...'}
+  %table.table
+    %tbody.list
+      - @wei_registrations.each do |wei_registration|
+        %tr{ data: {link: wei_registration_url(wei_registration)}}
+          %td
+            - if wei_registration.minor?
+              .tag.tag-warning -18
+              .hidden.mineur mineur -18 Mineur
+              - unless wei_registration.parental
+                .tag.tag-danger
+                  .fa.fa-exclamation
+          %td
+            %span.name
+              = link_to wei_registration, class: 'bg-invert', target: :_blank do
+                %span.first_name.text-capitalize= wei_registration.student.first_name
+                %span.last_name.text-uppercase= wei_registration.student.last_name
+            - unless wei_registration.caution
+              .caution.tag.tag-danger Caution
+          %td.text-center
+            - if wei_registration.wei_bus
+              .bus
+                = link_to wei_registration.wei_bus, class: 'tag tag-primary tag-pill', target: :_blank do
+                  .fa.fa-bus
+                  = wei_registration.wei_bus.name
+            - if wei_registration.wei_bungalow
+              .bungalow
+                = link_to wei_registration.wei_bungalow, class: 'tag tag-primary tag-pill', target: :_blank do
+                  .fa.fa-home
+                  = wei_registration.wei_bungalow.name
+          %td.text-center
+            .phone
+              = link_to "tel:#{wei_registration.student.phone}", class: 'tag tag-primary tag-pill' do
+                .fa.fa-phone
+                = wei_registration.student.phone.phony_formatted(format: :international, space: '-')

@@ -14,8 +14,7 @@ class WeiRegistrationsController < ApplicationController
   end
 
   def registered
-    @wei_registrations = WeiRegistration.registered.includes('student')
-    render action: :index
+    @wei_registrations = WeiRegistration.registered.includes(:student, :wei_bus, :wei_bungalow, :wei)
   end
 
   def waiting
@@ -26,11 +25,15 @@ class WeiRegistrationsController < ApplicationController
     @wei_registrations = WeiRegistration.where(status: %w(waiting registered)).order(:status).order(:registration_by).where(caution: [false, nil]).includes('student')
   end
 
+  def parental
+    @wei_registrations = WeiRegistration.where(status: %w(waiting registered)).order(:status).order(:registration_by).where(parental: [false, nil]).includes('student').to_a.select {|r|r.minor?}
+  end
+
   def to_refund
     @wei_registrations = WeiRegistration.where(status: 'to_refund').includes('student')
   end
 
-  def canceled
+  def unregistered
     @wei_registrations = WeiRegistration.where(status: 'canceled').includes('student')
   end
 

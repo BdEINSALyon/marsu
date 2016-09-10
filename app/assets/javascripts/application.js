@@ -17,4 +17,11 @@
 //= require select2-full
 //= require Chart.bundle
 //= require chartkick
+//= require list
 //= require_tree .
+
+$(function(){
+    var userList = new List('wei_registrations_table', {
+        valueNames: [ 'first_name', 'last_name', 'mineur', 'caution', 'phone', 'bus', 'bungalow' ]
+    });
+});

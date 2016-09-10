@@ -23,9 +23,8 @@
                   = link_to t('.wei.registered'), registered_wei_registrations_path, class: 'dropdown-item'
                   = link_to t('.wei.waiting'), waiting_wei_registrations_path, class: 'dropdown-item'
                   = link_to t('.wei.deposit'), deposit_wei_registrations_path, class: 'dropdown-item'
-                  = link_to t('.wei.parental'), parental_wei_registrations_path, class: 'dropdown-item'
-                  = link_to t('.wei.to_refund'), to_refund_wei_registrations_path, class: 'dropdown-item'
-                  = link_to t('.wei.unregistered'), unregistered_wei_registrations_path, class: 'dropdown-item'
+                  -#= link_to t('.wei.to_refund'), to_refund_wei_registrations_path, class: 'dropdown-item'
+                  -#= link_to t('.wei.unregistered'), unregistered_wei_registrations_path, class: 'dropdown-item'
                   .dropdown-divider
                   - if can? :read, WeiBungalow
                     = link_to t('.bungalows'), wei_bungalows_path, class: 'dropdown-item'
