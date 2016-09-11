@@ -113,6 +113,7 @@ en:
       to_refund: "Canceled but must be refunded"
       no_caution: "No caution"
       correct_bus: "Correct Bus"
+      no_parent_authorization: "No parental authorization"
     show:
       pay: "Pay"
       update: "Update"

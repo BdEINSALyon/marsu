@@ -13,6 +13,10 @@
       .list-group-item.bg-danger
         %span.fa.fa-warning
         %span= t('.minor')
+      - unless wei_registration.parental
+        .list-group-item.bg-danger
+          %span.fa.fa-warning
+          %span= t('.no_parent_authorization')
     - if wei_registration.status == 'registered'
       .list-group-item.bg-success
         = t('.registered')

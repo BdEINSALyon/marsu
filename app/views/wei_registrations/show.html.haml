@@ -41,6 +41,15 @@
         =t('.about')
       .card-block
         = form_for @wei_registration, remote: true do |f|
+          - if @wei_registration.minor?
+            .form-check
+              %label.form-check-label
+                = f.check_box :parental, class: %w(form-check-input send-on-type)
+                = t('registration.parental_authorization')
+          .form-check
+            %label.form-check-label
+              = f.check_box :caution, class: %w(form-check-input send-on-type)
+              = t('registration.caution')
           .form-group
             = f.label :details
             = f.text_area :details, class: %w(form-control send-on-type)

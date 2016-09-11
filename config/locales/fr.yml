@@ -147,6 +147,7 @@ fr:
       to_refund: "A annulé mais doit être remboursé"
       no_caution: "Pas de caution enregistrée !"
       correct_bus: "Corriger Bus"
+      no_parent_authorization: "Manque autorisation parental"
     show:
       pay: "Payer"
       update: "Mettre à jour"

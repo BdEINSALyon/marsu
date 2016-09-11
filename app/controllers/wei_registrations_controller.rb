@@ -102,6 +102,6 @@ class WeiRegistrationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wei_registration_params
-      params.require(:wei_registration).permit(:registration_by, :caution, :details, :medical_details, :status, :wei_bungalow_id, :wei_bus_id, :student_id)
+      params.require(:wei_registration).permit(:registration_by, :caution, :parental, :details, :medical_details, :status, :wei_bungalow_id, :wei_bus_id, :student_id)
     end
 end
