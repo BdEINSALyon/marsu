@@ -21,11 +21,13 @@ ActiveAdmin.register_page "Dashboard" do
       end
 
       column do
-        panel "WEI" do
-          wei = Wei.current
-          para wei.name
-          para t('admin.dashboard.wei.registered_students', n: wei.validated_registrations.count)
-          para t('admin.dashboard.wei.waiting_students', n: wei.waiting_registrations.count)
+        if Wei.current
+          panel "WEI" do
+            wei = Wei.current
+            para wei.name
+            para t('admin.dashboard.wei.registered_students', n: wei.validated_registrations.count)
+            para t('admin.dashboard.wei.waiting_students', n: wei.waiting_registrations.count)
+          end
         end
         panel "Recent Students" do
           ul do
