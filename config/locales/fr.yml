@@ -188,3 +188,5 @@ fr:
     register:
       valid_data: "Valider les données"
       register_student: "Enregistrer l'étudiant"
+  others: "Autres"
+  other_students: "Autres Etudiants"

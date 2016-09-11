@@ -9,7 +9,14 @@ ActiveAdmin.register_page "Dashboard" do
     columns do
       column do
         panel t('admin.dashboard.current_situation') do
-          div line_chart(Student.members.group_by_day('students.updated_at').count)
+          div column_chart(
+                  StudyYear.order(:year).where(year: 0..10).map {|year| [year.name, Student.members.where(study_year: year).count]}
+                  .push([t('other_students'), Student.members.where(study_year: StudyYear.order(:year).where(year: 10..16)).count])
+                  .push([t('others'), Student.members.where(study_year: StudyYear.order(:year).where(year: 16..30)).count])
+                  )
+          div column_chart(
+                  Department.active.order(:name).where.not(code:'OTHER').map {|dep| [dep.code, Student.members.where(department: dep).count]}
+              )
         end
       end
 
