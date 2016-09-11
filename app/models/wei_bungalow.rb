@@ -6,7 +6,7 @@ class WeiBungalow < ApplicationRecord
   has_many :students, through: :wei_registrations
 
   scope :for_current_wei, -> {where(wei: Wei.current)}
-  default_scope { for_current_wei }
+  default_scope { for_current_wei.order(:name) }
 
   scope :not_full, -> {where('wei_registrations_count < seats')}
   scope :for_bus, -> (bus) {includes('wei_bus').where(wei_bus: bus)}

@@ -7,7 +7,7 @@ class WeiBus < ApplicationRecord
   scope :for_current_wei, -> {where(wei: Wei.current)}
   scope :not_full, -> {where('wei_registrations_count < seats')}
 
-  default_scope { for_current_wei }
+  default_scope { for_current_wei.order(:name) }
 
   validates :wei_registrations_count, inclusion: { in: -> (bungalow) {(0..(bungalow.seats))}}
 

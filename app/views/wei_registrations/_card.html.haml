@@ -9,13 +9,13 @@
     - unless wei_registration.caution
       .list-group-item.bg-danger
         = t('.no_caution')
+    - if wei_registration.minor?
+      .list-group-item.bg-danger
+        %span.fa.fa-warning
+        %span= t('.minor')
     - if wei_registration.status == 'registered'
       .list-group-item.bg-success
         = t('.registered')
-      - if wei_registration.minor?
-        .list-group-item.bg-danger
-          %span.fa.fa-warning
-          %span= t('.minor')
       - if wei_registration.wei_bus.present?
         .list-group-item.text-capitalize
           = wei_registration.wei_bus.name
