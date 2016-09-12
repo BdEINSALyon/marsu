@@ -1,4 +1,4 @@
-class Api::Version1::MembershipController < ApiController
+class Api::Version1::MembershipController < Api::Version1::ApiController
   def index
 
   end
