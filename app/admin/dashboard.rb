@@ -14,10 +14,14 @@ ActiveAdmin.register_page "Dashboard" do
                   .push([t('other_students'), Student.members.where(study_year: StudyYear.order(:year).where(year: 10..16)).count])
                   .push([t('others'), Student.members.where(study_year: StudyYear.order(:year).where(year: 16..30)).count])
                   )
+          p
           div column_chart(
                   Department.active.order(:name).where.not(code:'OTHER').map {|dep| [dep.code, Student.members.where(department: dep).count]}
               )
+          p
           div line_chart(Payment.for_memberships.where(created_at: 1.week.ago..Time.now).group_by_day('payments.created_at').count)
+          p
+          div line_chart(Payment.for_memberships.where(created_at: 1.day.ago..Time.now).group_by_hour('payments.created_at').count) if Payment.for_memberships.where(created_at: 1.day.ago..Time.now).count > 0
         end
       end
 
