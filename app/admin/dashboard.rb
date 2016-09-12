@@ -17,6 +17,7 @@ ActiveAdmin.register_page "Dashboard" do
           div column_chart(
                   Department.active.order(:name).where.not(code:'OTHER').map {|dep| [dep.code, Student.members.where(department: dep).count]}
               )
+          div line_chart(Payment.for_memberships.where(created_at: 1.week.ago..Time.now).group_by_day('payments.created_at').count)
         end
       end
 
