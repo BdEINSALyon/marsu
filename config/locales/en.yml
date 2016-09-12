@@ -114,6 +114,7 @@ en:
       no_caution: "No caution"
       correct_bus: "Correct Bus"
       no_parent_authorization: "No parental authorization"
+      paid_on: "Paid on"
     show:
       pay: "Pay"
       update: "Update"

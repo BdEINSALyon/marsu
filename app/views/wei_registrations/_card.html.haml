@@ -49,6 +49,10 @@
     - else
       .list-group-item.bg-danger
         = t('.canceled')
+    - if wei_registration.paid and not wei_registration.status == 'canceled'
+      .list-group-item
+        = t('.paid_on')
+        = wei_registration.student.paid_payments.where(payable: Wei.current).first.created_at
   - if wei_registration.status == 'waiting' and WeiRegistration.ranks[wei_registration.id] <= 0 and wei_registration.paid and wei_registration.caution
     .card-block
       = form_for wei_registration do |f|

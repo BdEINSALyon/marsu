@@ -148,6 +148,7 @@ fr:
       no_caution: "Pas de caution enregistrée !"
       correct_bus: "Corriger Bus"
       no_parent_authorization: "Manque autorisation parental"
+      paid_on: "Payé le"
     show:
       pay: "Payer"
       update: "Mettre à jour"
