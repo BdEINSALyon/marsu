@@ -1,4 +1,12 @@
-%h3.display-4.text-center.m-b-1=t('layouts.navbar.wei.registered')
+
+.row
+  .col-md-10
+    %h3.display-4.text-center.m-b-1=t('layouts.navbar.wei.registered')
+  .col-md-2
+    = link_to({action: :registered, format: 'xlsx'}, class: 'btn btn-block btn-primary btn-lg m-b-2') do
+      .fa.fa-download
+      %br
+      = t('export')
 .card
   .card-block
     %div

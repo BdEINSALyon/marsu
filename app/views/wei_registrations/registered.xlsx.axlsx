@@ -1,0 +1,30 @@
+wb = xlsx_package.workbook
+header = wb.styles.add_style(:bg_color => "DD", :sz => 16, :b => true, :alignment => {:horizontal => :center}, :border=>Axlsx::STYLE_THIN_BORDER)
+border_only = wb.styles.add_style(:border=>Axlsx::STYLE_THIN_BORDER)
+center = wb.styles.add_style(:border=>Axlsx::STYLE_THIN_BORDER, :alignment => {:horizontal => :center})
+date = wb.styles.add_style(:border=>Axlsx::STYLE_THIN_BORDER, num_fmt: Axlsx::NUM_FMT_YYYYMMDD)
+
+wb.add_worksheet(name: "Participants") do |sheet|
+  sheet.add_row ['Nom', 'Prénom', 'Date Naissance', 'Majeur', 'Bus', 'Bungalow'], style: header
+  @wei_registrations.order('students.last_name').each do |wei_registration|
+    sheet.add_row [wei_registration.student.last_name, wei_registration.student.first_name, wei_registration.student.birthday, (wei_registration.minor? ? 'Mineur': ''), wei_registration.wei_bus&.name, wei_registration.wei_bungalow&.name],
+                  style: [border_only, border_only, date, center, border_only, border_only]
+  end
+end
+WeiBus.includes(wei_registrations:[:student]).order('students.last_name').all.each do |wei_bus|
+  wb.add_worksheet(name: "AFF-#{wei_bus.name}") do |sheet_bus|
+    sheet_bus.add_row [wei_bus.name], style: header
+    wei_bus.wei_registrations.each do |reg|
+      sheet_bus.add_row [reg.student.last_name, reg.student.first_name], style: border_only
+    end
+    sheet_bus.merge_cells 'A1:B1'
+  end
+  wb.add_worksheet(name: "BUNG-#{wei_bus.name}") do |sheet_bus|
+    sheet_bus.add_row [wei_bus.name], style: header
+    sheet_bus.add_row ['Nom', 'Prénom', 'M', 'Bungalow', 'D', 'C1', 'C2', 'C3'], style: header
+    wei_bus.wei_registrations.each do |reg|
+      sheet_bus.add_row [reg.student.last_name, reg.student.first_name, (reg.minor? ? 'Mineur': ''), reg.wei_bungalow&.name, '','','',''], style: border_only
+    end
+    sheet_bus.merge_cells 'A1:H1'
+  end
+end
