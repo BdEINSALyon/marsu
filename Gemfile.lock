@@ -172,6 +172,7 @@ GEM
       turbolinks
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
+    json (2.0.2)
     jwt (1.5.4)
     kaminari (0.17.0)
       actionpack (>= 3.0.0)
@@ -186,6 +187,10 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
+    mailgun_rails (0.8.0)
+      actionmailer (>= 3.2.13)
+      json (>= 1.7.7)
+      rest-client (>= 1.6.7)
     method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -359,6 +364,7 @@ DEPENDENCIES
   liquid
   listen (~> 3.0.5)
   listjs-rails
+  mailgun_rails
   nokogiri
   omniauth-azure-oauth2!
   open_uri_redirections

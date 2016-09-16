@@ -65,6 +65,8 @@ gem 'faker'
 
 gem 'open_uri_redirections'
 
+gem 'mailgun_rails'
+
 gem 'liquid'
 gem 'premailer-rails'
 gem 'nokogiri'
