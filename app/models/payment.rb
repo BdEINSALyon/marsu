@@ -10,6 +10,8 @@ class Payment < ApplicationRecord
 
   validates_presence_of :student, :payment_method, :payable
 
+  after_create :send_va_email, if: :membership?
+
   def membership?
     payable_type == 'Membership'
   end
@@ -21,5 +23,10 @@ class Payment < ApplicationRecord
         csv << [p.id, p.student.email, p.student.name, p.student.id, p.payment_method.name, p.payable.price, p.refunded]
       end
     end
+  end
+
+  def send_va_email
+    return if student.nil?
+    VaMailer.va(student).deliver
   end
 end
