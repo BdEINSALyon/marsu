@@ -38,6 +38,9 @@ Rails.application.routes.draw do
     resources :wei_buses
   end
 
+  get 'email/:key' => 'email#show', as: :view_email
+  get 'email' => 'email#show' unless Rails.env.production?
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   root 'students#index'
 
