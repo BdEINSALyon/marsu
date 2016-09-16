@@ -82,6 +82,8 @@ Rails.application.configure do
   end
 
   # Do not dump schema after migrations.
+
+  config.action_mailer.default_url_options = { host: ENV['WEB_HOST']||'adhesion.bde-insa-lyon.fr', port: ENV['WEB_PORT']||80 }
   config.active_record.dump_schema_after_migration = false
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
