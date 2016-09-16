@@ -37,7 +37,7 @@
       text-align: justify;
     }
   </style>
-  <link rel="icon" type="image/png" href="<%= asset_url('logo-bde.png') %>" />
+  <link rel="icon" type="image/png" href="https://adhesion.bde-insa-lyon.fr/<%= asset_url('logo-bde.png') %>" />
 </head>
 <body style="background:#FFF; color:#000;font-family:Arial, Helvetica, sans-serif; font-size:12px"
       bgcolor="#000000" alink="black" text="#000">
@@ -53,14 +53,14 @@
     <td style="text-align: center">
       Impossible de lire correctement ce mail ? <a
     style="transition: opacity 0.2s ease-in;text-decoration: none;color: #999;font-weight: bold"
-    href="<% key.nil? ? 'http://bde.insa-lyon.org' : view_email_url(key: key) %>">Version web</a>
+    href="<% key.nil? ? 'http://bde.insa-lyon.org' : "https://adhesion.bde-insa-lyon.fr/email/#{key.to_s}" %>">Version web</a>
     </td>
   </tr>
 </table>
 <table style="" align="center">
   <tr>
     <td>
-      <img src="<%= asset_url('mail_va/header_mail.png') %>" alt="Vie Asso du Campus"
+      <img src="https://adhesion.bde-insa-lyon.fr/<%= asset_url('mail_va/header_mail.png') %>" alt="Vie Asso du Campus"
            style="width: 750px !important; margin: 5px auto"/>
     </td>
   </tr>
@@ -95,22 +95,22 @@
         <h2 style="margin-top: 0">trouve l’asso qui te correspond</h2>
         <table border="0" cellpadding="0" cellspacing="5" style="width: 100%">
           <tr>
-            <td><img style="width: 16px; height: 16px" src="<%= asset_url('mail_va/book.png') %>" alt="R"/></td>
+            <td><img style="width: 16px; height: 16px" src="https://adhesion.bde-insa-lyon.fr/<%= asset_url('mail_va/book.png') %>" alt="R"/></td>
             <td>Viens chercher un Bot’INSA au BdE !</td>
-            <td rowspan="2"><img style="min-width: 16px; min-height: 16px;" src="<%= asset_url('mail_va/social.png') %>" alt="R"/></td>
+            <td rowspan="2"><img style="min-width: 16px; min-height: 16px;" src="https://adhesion.bde-insa-lyon.fr/<%= asset_url('mail_va/social.png') %>" alt="R"/></td>
             <td rowspan="2" style="text-align: right">Retrouve les à la MdE<br>
               au Forum des Clubs<br>
               le 6 Octobre 2015</td>
           </tr>
           <tr>
-            <td><img  style="width: 16px; height: 16px" src="<%= asset_url('mail_va/chrome.png') %>" alt="R"/></td>
+            <td><img  style="width: 16px; height: 16px" src="https://adhesion.bde-insa-lyon.fr/<%= asset_url('mail_va/chrome.png') %>" alt="R"/></td>
             <td>Consulte le en ligne sur <a target="_blank" href="http://intranet.insa-lyon.fr/vie-associative/bot-insa">http://intranet.insa-lyon.fr</a></td>
           </tr>
         </table>
       </div>
     </td>
     <td style="width: 145px">
-      <img src="<%= asset_url('mail_va/vie_asso.png') %>"
+      <img src="https://adhesion.bde-insa-lyon.fr/<%= asset_url('mail_va/vie_asso.png') %>"
            alt="Vie Asso" align="middle" height="75"
            style="margin: auto; width: 145px; height: 75px"/>
     </td>
@@ -125,7 +125,7 @@
         des projets associatifs sur le campus.</p>
     </td>
     <td colspan="2" style="width: 260px">
-      <img src="<%= asset_url('mail_va/carte_va.png') %>" alt="Carte VA, Combien ?"
+      <img src="https://adhesion.bde-insa-lyon.fr/<%= asset_url('mail_va/carte_va.png') %>" alt="Carte VA, Combien ?"
            style="" width="260px"/>
     </td>
   </tr>
@@ -140,7 +140,7 @@
           Vie Associative (CVA).</p>
         <table border="0" cellpadding="0" cellspacing="0" style="margin-top: 5px;">
           <tr>
-            <td><img style="margin-right: 5px; width: 16px; height: 16px;" src="<%= asset_url('mail_va/chrome.png') %>" alt="R" /></td>
+            <td><img style="margin-right: 5px; width: 16px; height: 16px;" src="https://adhesion.bde-insa-lyon.fr/<%= asset_url('mail_va/chrome.png') %>" alt="R" /></td>
             <td><a target="_blank" href="http://fondation.insa-lyon.fr">http://fondation.insa-lyon.fr/</a></td>
           </tr>
         </table>
@@ -164,7 +164,7 @@
     <td colspan="3">
       <table cellspacing="5" cellpadding="10" border="0">
         <tr>
-          <td><img src="<%= asset_url('mail_va/together.png') %>" alt="Asso" align="middle"/></td>
+          <td><img src="https://adhesion.bde-insa-lyon.fr/<%= asset_url('mail_va/together.png') %>" alt="Asso" align="middle"/></td>
           <td style="padding-left: 10px;">
             <h4>événements sur le campus</h4>
             <p style="margin-top:2px; margin-bottom: 2px;">La carte VA te permettra de profiter de réductions et de tarifs préférentiels pour
@@ -173,7 +173,7 @@
           </td>
         </tr>
         <tr>
-          <td><img src="<%= asset_url('mail_va/drink.png') %>" alt="Asso" align="middle"/></td>
+          <td><img src="https://adhesion.bde-insa-lyon.fr/<%= asset_url('mail_va/drink.png') %>" alt="Asso" align="middle"/></td>
           <td style="padding-left: 10px;">
             <h4>K-Fêt (ARGIL)</h4>
             <p style="margin-top:2px; margin-bottom: 2px;">
@@ -184,7 +184,7 @@
           </td>
         </tr>
         <tr style="margin-top: 10px">
-          <td><img src="<%= asset_url('mail_va/coop.png') %>" alt="Asso" align="middle"/></td>
+          <td><img src="https://adhesion.bde-insa-lyon.fr/<%= asset_url('mail_va/coop.png') %>" alt="Asso" align="middle"/></td>
           <td style="padding-left: 10px;">
             <h4>COOP</h4>
             <p style="margin-top:2px; margin-bottom: 2px;">
@@ -194,7 +194,7 @@
           </td>
         </tr>
         <tr style="margin-top: 10px">
-          <td><img src="<%= asset_url('mail_va/laundry.png') %>" alt="Asso" align="middle"/></td>
+          <td><img src="https://adhesion.bde-insa-lyon.fr/<%= asset_url('mail_va/laundry.png') %>" alt="Asso" align="middle"/></td>
           <td style="padding-left: 10px;">
             <h4>laveries</h4>
             <p style="margin-top:2px; margin-bottom: 2px;">
@@ -204,7 +204,7 @@
           </td>
         </tr>
         <tr style="margin-top: 10px">
-          <td><img src="<%= asset_url('mail_va/printer.png') %>" alt="Asso" align="middle"/></td>
+          <td><img src="https://adhesion.bde-insa-lyon.fr/<%= asset_url('mail_va/printer.png') %>" alt="Asso" align="middle"/></td>
           <td style="padding-left: 10px;">
             <h4>photocopies</h4>
             <p style="margin-top:2px; margin-bottom: 2px;">
@@ -214,7 +214,7 @@
           </td>
         </tr>
         <tr>
-          <td><img src="<%= asset_url('mail_va/barbecue.png') %>" alt="Asso" align="middle"/></td>
+          <td><img src="https://adhesion.bde-insa-lyon.fr/<%= asset_url('mail_va/barbecue.png') %>" alt="Asso" align="middle"/></td>
           <td style="padding-left: 10px;">
             <h4>Prêt et location de matériel</h4>
             <p style="margin-top:2px; margin-bottom: 2px;">
@@ -224,7 +224,7 @@
           </td>
         </tr>
         <tr>
-          <td><img src="<%= asset_url('mail_va/insashop.png') %>" alt="Asso" align="middle"/></td>
+          <td><img src="https://adhesion.bde-insa-lyon.fr/<%= asset_url('mail_va/insashop.png') %>" alt="Asso" align="middle"/></td>
           <td style="padding-left: 10px;">
             <h4>insa shop</h4>
             <p style="margin-top:2px; margin-bottom: 2px;">
@@ -244,37 +244,37 @@
             <table cellpadding="0" cellspacing="0" border="0" width="100%">
               <tr>
                 <td style="vertical-align: top; padding: 10px">
-                  <img src="<%= asset_url('logo-bde.png') %>" alt="BDE" align="top" style="" height="64"/>
+                  <img src="https://adhesion.bde-insa-lyon.fr/<%= asset_url('logo-bde.png') %>" alt="BDE" align="top" style="" height="64"/>
                 </td>
                 <td>
                   <div style="background: #bde7df; border-radius: 10px; padding: 10px; min-height: 175px">
                     <table cellpadding="5">
                       <tr>
-                        <td><img src="<%= asset_url('mail_va/contract.png') %>"
+                        <td><img src="https://adhesion.bde-insa-lyon.fr/<%= asset_url('mail_va/contract.png') %>"
                                  alt="" height="16" width="16" align="middle"
                                  style=""/></td>
                         <td>Bat. Le Thélème - 18, Avenue des arts<br/>69100 Villeurbanne</td>
                       </tr>
                       <tr>
-                        <td><img src="<%= asset_url('mail_va/phone.png') %>"
+                        <td><img src="https://adhesion.bde-insa-lyon.fr/<%= asset_url('mail_va/phone.png') %>"
                                  alt="" height="16" width="16" align="middle"
                                  style=""/></td>
                         <td>04 72 43 82 29</td>
                       </tr>
                       <tr>
-                        <td><img src="<%= asset_url('mail_va/printer_small.png') %>"
+                        <td><img src="https://adhesion.bde-insa-lyon.fr/<%= asset_url('mail_va/printer_small.png') %>"
                                  alt="" height="16" width="16" align="middle"
                                  style=""/></td>
                         <td>04 72 44 37 53</td>
                       </tr>
                       <tr>
-                        <td><img src="<%= asset_url('mail_va/mail.png') %>"
+                        <td><img src="https://adhesion.bde-insa-lyon.fr/<%= asset_url('mail_va/mail.png') %>"
                                  alt="" height="16" width="16" align="middle"
                                  style=""/></td>
                         <td>bde.courrier@insa-lyon.fr</td>
                       </tr>
                       <tr>
-                        <td><img src="<%= asset_url('mail_va/clock.png') %>"
+                        <td><img src="https://adhesion.bde-insa-lyon.fr/<%= asset_url('mail_va/clock.png') %>"
                                  alt="" height="16" width="16" align="middle"
                                  style=""/></td>
                         <td>Du lundi au mercredi : 10h-19h<br>
@@ -291,7 +291,7 @@
             <div style="background: #bde7df; border-radius: 10px; padding: 10px;">
               <table cellpadding="5">
                 <tr>
-                  <td><img src="<%= asset_url('mail_va/clock.png') %>"
+                  <td><img src="https://adhesion.bde-insa-lyon.fr/<%= asset_url('mail_va/clock.png') %>"
                            alt="" height="16" width="16" align="middle"
                            style=""/></td>
                   <td>Du lundi au vendredi : 12h-14h<br>
@@ -309,7 +309,7 @@
             <div style="background: #bde7df; border-radius: 10px; padding: 10px;">
               <table cellpadding="5">
                 <tr>
-                  <td><img src="<%= asset_url('mail_va/clock.png') %>"
+                  <td><img src="https://adhesion.bde-insa-lyon.fr/<%= asset_url('mail_va/clock.png') %>"
                            alt="" height="16" width="16" align="middle"
                            style=""/></td>
                   <td>Du lundi au vendredi : 12h15-13h45</td>
@@ -324,13 +324,13 @@
             <div style="background: #bde7df; border-radius: 10px; padding: 10px;">
               <table cellpadding="5">
                 <tr>
-                  <td><img src="<%= asset_url('mail_va/contract.png') %>"
+                  <td><img src="https://adhesion.bde-insa-lyon.fr/<%= asset_url('mail_va/contract.png') %>"
                            alt="" height="16" width="16" align="middle"
                            style=""/></td>
                   <td>Bâtiment Camille Claudel</td>
                 </tr>
                 <tr>
-                  <td><img src="<%= asset_url('mail_va/clock.png') %>"
+                  <td><img src="https://adhesion.bde-insa-lyon.fr/<%= asset_url('mail_va/clock.png') %>"
                            alt="" height="16" width="16" align="middle"
                            style=""/></td>
                   <td>Lundi, mardi, jeudi, vendredi : 7h30-18h<br/>
@@ -355,9 +355,9 @@
           Association.</p>
         <table border="0" cellpadding="0" cellspacing="0" style="margin-top: 5px; width: 100%;">
           <tr>
-            <td><img style="margin-right: 5px; width: 16px; height: 16px;" src="<%= asset_url('mail_va/chrome_w.png') %>" alt="R" /></td>
+            <td><img style="margin-right: 5px; width: 16px; height: 16px;" src="https://adhesion.bde-insa-lyon.fr/<%= asset_url('mail_va/chrome_w.png') %>" alt="R" /></td>
             <td><a target="_blank" href="http://www.insa-alumni-lyon.org/fr/l-association/adhesion-513">http://www.ingenieur-insa.fr/web/625-adherer-a-ton-association-d-ingenieurs-insa-lyon.php</a></td>
-            <td><img style="float: right;" width="100" src="<%= asset_url('mail_va/aidil.png') %>" alt="AIDIL Logo"/></td>
+            <td><img style="float: right;" width="100" src="https://adhesion.bde-insa-lyon.fr/<%= asset_url('mail_va/aidil.png') %>" alt="AIDIL Logo"/></td>
           </tr>
         </table>
       </div>
@@ -367,8 +367,8 @@
     <td colspan="3">
       <div style="background: #e1e1df; border-radius: 10px; padding: 10px;"
            id="Sites">
-        <img src="<%= asset_url('mail_va/insa.png') %>" alt="INSA" style="float: right" height="25px"/>
-        <img src="<%= asset_url('mail_va/cva.png') %>" alt="CVA" style="float: right; margin-right: 5px" height="25px"/>
+        <img src="https://adhesion.bde-insa-lyon.fr/<%= asset_url('mail_va/insa.png') %>" alt="INSA" style="float: right" height="25px"/>
+        <img src="https://adhesion.bde-insa-lyon.fr/<%= asset_url('mail_va/cva.png') %>" alt="CVA" style="float: right; margin-right: 5px" height="25px"/>
         <h2 style="margin-top: 0">Sites</h2>
         <ul>
           <li>
