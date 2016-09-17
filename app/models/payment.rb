@@ -27,6 +27,6 @@ class Payment < ApplicationRecord
 
   def send_va_email
     return if student.nil?
-    VaMailer.va(student).deliver
+    #VaMailer.va(student).deliver
   end
 end
