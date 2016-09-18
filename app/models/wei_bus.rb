@@ -5,7 +5,7 @@ class WeiBus < ApplicationRecord
   belongs_to :wei
 
   scope :for_current_wei, -> {where(wei: Wei.current)}
-  scope :not_full, -> {where('wei_registrations_count < seats')}
+  scope :not_full, -> { for_current_wei.order(:name).to_a.select {|b| b.students.count <= b.seats}}
 
   default_scope { for_current_wei.order(:name) }
 
