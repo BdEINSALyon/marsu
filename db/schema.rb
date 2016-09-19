@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160906004646) do
+ActiveRecord::Schema.define(version: 20160919202626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,22 @@ ActiveRecord::Schema.define(version: 20160906004646) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+  end
+
+  create_table "application_tokens", force: :cascade do |t|
+    t.integer  "application_id"
+    t.string   "token"
+    t.datetime "expiration"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "applications", force: :cascade do |t|
+    t.string   "name"
+    t.text     "secret"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "app_type"
   end
 
   create_table "azure_roles", force: :cascade do |t|
@@ -48,8 +64,8 @@ ActiveRecord::Schema.define(version: 20160906004646) do
     t.string   "name"
     t.string   "code"
     t.boolean  "active"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "memberships", force: :cascade do |t|
@@ -57,15 +73,15 @@ ActiveRecord::Schema.define(version: 20160906004646) do
     t.decimal  "price"
     t.date     "start_date"
     t.date     "end_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "payment_methods", force: :cascade do |t|
     t.string   "name"
     t.boolean  "enabled"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "payments", force: :cascade do |t|
@@ -76,8 +92,8 @@ ActiveRecord::Schema.define(version: 20160906004646) do
     t.integer  "student_id"
     t.integer  "user_id"
     t.text     "details"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -101,16 +117,16 @@ ActiveRecord::Schema.define(version: 20160906004646) do
     t.string   "phone"
     t.date     "birthday"
     t.text     "details"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "study_years", force: :cascade do |t|
     t.string   "name"
     t.integer  "year"
     t.boolean  "active"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
