@@ -6,12 +6,10 @@ class Api::Version1::MembershipController < Api::Version1::ApiController
   def show
     code = params[:code].to_s
     @student = Card.find_by_code(code)&.student
-    if @student.nil?
-
+    if @student.nil? or @student.card != code
+      not_found
     else
-      if @student.member?
-        
-      end
+      render
     end
   end
 end

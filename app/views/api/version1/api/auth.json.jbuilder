@@ -1,0 +1,1 @@
+json.extract! @auth, :id, :expiration, :token

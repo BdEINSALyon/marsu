@@ -42,6 +42,14 @@ Rails.application.routes.draw do
   get 'email' => 'email#show' unless Rails.env.production?
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
+  namespace :api, default: {format: :json}, path: '/api' do
+    scope module: :version1 do
+      get 'auth' => 'api#auth'
+      get 'membership' => 'membership#show'
+    end
+  end
+
   root 'students#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
