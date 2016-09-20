@@ -7,7 +7,7 @@ ActiveAdmin.register Application do
       row :name
       row :app_type
       row 'App ID' do
-        Digest::MD5.hexdigest(application.to_sgid.to_s)
+        Digest::MD5.hexdigest(application.to_gid.to_s)
       end
       row 'App Secret' do
         application.to_sgid
