@@ -63,7 +63,7 @@ class Student < ApplicationRecord
   scope :search_with, -> (query) do
     request = all
     query.to_s.downcase.split(' ').each do |q|
-      q = "%#{q}%"
+      q = "%#{I18n.transliterate(q)}%"
       r = %w(first_name last_name).map {|f|"translate(LOWER(students.#{f}),'¹²³áàâãäåāăąÀÁÂÃÄÅĀĂĄÆćčç©ĆČÇĐÐèéêёëēĕėęěÈÊËЁĒĔĖĘĚ€ğĞıìíîïìĩīĭÌÍÎÏЇÌĨĪĬłŁńňñŃŇÑòóôõöōŏőøÒÓÔÕÖŌŎŐØŒř®ŘšşșßŠŞȘùúûüũūŭůÙÚÛÜŨŪŬŮýÿÝŸžżźŽŻŹ','123aaaaaaaaaaaaaaaaaaacccccccddeeeeeeeeeeeeeeeeeeeeggiiiiiiiiiiiiiiiiiillnnnnnnooooooooooooooooooorrrsssssssuuuuuuuuuuuuuuuuyyyyzzzzzz') LIKE ?"} .join ' OR '
       request = request.where(
           "#{r} OR students.student_id LIKE ?",

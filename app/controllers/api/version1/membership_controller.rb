@@ -1,6 +1,6 @@
 class Api::Version1::MembershipController < Api::Version1::ApiController
   def index
-
+    @students = Student.includes(:study_year, :department, :memberships, :active_memberships).search_with params.require(:search)
   end
 
   def show

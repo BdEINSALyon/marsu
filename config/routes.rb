@@ -48,6 +48,7 @@ Rails.application.routes.draw do
       match '*path', :controller => 'api', :action => 'cors', via: [:options]
       get 'auth' => 'api#auth'
       get 'membership' => 'membership#show'
+      get 'students' => 'membership#index'
     end
   end
 
