@@ -45,6 +45,7 @@ Rails.application.routes.draw do
 
   namespace :api, default: {format: :json}, path: '/api' do
     scope module: :version1 do
+      match '*path', :controller => 'api', :action => 'cors', via: [:options]
       get 'auth' => 'api#auth'
       get 'membership' => 'membership#show'
     end
