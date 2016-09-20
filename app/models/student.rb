@@ -53,10 +53,10 @@ class Student < ApplicationRecord
   end
 
   def available_memberships
-    unless member?
-      Membership.where('end_date > ?', Date.today).where.not(id: memberships)
-    else
+    if member?
       []
+    else
+      Membership.where('end_date > ?', Date.today).where.not(id: memberships)
     end
   end
 
@@ -64,8 +64,9 @@ class Student < ApplicationRecord
     request = all
     query.to_s.downcase.split(' ').each do |q|
       q = "%#{q}%"
+      r = %w(first_name last_name).map {|f|"translate(LOWER(students.#{f}),'¹²³áàâãäåāăąÀÁÂÃÄÅĀĂĄÆćčç©ĆČÇĐÐèéêёëēĕėęěÈÊËЁĒĔĖĘĚ€ğĞıìíîïìĩīĭÌÍÎÏЇÌĨĪĬłŁńňñŃŇÑòóôõöōŏőøÒÓÔÕÖŌŎŐØŒř®ŘšşșßŠŞȘùúûüũūŭůÙÚÛÜŨŪŬŮýÿÝŸžżźŽŻŹ','123aaaaaaaaaaaaaaaaaaacccccccddeeeeeeeeeeeeeeeeeeeeggiiiiiiiiiiiiiiiiiillnnnnnnooooooooooooooooooorrrsssssssuuuuuuuuuuuuuuuuyyyyzzzzzz') LIKE ?"} .join ' OR '
       request = request.where(
-          'LOWER(students.first_name) LIKE ? OR LOWER(students.last_name) LIKE ? OR students.student_id LIKE ?',
+          "#{r} OR students.student_id LIKE ?",
           q, q, q
       )
     end
