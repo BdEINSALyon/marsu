@@ -49,6 +49,7 @@ Rails.application.routes.draw do
       get 'auth' => 'api#auth'
       get 'membership' => 'membership#show'
       get 'students' => 'membership#index'
+      get 'mass_students' => 'membership#bulk'
     end
   end
 

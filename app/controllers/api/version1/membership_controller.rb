@@ -3,6 +3,12 @@ class Api::Version1::MembershipController < Api::Version1::ApiController
     @students = Student.includes(:study_year, :department, :memberships, :active_memberships).search_with params.require(:search)
   end
 
+  def bulk
+    @results = params.require(:searches).map do |k,s|
+      {k => Student.includes(:study_year, :department, :memberships, :active_memberships).search_with(s)}
+    end .reduce(:merge)
+  end
+
   def show
     code = params[:code].to_s
     @student = Card.find_by_code(code)&.student
