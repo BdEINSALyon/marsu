@@ -97,6 +97,8 @@ fr:
       payment_actions: "Actions"
       payment_refunded: "Remboursé"
       payments: "Paiements"
+      payment_type: "Type"
+      payment_price: "Prix"
   membership:
     refund: "Rembourser"
     membership: "Type d'adhésion"

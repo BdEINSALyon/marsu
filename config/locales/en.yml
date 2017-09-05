@@ -68,6 +68,8 @@ en:
       payment_actions: "Actions"
       payment_refunded: "Refunded"
       payments: "Payments"
+      payment_type: "Type"
+      payment_price: "Price"
   membership:
     refund: "Refund"
     membership: "Membership category"
