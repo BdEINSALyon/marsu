@@ -84,7 +84,7 @@ class RegistrationController < ApplicationController
         student: @student
       ).save!
     end
-    if @student.wei_registrations.last.status == 'waiting'
+    if @student.wei_registrations.count > 0 && @student.wei_registrations.last.status == 'waiting'
       redirect_to action: :wei_register
     else
       redirect_to action: :card
