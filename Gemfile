@@ -71,9 +71,6 @@ gem 'liquid'
 gem 'premailer-rails'
 gem 'nokogiri'
 
-gem "ckeditor"
-gem "paperclip"
-
 gem 'chartkick'
 gem 'groupdate'
 
