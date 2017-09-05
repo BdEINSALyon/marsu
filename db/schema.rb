@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 20160919202626) do
     t.string   "azure_gid"
     t.string   "name"
     t.text     "roles"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "cards", force: :cascade do |t|
@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(version: 20160919202626) do
     t.string   "name"
     t.string   "code"
     t.boolean  "active"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "memberships", force: :cascade do |t|
@@ -73,15 +73,15 @@ ActiveRecord::Schema.define(version: 20160919202626) do
     t.decimal  "price"
     t.date     "start_date"
     t.date     "end_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "payment_methods", force: :cascade do |t|
     t.string   "name"
     t.boolean  "enabled"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "payments", force: :cascade do |t|
@@ -92,8 +92,8 @@ ActiveRecord::Schema.define(version: 20160919202626) do
     t.integer  "student_id"
     t.integer  "user_id"
     t.text     "details"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -117,16 +117,16 @@ ActiveRecord::Schema.define(version: 20160919202626) do
     t.string   "phone"
     t.date     "birthday"
     t.text     "details"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "study_years", force: :cascade do |t|
     t.string   "name"
     t.integer  "year"
     t.boolean  "active"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -159,8 +159,8 @@ ActiveRecord::Schema.define(version: 20160919202626) do
     t.integer  "seats"
     t.integer  "wei_bus_id"
     t.string   "gender"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "wei_registrations_count", default: 0
   end
 
@@ -168,8 +168,8 @@ ActiveRecord::Schema.define(version: 20160919202626) do
     t.integer  "wei_id"
     t.string   "name"
     t.integer  "seats"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "wei_registrations_count", default: 0
   end
 
@@ -180,8 +180,8 @@ ActiveRecord::Schema.define(version: 20160919202626) do
     t.integer  "wei_bus_id"
     t.string   "status"
     t.boolean  "paid"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.datetime "registration_by"
     t.boolean  "caution"
     t.text     "details"
@@ -195,8 +195,8 @@ ActiveRecord::Schema.define(version: 20160919202626) do
     t.decimal  "price"
     t.integer  "seats"
     t.date     "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

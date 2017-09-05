@@ -48,7 +48,7 @@ ActiveAdmin.register User do
     private
     def add_roles(resource)
       resource.roles = []
-      params[:user][:role_ids].each { |r| resource.roles.push(Role.find(r)) unless r.blank? }
+      params[:user][:role_ids].each { |r| resource.add_role r unless r.blank? }
     end
   end
 

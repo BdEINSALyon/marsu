@@ -1,0 +1,29 @@
+.card
+  .card-block
+    %h4.card-title= t('.payments')
+
+  %table.table.table-striped.table-bordered
+    %thead
+      %tr
+        %th= t('.payment_id')
+        %th= t('.payment_type')
+        %th= t('.payment_method')
+        %th= t('.payment_price')
+        %th= t('.payment_date')
+        %th= t('.payment_refunded')
+        %th= t('.payment_actions')
+    %tbody
+      - student.payments.each do |payment|
+        %tr
+          %td= payment.id
+          %td= payment.payable.name
+          %td= payment.payment_method.name
+          %td= number_to_currency(payment.payable.price, locale: :fr)
+          %td= payment.created_at
+          %td
+            - if payment.refunded
+              = t('yes')
+          %td
+            -#- unless payment.refunded
+            -#  = link_to t('membership.refund'), controller: :students, action: :show, params: {id:payment.id}
+

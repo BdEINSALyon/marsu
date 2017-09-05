@@ -54,7 +54,7 @@ class Student < ApplicationRecord
 
   def available_memberships
     if member?
-      []
+      Membership.where 'id < ?', 0
     else
       Membership.where('end_date > ?', Date.today).where.not(id: memberships)
     end
@@ -71,6 +71,10 @@ class Student < ApplicationRecord
       )
     end
     request
+  end
+
+  def wei_registration
+    wei_registrations.where(wei: Wei.current)
   end
 
   def name

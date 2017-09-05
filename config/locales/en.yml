@@ -59,6 +59,17 @@ en:
       add_membership: "Add membership"
     new:
       add_student: "Add student"
+    wei_registration: "Registration for WEI"
+    see_more: "See more"
+    payments:
+      payment_id: "#"
+      payment_method: "Method"
+      payment_date: "Date"
+      payment_actions: "Actions"
+      payment_refunded: "Refunded"
+      payments: "Payments"
+      payment_type: "Type"
+      payment_price: "Price"
   membership:
     refund: "Refund"
     membership: "Membership category"
@@ -115,6 +126,7 @@ en:
       correct_bus: "Correct Bus"
       no_parent_authorization: "No parental authorization"
       paid_on: "Paid on"
+      see_va: "See VA resgistration"
     show:
       pay: "Pay"
       update: "Update"
@@ -129,6 +141,7 @@ en:
       danger_zone: "Danger Zone"
       return_caution: "Return Caution"
       valid_caution: "Register Caution"
+      register: "Register a new time"
     new:
       register: "Register to Wei"
     list:
@@ -151,3 +164,4 @@ en:
       register_student: "Register Student"
   other_students: "Other Students"
   export: "Export"
+  yes: "Yes"

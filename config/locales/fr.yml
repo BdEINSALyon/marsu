@@ -88,6 +88,17 @@ fr:
       add_membership: "Ajouter une adhésion"
     new:
       add_student: "Ajouter un étudiant"
+    wei_registration: "Inscription au WEI"
+    see_more: "En savoir plus"
+    payments:
+      payment_id: "#"
+      payment_method: "Méthode"
+      payment_date: "Date"
+      payment_actions: "Actions"
+      payment_refunded: "Remboursé"
+      payments: "Paiements"
+      payment_type: "Type"
+      payment_price: "Prix"
   membership:
     refund: "Rembourser"
     membership: "Type d'adhésion"
@@ -149,6 +160,7 @@ fr:
       correct_bus: "Corriger Bus"
       no_parent_authorization: "Manque autorisation parental"
       paid_on: "Payé le"
+      see_va: "Voir la fiche VA"
     show:
       pay: "Payer"
       update: "Mettre à jour"
@@ -165,6 +177,7 @@ fr:
       danger_zone: "Zone dangereuse"
       return_caution: "Rendre la caution"
       valid_caution: "Enregistrer la caution"
+      register: "Réinscrire"
     new:
       register: "Inscrire au Wei"
     list:
@@ -192,3 +205,4 @@ fr:
   others: "Autres"
   other_students: "Autres Etudiants"
   export: "Exporter"
+  yes: "Oui"

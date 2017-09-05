@@ -14,6 +14,7 @@ class WeiRegistration < ApplicationRecord
   validates_inclusion_of :paid, in: [true, false]
   validates_presence_of :status, :student, :wei
   validate :check_wei_is_not_full, :check_paid_status_when_changed, :valid_bug_bungalow
+  before_update :cancel_paid
 
   def self.ranks
     i= (Wei.current.validated_registrations.count - Wei.current.seats)
@@ -30,6 +31,12 @@ class WeiRegistration < ApplicationRecord
   end
 
   private
+  def cancel_paid
+    if status_changed? and status == 'canceled' and paid
+      self.paid = false
+    end
+  end
+
   def valid_bug_bungalow
     if wei_bungalow_id_changed? or wei_bus_id_changed?
       if status != 'registered'

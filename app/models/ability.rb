@@ -2,7 +2,7 @@ class Ability
   include CanCan::Ability
 
   def self.roles
-    %w(admin cowei permanencier cdp tresorier)
+    return %w(admin cowei permanencier cdp trezo)
   end
 
   def initialize(user)
