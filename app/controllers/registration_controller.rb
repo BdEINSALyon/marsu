@@ -75,8 +75,14 @@ class RegistrationController < ApplicationController
       else
         membership = @student.available_memberships.find_by(price: 20.0)
     end
-    Payment.new(payment_method: PaymentMethod.find_by_name(p[:method]), payable: membership, student: @student).save!
-    if @student.wei_registrations.last&.status == 'waiting'
+    if membership
+      Payment.new(
+        payment_method: PaymentMethod.find_by_name(p[:method]),
+        payable: membership,
+        student: @student
+      ).save!
+    end
+    if @student.wei_registrations.last.status == 'waiting'
       redirect_to action: :wei_register
     else
       redirect_to action: :card

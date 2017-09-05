@@ -129,6 +129,7 @@ en:
       danger_zone: "Danger Zone"
       return_caution: "Return Caution"
       valid_caution: "Register Caution"
+      register: "Register a new time"
     new:
       register: "Register to Wei"
     list:
