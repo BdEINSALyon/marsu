@@ -2,8 +2,10 @@
 .row
   #student_card.col-md-8
     = render 'student_card', student: @student
+    - if current_user.has_role? :trezo
+      = render 'payments', student: @student
   .col-md-4
     #memberships_card= render 'memberships_card', student: @student
     #student_va_card.m-t-1= render 'student_va_card', student: @student
-    - if @student.wei_registration
+    - if @student.wei_registration.count > 0
       #wei_card.m-t-1= render 'wei_registration', student: @student
