@@ -90,6 +90,13 @@ fr:
       add_student: "Ajouter un étudiant"
     wei_registration: "Inscription au WEI"
     see_more: "En savoir plus"
+    payments:
+      payment_id: "#"
+      payment_method: "Méthode"
+      payment_date: "Date"
+      payment_actions: "Actions"
+      payment_refunded: "Remboursé"
+      payments: "Paiements"
   membership:
     refund: "Rembourser"
     membership: "Type d'adhésion"
@@ -196,3 +203,4 @@ fr:
   others: "Autres"
   other_students: "Autres Etudiants"
   export: "Exporter"
+  yes: "Oui"

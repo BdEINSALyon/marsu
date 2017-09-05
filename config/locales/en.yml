@@ -61,6 +61,13 @@ en:
       add_student: "Add student"
     wei_registration: "Registration for WEI"
     see_more: "See more"
+    payments:
+      payment_id: "#"
+      payment_method: "Method"
+      payment_date: "Date"
+      payment_actions: "Actions"
+      payment_refunded: "Refunded"
+      payments: "Payments"
   membership:
     refund: "Refund"
     membership: "Membership category"
@@ -155,3 +162,4 @@ en:
       register_student: "Register Student"
   other_students: "Other Students"
   export: "Export"
+  yes: "Yes"
