@@ -88,6 +88,8 @@ fr:
       add_membership: "Ajouter une adhésion"
     new:
       add_student: "Ajouter un étudiant"
+    wei_registration: "Inscription au WEI"
+    see_more: "En savoir plus"
   membership:
     refund: "Rembourser"
     membership: "Type d'adhésion"
@@ -149,6 +151,7 @@ fr:
       correct_bus: "Corriger Bus"
       no_parent_authorization: "Manque autorisation parental"
       paid_on: "Payé le"
+      see_va: "Voir la fiche VA"
     show:
       pay: "Payer"
       update: "Mettre à jour"

@@ -5,3 +5,5 @@
   .col-md-4
     #memberships_card= render 'memberships_card', student: @student
     #student_va_card.m-t-1= render 'student_va_card', student: @student
+    - if @student.wei_registration
+      #wei_card.m-t-1= render 'wei_registration', student: @student

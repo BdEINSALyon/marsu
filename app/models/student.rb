@@ -73,6 +73,10 @@ class Student < ApplicationRecord
     request
   end
 
+  def wei_registration
+    wei_registrations.where(wei: Wei.current)
+  end
+
   def name
     "#{first_name.capitalize} #{last_name.upcase}"
   end

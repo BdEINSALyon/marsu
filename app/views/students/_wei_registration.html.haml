@@ -1,0 +1,5 @@
+.card
+  .card-header
+    %h4.card-title= t('students.wei_registration')
+  .list-group.m-a-1
+    = link_to t('students.see_more'), student.wei_registrations.last, class: %w(btn btn-primary btn-block)

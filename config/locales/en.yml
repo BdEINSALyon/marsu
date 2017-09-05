@@ -59,6 +59,8 @@ en:
       add_membership: "Add membership"
     new:
       add_student: "Add student"
+    wei_registration: "Registration for WEI"
+    see_more: "See more"
   membership:
     refund: "Refund"
     membership: "Membership category"
@@ -115,6 +117,7 @@ en:
       correct_bus: "Correct Bus"
       no_parent_authorization: "No parental authorization"
       paid_on: "Paid on"
+      see_va: "See VA resgistration"
     show:
       pay: "Pay"
       update: "Update"
