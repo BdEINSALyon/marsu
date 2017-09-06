@@ -40,4 +40,13 @@ class PaymentsController < ApplicationController
       end
     end
   end
+
+  def logs
+    authorize! :logs, Payment
+    @offset = params[:offset] || 0
+    @limit = params[:limit] || 10
+    @payments = Payment
+                .order(:created_at)
+                .reverse_order.offset(@offset).limit(@limit)
+  end
 end

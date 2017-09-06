@@ -18,7 +18,8 @@ Rails.application.routes.draw do
     resources :payments, only: [:create, :update, :index]
   end
 
-  resources :payments, only: [:index]
+  resources :payments, only: [:index, :logs]
+  get 'payments/logs', controller: 'payments', action: 'logs', as: :logs
 
   scope 'wei' do
     resources :wei_registrations do
