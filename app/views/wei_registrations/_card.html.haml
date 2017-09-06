@@ -1,7 +1,8 @@
 .card.wei_registration
   .card-block
     %h4.card-title= wei_registration.student.name
-    = link_to t('.see_va'), wei_registration.student, class: %w(btn btn-primary btn-block)
+    - unless current_user.has_role? 'cdp'
+      = link_to t('.see_va'), wei_registration.student, class: %w(btn btn-primary btn-block)
   .list-group.list-group-flush
     - unless wei_registration.student.phone.empty?
       = link_to "tel:#{wei_registration.student.phone}", class: 'list-group-item list-group-item-action' do

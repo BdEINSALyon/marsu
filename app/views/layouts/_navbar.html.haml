@@ -11,9 +11,10 @@
             - if can? :read, Student
               %li.nav-item
                 = link_to t('registration.registration'), registration_start_url, class: 'nav-link'
-              %li.nav-item
-                = link_to t('students.index.students'), students_path, class: 'nav-link'
-            - if can? :read, WeiRegistration
+              - unless current_user.has_role? 'cdp'
+                %li.nav-item
+                  = link_to t('students.index.students'), students_path, class: 'nav-link'
+            - if can? :read, WeiRegistration and not current_user.has_role? 'cdp'
               %li.nav-item.dropdown
                 %a.nav-link.dropdown-toggle{data: {toggle:'dropdown'}, role: 'button'}=t('.wei.wei')
                 .dropdown-menu
