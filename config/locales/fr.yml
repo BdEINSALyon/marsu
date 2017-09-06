@@ -109,7 +109,7 @@ fr:
   devise:
     sessions:
       new:
-        log_me_with_external_account: "Me connecter à MARSU avec un compte externe :"
+        log_me_with_external_account: "Me connecter à Adhésion avec un compte externe :"
         sign_in_with: "Me connecter avec"
         email: "Email"
         password: "Mot de passe"

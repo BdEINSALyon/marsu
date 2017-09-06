@@ -80,7 +80,7 @@ en:
   devise:
     sessions:
       new:
-        log_me_with_external_account: "Log me to MARSU with external account:"
+        log_me_with_external_account: "Log me to Adhésion with external account:"
         sign_in_with: "Sign in with"
         email: "Email"
         password: "Password"
