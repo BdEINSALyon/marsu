@@ -4,6 +4,16 @@
     %button.btn.btn-outline-primary.btn-block.m-y-1{type: :submit}
       %span.first_name.text-capitalize= student.first_name
       %span.last_name.text-uppercase= student.last_name
+      %span
+        %span (
+        - if student.paid_payments.count > 0
+          %span= student.study_year.name
+          %span &nbsp;-&nbsp;
+          %span= student.student_id
+        - else
+          %span primo-entrant ou admis direct né(e) le
+          %span= student.birthday
+        %span)
 .list-group.m-y-2
   = link_to registration_register_url, class: 'list-group-item list-group-item-action list-group-item-success' do
     .fa.fa-plus

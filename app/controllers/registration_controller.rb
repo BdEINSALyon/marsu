@@ -63,7 +63,7 @@ class RegistrationController < ApplicationController
         membership = @student.available_memberships.find_by(price: 95.0)
         if p[:products] == 'VA-WEI'
           wei = @student.wei_registrations.last || @student.wei_registrations.create
-          Payment.new(payment_method: PaymentMethod.find_by_name(p[:method]), payable: wei.wei, student: @student).save!
+          Payment.new(payment_method: PaymentMethod.find_by_name(p[:method]), payable: wei.wei, student: @student, user: current_user).save!
           wei.update paid: true, status: 'waiting'
           unless wei.registration_by
             wei.update registration_by: Time.now
@@ -81,7 +81,8 @@ class RegistrationController < ApplicationController
       Payment.new(
         payment_method: PaymentMethod.find_by_name(p[:method]),
         payable: membership,
-        student: @student
+        student: @student,
+        user: current_user
       ).save!
     end
     if @student.wei_registrations.count > 0 && @student.wei_registrations.last.status == 'waiting'

@@ -11,9 +11,10 @@
             - if can? :read, Student
               %li.nav-item
                 = link_to t('registration.registration'), registration_start_url, class: 'nav-link'
-              %li.nav-item
-                = link_to t('students.index.students'), students_path, class: 'nav-link'
-            - if can? :read, WeiRegistration
+              - unless current_user.has_role? 'cdp'
+                %li.nav-item
+                  = link_to t('students.index.students'), students_path, class: 'nav-link'
+            - if can? :read, WeiRegistration and not current_user.has_role? 'cdp'
               %li.nav-item.dropdown
                 %a.nav-link.dropdown-toggle{data: {toggle:'dropdown'}, role: 'button'}=t('.wei.wei')
                 .dropdown-menu
@@ -30,6 +31,12 @@
                     = link_to t('.bungalows'), wei_bungalows_path, class: 'dropdown-item'
                   - if can? :read, WeiBus
                     = link_to t('.buses'), wei_buses_path, class: 'dropdown-item'
+            - if current_user.has_role? :trezo
+              %li.nav-item.dropdown
+                %a.nav-link.dropdown-toggle{data: {toggle:'dropdown'}, role: 'button'}=t('.trezo.trezo')
+                .dropdown-menu
+                  = link_to t('.trezo.logs'), logs_path, class: 'dropdown-item'
+
             - if can? :admin, :all
               %li.nav-item
                 = link_to t('.admin'), admin_root_url, class: 'nav-link'

@@ -72,13 +72,6 @@ GEM
     byebug (9.0.5)
     cancancan (1.15.0)
     chartkick (2.0.2)
-    ckeditor (4.2.0)
-      cocaine
-      orm_adapter (~> 0.5.0)
-    climate_control (0.0.3)
-      activesupport (>= 3.0)
-    cocaine (0.5.8)
-      climate_control (>= 0.0.3, < 1.0)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.2.x)
@@ -166,6 +159,8 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.7)
     listjs-rails (1.1.1)
       railties (>= 3.1.0)
+    logidze (0.5.3)
+      rails (>= 4.2)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -178,7 +173,6 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
-    mimemagic (0.3.2)
     mini_portile2 (2.1.0)
     minitest (5.9.0)
     multi_json (1.12.1)
@@ -207,12 +201,6 @@ GEM
       omniauth (~> 1.2)
     open_uri_redirections (0.2.1)
     orm_adapter (0.5.0)
-    paperclip (5.1.0)
-      activemodel (>= 4.2.0)
-      activesupport (>= 4.2.0)
-      cocaine (~> 0.5.5)
-      mime-types
-      mimemagic (~> 0.3.0)
     pg (0.18.4)
     phony (2.15.28)
     phony_rails (0.14.2)
@@ -333,7 +321,6 @@ DEPENDENCIES
   byebug
   cancancan
   chartkick
-  ckeditor
   coffee-rails (~> 4.2)
   devise
   devise-i18n
@@ -351,11 +338,11 @@ DEPENDENCIES
   liquid
   listen (~> 3.0.5)
   listjs-rails
+  logidze
   mailgun_rails
   nokogiri
   omniauth-azure-oauth2
   open_uri_redirections
-  paperclip
   pg (~> 0.18)
   phony_rails
   premailer-rails

@@ -38,6 +38,9 @@ en:
       buses: "Buses"
       registrations: "Registrations"
       admin: "Admin"
+      trezo:
+        trezo: "Accounts"
+        logs: "Last payments"
   students:
     index:
       students: "Students"
@@ -165,3 +168,16 @@ en:
   other_students: "Other Students"
   export: "Export"
   yes: "Yes"
+  payments:
+    logs:
+      payment_refunded: "Refunded"
+      payment_date: "Date"
+      payment_price: "Price"
+      payment_type: "Type"
+      payment_id: "ID"
+      payment_method: "Method"
+      payment_author: "Author"
+      system: "[RAILS CONSOLE]"
+      payment_student: "Student"
+      limit: "Limit"
+      unknown: "Unknown"

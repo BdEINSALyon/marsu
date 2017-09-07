@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160919202626) do
+ActiveRecord::Schema.define(version: 20170907000202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -27,6 +28,22 @@ ActiveRecord::Schema.define(version: 20160919202626) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+  end
+
+  create_table "activities", force: :cascade do |t|
+    t.string   "trackable_type"
+    t.integer  "trackable_id"
+    t.string   "owner_type"
+    t.integer  "owner_id"
+    t.string   "key"
+    t.text     "parameters"
+    t.string   "recipient_type"
+    t.integer  "recipient_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type", using: :btree
+    t.index ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type", using: :btree
+    t.index ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", using: :btree
   end
 
   create_table "application_tokens", force: :cascade do |t|
@@ -68,6 +85,19 @@ ActiveRecord::Schema.define(version: 20160919202626) do
     t.datetime "updated_at"
   end
 
+  create_table "log_entries", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "path"
+    t.text     "params"
+    t.string   "ip"
+    t.string   "method"
+    t.string   "controller"
+    t.string   "action"
+    t.integer  "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "memberships", force: :cascade do |t|
     t.string   "name"
     t.decimal  "price"
@@ -94,6 +124,7 @@ ActiveRecord::Schema.define(version: 20160919202626) do
     t.text     "details"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.jsonb    "log_data"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -119,6 +150,7 @@ ActiveRecord::Schema.define(version: 20160919202626) do
     t.text     "details"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.jsonb    "log_data"
   end
 
   create_table "study_years", force: :cascade do |t|
@@ -187,6 +219,7 @@ ActiveRecord::Schema.define(version: 20160919202626) do
     t.text     "details"
     t.text     "medical_details"
     t.boolean  "parental"
+    t.jsonb    "log_data"
   end
 
   create_table "weis", force: :cascade do |t|
