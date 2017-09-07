@@ -222,3 +222,4 @@ fr:
       payment_student: "Etudiant"
       limit: "Montrer les X derniers paiements"
       unknown: "Inconnu(e)"
+  no: "Non"

@@ -21,7 +21,10 @@ $ ->
   $('#oui-c-est-chiant').click ()->
     $('input[name=kfet]').val('oui')
     $('#he-pay-with').removeClass('hidden')
+    $('#he-pay-with .price').html('17')
   $('#non-c-est-bien').click ()->
+    $('input[name=kfet]').val('non')
+    $('#he-pay-with .price').html('20')
     $('#he-pay-with').removeClass('hidden')
 
   $('#no-cheque').click ()->
