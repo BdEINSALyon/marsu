@@ -71,9 +71,6 @@ gem 'liquid'
 gem 'premailer-rails'
 gem 'nokogiri'
 
-gem "ckeditor"
-gem "paperclip"
-
 gem 'chartkick'
 gem 'groupdate'
 
@@ -85,6 +82,8 @@ gem 'listjs-rails'
 gem 'rubyzip', '~> 1.1.0'
 gem 'axlsx', '2.1.0.pre'
 gem 'axlsx_rails'
+
+gem 'logidze'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

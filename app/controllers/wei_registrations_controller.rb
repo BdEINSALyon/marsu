@@ -84,7 +84,7 @@ class WeiRegistrationsController < ApplicationController
   end
 
   def pay
-    payment = Payment.new student: @wei_registration.student, payable: @wei_registration.wei
+    payment = Payment.new student: @wei_registration.student, payable: @wei_registration.wei, user: current_user
     payment.payment_method = PaymentMethod.find(params.require(:payment).permit(:payment_method_id)[:payment_method_id])
     if payment.save
       @wei_registration.update paid:true

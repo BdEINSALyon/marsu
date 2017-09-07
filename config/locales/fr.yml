@@ -67,6 +67,9 @@ fr:
       buses: "Bus"
       registrations: "Inscriptions"
       admin: "Administration"
+      trezo:
+        trezo: "Trezo"
+        logs: "Derniers paiements"
   students:
     index:
       students: "Étudiants"
@@ -109,7 +112,7 @@ fr:
   devise:
     sessions:
       new:
-        log_me_with_external_account: "Me connecter à MARSU avec un compte externe :"
+        log_me_with_external_account: "Me connecter à Adhésion avec un compte externe :"
         sign_in_with: "Me connecter avec"
         email: "Email"
         password: "Mot de passe"
@@ -206,4 +209,16 @@ fr:
   other_students: "Autres Etudiants"
   export: "Exporter"
   yes: "Oui"
-  no: "Non"
+  payments:
+    logs:
+      payment_id: "ID"
+      payment_type: "Type"
+      payment_method: "Méthode"
+      payment_price: "Prix"
+      payment_date: "Execution"
+      payment_refunded: "Remboursé"
+      payment_author: "Utilisateur"
+      system: "[RAILS CONSOLE]"
+      payment_student: "Etudiant"
+      limit: "Montrer les X derniers paiements"
+      unknown: "Inconnu(e)"

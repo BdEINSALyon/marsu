@@ -1,0 +1,52 @@
+%h1= t('admin.student.payments')
+%p
+  %form{method: 'GET'}
+    .form-group.row
+      .col-md-3
+        %label.form-control-label.form-label= t('.limit')
+      .col-md-2
+        %select#limit.form-control{name: 'limit', onchange: 'this.form.submit();'}
+          - [10,20,50,100].each do |n|
+            - if n.to_s == @limit
+              %option{value: n, selected: 'true'}=n
+            - else
+              %option{value: n}=n
+%table.table.table-striped.table-bordered
+  %thead
+    %tr
+      %th= t('.payment_id')
+      %th= t('.payment_author')
+      %th= t('.payment_student')
+      %th= t('.payment_type')
+      %th= t('.payment_method')
+      %th= t('.payment_price')
+      %th= t('.payment_date')
+  %tbody
+    - @payments.each do |payment|
+      %tr{class: row_class(payment)}
+        %td= payment.id
+        %td
+          - if payment.user
+            = payment.user.email
+          - else
+            = t('.system')
+        %td
+          - if payment.student
+            = payment.student.name
+          - else
+            = t('.unknown')
+        %td= payment.payable.name
+        %td= payment.payment_method.name
+        %td= number_to_currency(payment.payable.price, locale: :fr)
+        %td= time_ago_in_words(payment.created_at)
+
+%p
+  - if @offset.to_i > 0
+    = form_tag logs_path, method: :get do
+      = hidden_field_tag :limit, @limit.to_i
+      = hidden_field_tag :offset, [0,@offset.to_i - @limit.to_i].max
+      %button.pull-left.btn.btn-primary{type: :submit} &lt; Précédent
+  = form_tag logs_path, method: :get do
+    = hidden_field_tag :limit, @limit.to_i
+    = hidden_field_tag :offset, @offset.to_i + @limit.to_i
+    %button.pull-right.btn.btn-primary{type: :submit} Suivant &gt;
