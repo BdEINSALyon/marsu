@@ -1,7 +1,10 @@
 #!/bin/sh
 
-bundle exec rails assets:precompile;
-bundle exec rake RAILS_ENV=$RAILS_ENV db:create
-bundle exec rails RAILS_ENV=$RAILS_ENV db:migrate \
-    && bundle exec rails RAILS_ENV=$RAILS_ENV db:seed;
+if [ "$COMPILE_ASSETS" == "true" ]
+then
+    bundle exec rails assets:precompile;
+    bundle exec rake RAILS_ENV=$RAILS_ENV db:create
+    bundle exec rails RAILS_ENV=$RAILS_ENV db:migrate \
+        && bundle exec rails RAILS_ENV=$RAILS_ENV db:seed;
+fi
 bundle exec rails server -p $PORT;
