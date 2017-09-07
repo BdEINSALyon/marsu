@@ -57,7 +57,7 @@ class RegistrationController < ApplicationController
   # noinspection RailsChecklist01
   def pay
     @student = Student.find(session[:student_id])
-    p = params.permit(:method, :products)
+    p = params.permit(:method, :products, :kfet)
     case @student.study_year.year
       when 1
         membership = @student.available_memberships.find_by(price: 95.0)
@@ -75,7 +75,11 @@ class RegistrationController < ApplicationController
           end
         end
       else
-        membership = @student.available_memberships.find_by(price: 20.0)
+        if p[:kfet] == 'non'
+          membership = @student.available_memberships.find_by(price: 20.0)
+        else
+          membership = @student.available_memberships.find_by(price: 17.0)
+        end
     end
     if membership
       Payment.new(

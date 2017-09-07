@@ -17,6 +17,13 @@ $ ->
   $('#he-want-VA-WEI').click ()->
     fromWantToCheque 'VA-WEI'
 
+
+  $('#oui-c-est-chiant').click ()->
+    $('input[name=kfet]').val('oui')
+    $('#he-pay-with').removeClass('hidden')
+  $('#non-c-est-bien').click ()->
+    $('#he-pay-with').removeClass('hidden')
+
   $('#no-cheque').click ()->
     $('#cheque').addClass('hidden')
     $('#payment').removeClass('hidden')
