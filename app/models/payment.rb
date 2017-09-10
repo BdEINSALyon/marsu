@@ -29,4 +29,16 @@ class Payment < ApplicationRecord
     return if student.nil?
     #VaMailer.va(student).deliver
   end
+
+  def self.memberships
+    Membership.where('start_date <= ? and end_date >= ?', Date.today, Date.today)
+  end
+
+  def self.weis
+    Wei.where(enabled: true)
+  end
+
+  def self.usable_methods
+    PaymentMethod.all
+  end
 end

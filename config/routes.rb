@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   resources :payments, only: [:index, :logs]
   get 'payments/logs', controller: 'payments', action: 'logs', as: :logs
+  get 'payments/stats', controller: 'payments', action: 'stats', as: :trezo_stats
 
   scope 'wei' do
     resources :wei_registrations do

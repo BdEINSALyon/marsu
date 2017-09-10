@@ -1,0 +1,28 @@
+%h1= t('.trezo_stats')
+
+.row
+  .col-md-2
+    = form_tag '', {method: :get} do
+      .form-group= datetime_select nil, 'start', default: @config[:start]
+      .form-group= datetime_select nil, 'end', default: @config[:end]
+      %div= submit_tag t('.setup'), class: 'btn btn-block btn-primary'
+  .col-md-10
+    %table.table.table-bordered
+      %thead
+        %tr
+          %td
+          - @data[:products].each do |_, category|
+            - category.each do |product|
+              %td= product.name
+      %tbody
+        - @data[:payments_methods].each do |method|
+          %tr
+            %td= method.name
+            - @data[:products].each do |name, category|
+              - category.each do |product|
+                %td= @data[:counts][name][product.id][method.id]
+        %tr
+          %td= t('total')
+          - @data[:products].each do |name, category|
+            - category.each do |product|
+              %td= @data[:counts][name][product.id][:total]

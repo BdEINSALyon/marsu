@@ -36,6 +36,7 @@
                 %a.nav-link.dropdown-toggle{data: {toggle:'dropdown'}, role: 'button'}=t('.trezo.trezo')
                 .dropdown-menu
                   = link_to t('.trezo.logs'), logs_path, class: 'dropdown-item'
+                  = link_to t('.trezo.accounts'), trezo_stats_path, class: 'dropdown-item'
 
             - if can? :admin, :all
               %li.nav-item

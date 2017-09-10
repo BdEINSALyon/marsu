@@ -70,6 +70,7 @@ fr:
       trezo:
         trezo: "Trezo"
         logs: "Derniers paiements"
+        accounts: "Décompte de caisse"
   students:
     index:
       students: "Étudiants"
@@ -222,4 +223,8 @@ fr:
       payment_student: "Etudiant"
       limit: "Montrer les X derniers paiements"
       unknown: "Inconnu(e)"
+    stats:
+      trezo_stats: "Décompte de caisse"
+      setup: "Configurer"
   no: "Non"
+  total: "Total"

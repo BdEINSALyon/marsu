@@ -41,6 +41,7 @@ en:
       trezo:
         trezo: "Accounts"
         logs: "Last payments"
+        accounts: "Accounts"
   students:
     index:
       students: "Students"
@@ -181,4 +182,8 @@ en:
       payment_student: "Student"
       limit: "Limit"
       unknown: "Unknown"
+    stats:
+      trezo_stats: "Trezo Accounts"
+      setup: "Configure"
   no: "No"
+  total: "Total"
