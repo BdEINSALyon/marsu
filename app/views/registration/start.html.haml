@@ -1,6 +1,6 @@
 = form_tag registration_start_url, method: :post, autocomplete: "off", remote: true, id: 'registration_search_form' do
   .row
-    .col-md-10= text_field_tag :search, '', :autofocus => true,:autocomplete => "off",  placeholder: t('.search'), class: 'form-control send-on-type', id: 'students_search_r'
+    .col-md-10= text_field_tag :search, params[:search],:autocomplete => "off",  placeholder: t('.search'), class: 'form-control send-on-type', id: 'students_search_r'
     .col-md-2= submit_tag t('.search_button'), class: %w(btn btn-primary btn-block)
 #students.m-t-2
   = render 'students', students: @students
