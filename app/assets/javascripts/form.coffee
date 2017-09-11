@@ -7,7 +7,7 @@ $ ->
     waiters[this] = setTimeout(()->
       $this.closest('form').submit();
       $("#fetching").show();
-    , 500)
+    , 2500)
   $('.send-on-type').keyup(refresh)
   $('.send-on-type').change(refresh)
 
