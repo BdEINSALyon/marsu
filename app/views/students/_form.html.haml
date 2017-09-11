@@ -19,7 +19,7 @@
       .form-group{class: [bs_form_error_cl(f,:email)]}
         = f.label :email
         .input-group
-          = f.email_field :email, class: 'form-control'
+          .text-warning= f.email_field :email, class: 'form-control'
           .input-group-btn
             %button#mail-insa.btn.btn-danger{type: :button, style: 'width:100px'}
               %span.d-inline.fa.fa-envelope
@@ -27,7 +27,7 @@
         = bs_form_errors(f, :email)
       .form-group{class: [bs_form_error_cl(f,:phone)]}
         = f.label :phone
-        = f.text_field :phone, class: 'form-control'
+        .text-warning= f.text_field :phone, class: 'form-control'
         = bs_form_errors(f, :phone)
       .form-group.row{class: [bs_form_error_cl(f,:birthday)]}
         .col-xs-12
@@ -41,11 +41,11 @@
         = f.text_field :student_id, class: 'form-control'
         = bs_form_errors(f, :student_id)
       .form-group{class: [bs_form_error_cl(f,:study_year_id)]}
-        = f.label :study_year_id
+        .text-warning= f.label :study_year_id
         = f.select :study_year_id, StudyYear.order(:year).map {|d|[d.name, d.id]}, {}, class: 'form-control'
         = bs_form_errors(f, :study_year_id)
       .form-group{class: [bs_form_error_cl(f,:department_id)]}
-        = f.label :department_id
+        .text-warning= f.label :department_id
         = f.select :department_id, Department.active.map {|d|[d.name, d.id]}, {}, {class: 'form-control'}
         = bs_form_errors(f, :department_id)
 

@@ -166,6 +166,11 @@ en:
     register:
       valid_data: "Valid data"
       register_student: "Register Student"
+    students:
+      too_much: "Too much students maching to this name, please write more ..."
+    start:
+      search: "Search"
+      search_button: "Search"
   other_students: "Other Students"
   export: "Export"
   yes: "Yes"

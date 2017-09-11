@@ -28,7 +28,7 @@
               %span.d-inline INSA
         = bs_form_errors(f, :email)
       .form-group{class: [bs_form_error_cl(f,:phone)]}
-        = f.label :phone
+        .text-warning= f.label :phone
         = f.text_field :phone, class: 'form-control'
         = bs_form_errors(f, :phone)
       .form-group.row{class: [bs_form_error_cl(f,:birthday)]}
@@ -39,15 +39,18 @@
         .col-xs-12= bs_form_errors(f, :birthday)
     .col-lg-6
       .form-group{class: [bs_form_error_cl(f,:student_id)]}
-        = f.label :student_id
+        - if @student.student_id && @student.student_id != ''
+          = f.label :student_id
+        - else
+          .text-danger= f.label :student_id
         = f.text_field :student_id, class: 'form-control'
         = bs_form_errors(f, :student_id)
       .form-group{class: [bs_form_error_cl(f,:study_year_id)]}
-        = f.label :study_year_id
+        .text-warning= f.label :study_year_id
         = f.select :study_year_id, StudyYear.order(:year).map {|d|[d.name, d.id]}, {}, class: 'form-control'
         = bs_form_errors(f, :study_year_id)
       .form-group{class: [bs_form_error_cl(f,:department_id)]}
-        = f.label :department_id
+        .text-warning= f.label :department_id
         = f.select :department_id, Department.active.map {|d|["#{d.code} - #{d.name}", d.id]}, {}, {class: 'form-control'}
         = bs_form_errors(f, :department_id)
 

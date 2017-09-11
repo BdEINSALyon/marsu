@@ -191,8 +191,10 @@ fr:
   registration:
     start:
       search: "Entrez le nom de l'étudiant ..."
+      search_button: "Rechercher"
     students:
       not_found: "L'étudiant n'est pas dans la liste et je veux l'enregistrer"
+      too_much: "Trop d'étudiant pour cette recherche, soyez plus précis ..."
     registration: "Chaine d'Inscription"
     caution: "A-t-on une caution pour cet étudiant ?"
     parental_authorization: "A-t-on une autorisation parentale pour cet étudiant ?"

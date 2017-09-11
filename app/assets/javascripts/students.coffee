@@ -22,6 +22,7 @@ accentsTidy = (s) ->
 $ ()->
   $('.has-danger input').addClass('form-control-danger')
   t = null
+  value = ''
   $('#students_search').keyup ()->
     value = $('#students_search').val();
     if(t!=null)
@@ -30,7 +31,7 @@ $ ()->
       if(value.length>2)
         $('#students_search_form').submit()
         $('#fetching').css('display', 'block')
-    , 300)
+    , 1500)
   $("#mail-insa").click ()->
     $form = $(this).closest('form');
     first_name = accentsTidy $form.find('input[name="student[first_name]"]').val()
