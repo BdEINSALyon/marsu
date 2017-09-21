@@ -12,7 +12,7 @@
         - unless wei_registration.caution
           %span.m-l-1.tag.tag-danger.tag-pill= t('wei_registrations.list.missing_money')
       %td.text-center
-        - if WeiRegistration.ranks[wei_registration.id] <= 0
+        - if WeiRegistration.ranks[wei_registration.id] <= 20
           - if wei_registration.paid
             = form_for wei_registration do |f|
               = f.hidden_field :status, value: 'registered'
